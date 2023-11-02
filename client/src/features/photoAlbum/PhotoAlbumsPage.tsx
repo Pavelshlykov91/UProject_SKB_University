@@ -1,13 +1,13 @@
 import React from 'react';
+// import { Link } from 'react-router-dom';
 import HeaderBlock from './HeaderBlock';
-import AddPhotoForm from './AddPhotoForm';
 import PhotosBlock from './PhotosBlock';
 
 export default function PhotoAlbumsPage(): JSX.Element {
   return (
     <div className="container__album">
       <HeaderBlock />
-      <AddPhotoForm />
+      {/* <Link to="/albumsform">Создать альбом</Link> */}
       <PhotosBlock />
     </div>
   );

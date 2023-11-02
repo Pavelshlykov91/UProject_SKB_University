@@ -5,7 +5,7 @@ export default function AddPhotoForm(): JSX.Element {
     <form className="form__addphoto">
       <input type="text" />
       <input type="text" />
-      <button type="button">Добавить книгу</button>
+      <button type="button">Добавить альбом</button>
     </form>
   );
 }
