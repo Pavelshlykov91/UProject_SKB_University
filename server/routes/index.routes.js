@@ -5,8 +5,8 @@ const InterviewPage = require('./api/interview.routes')
 const albumsApiRouter = require('./api/albums.routes');
 
 // router.use('/api/test', testApiRouter);
-router.use('api/gellery', albumsApiRouter);
+router.use('api/gallery', albumsApiRouter);
 
-router.use('/api/MainPage', MainPageRouter);
-router.use('/api/InterviewPage', InterviewPage);
+router.use('/api/main', MainPageRouter);
+router.use('/api/interview', InterviewPage);
 module.exports = router;

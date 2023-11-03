@@ -1,0 +1,12 @@
+.navbar {
+    background-color: white;
+  }
+  
+  .navbar label {
+    color: blue;
+    transition: color 0.3s;
+  }
+  
+  .navbar label:hover {
+    color: goldenrod;
+  }
