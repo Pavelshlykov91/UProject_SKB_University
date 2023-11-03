@@ -1,18 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
-import AddLibraryForm from './AddLibraryForm';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../redux/store';
+// import AddLibraryForm from './AddLibraryForm';
 import LibraryItem from './LibraryItem';
-import { RootState } from '../../redux/store'
-import './style/Library.css'
+import './style/Library.css';
 
 const LibraryPage = (): JSX.Element => {
-const materials = useSelector((store: RootState)=>store)
-
+  const materials = useSelector((store: RootState) => store.materials.materials);
 
   return (
     <div>
-      <AddLibraryForm />
-      <LibraryItem />
+      {materials.map((material) => (
+        <LibraryItem key={material.id} material={material} />
+      ))}
     </div>
   );
 };

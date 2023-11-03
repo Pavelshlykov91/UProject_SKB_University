@@ -9,13 +9,21 @@ import { loadInterview } from '../Interview/reducer/InterviewPageSlice';
 import Navbar from '../features/navbar/Navbar';
 import InterviewPage from '../Interview/InterviewPage';
 import LibraryPage from '../features/libraryPage/LibraryPage';
+import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
+import { loadInterview } from '../Interview/reducer/InterviewPageSlice';
+import { loadAlbums } from '../features/photoAlbum/reducer/albumsSlice';
+
 
 const App = ():JSX.Element => {
 const dispatch = useAppDispatch();
 useEffect(() => {
   dispatch(loadMPint());
-  dispatch(loadInterview())
+  dispatch(loadInterview());
+  dispatch(loadMaterials());
+  dispatch(loadAlbums());
 }, [])
+
+
 
   return (
     <Routes>
