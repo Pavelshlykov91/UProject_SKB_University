@@ -9,6 +9,7 @@ const App = ():JSX.Element => {
 const dispatch = useAppDispatch();
 useEffect(() => {
   dispatch(loadMPint());
+  dispatch(loadInterview())
 }, [])
 
   return (
