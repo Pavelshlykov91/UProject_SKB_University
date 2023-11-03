@@ -17,13 +17,6 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id'
       },
     },
-    comment_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'InterviewComments',
-        key: 'id'
-      },
-    },
     title: {
       type: DataTypes.TEXT
     },
