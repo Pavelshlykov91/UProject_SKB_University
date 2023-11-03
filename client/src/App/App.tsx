@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react'
 import MainPage from '../features/mainPage/MainPage/MainPage'
 import { useAppDispatch } from '../redux/store'
@@ -16,4 +17,5 @@ useEffect(() => {
   )
 }
 
-export default App
+
+export default App;
