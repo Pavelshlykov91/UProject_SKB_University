@@ -10,4 +10,12 @@ router.get('/', async (req, res) => {
   }
 });
 
+// router.get('/add-form', async (req, res) => {
+//   try {
+//     res.json({ message: 'success' });
+//   } catch ({ message }) {
+//     res.status(500).json({ message });
+//   }
+// });
+
 module.exports = router;
