@@ -9,10 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      group_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false
@@ -26,6 +22,10 @@ module.exports = {
         allowNull: false
       },
       content: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
+      corAnswer: {
         type: Sequelize.TEXT,
         allowNull: false
       },

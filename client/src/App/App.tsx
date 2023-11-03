@@ -1,10 +1,23 @@
-import React from 'react';
-import LibraryPage from '../features/libraryPage/LibraryPage'
 
-const App = (): JSX.Element => {
-  return <div>
-    <LibraryPage/>
-  </div>;
-};
+import React, { useEffect } from 'react'
+import MainPage from '../features/mainPage/MainPage/MainPage'
+import { useAppDispatch } from '../redux/store'
+import { loadMPint } from '../features/mainPage/MainPage/reducers/MainPageSlice';
+import PhotoAlbumsPage from '../features/photoAlbum/PhotoAlbumsPage';
+
+const App = ():JSX.Element => {
+const dispatch = useAppDispatch();
+useEffect(() => {
+  dispatch(loadMPint());
+}, [])
+
+  return (
+    <div>
+      <MainPage/>
+<!--       <PhotoAlbumsPage /> -->
+    </div>
+  )
+}
+
 
 export default App;
