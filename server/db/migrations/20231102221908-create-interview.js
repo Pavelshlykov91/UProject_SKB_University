@@ -13,20 +13,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      comment_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       title: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       content: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       url: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       createdAt: {

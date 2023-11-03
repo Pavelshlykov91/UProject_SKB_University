@@ -13,8 +13,12 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      interview_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       content: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       createdAt: {

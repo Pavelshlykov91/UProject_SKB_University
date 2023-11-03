@@ -17,21 +17,14 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id'
       },
     },
-    comment_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'InterviewComments',
-        key: 'id'
-      },
-    },
     title: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     content: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     url: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     }
   }, {
     sequelize,

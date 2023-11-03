@@ -10,27 +10,35 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_id: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       comment_id: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      type: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
       name: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
+      author: {
+        type: Sequelize.TEXT,
         allowNull: false
       },
       content: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       url: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       file: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       createdAt: {

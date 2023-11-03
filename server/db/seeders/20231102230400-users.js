@@ -13,7 +13,7 @@ module.exports = {
       bg:'Северная-2',
       role:'студент',
       course_id:1,
-      foto:'здесь должно быть фото',
+      foto:'https://cs14.pikabu.ru/post_img/2021/11/07/7/163628558219781558.jpg',
       createdAt: new Date(),
       updatedAt: new Date(),
       },
@@ -27,10 +27,24 @@ module.exports = {
         bg:'Южная-1',
         role:'студент',
         course_id:1,
-        foto:'здесь должно быть фото',
+        foto:'https://i.ytimg.com/vi/11a-4Xhrz9Y/sddefault.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        }], {});
+        },
+        {
+          firstName:'Василина',
+          lastName:'Учебникова',
+          surname:'Петровна',
+          city:'Москва',
+          position:'ЗНСРХ',
+          department:'Диджитал',
+          bg:'МД',
+          role:'студент',
+          course_id:1,
+          foto:'http://s00.yaplakal.com/pics/pics_preview/5/0/9/14124905.jpg',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          }], {});
 
   },
 

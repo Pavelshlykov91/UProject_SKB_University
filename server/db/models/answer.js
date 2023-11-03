@@ -28,11 +28,11 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     answer: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     file: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     deprecated: {
