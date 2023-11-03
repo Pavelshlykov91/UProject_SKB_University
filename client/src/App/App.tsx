@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react'
 import MainPage from '../features/mainPage/MainPage/MainPage'
 import { useAppDispatch } from '../redux/store'
@@ -17,5 +18,6 @@ useEffect(() => {
     </div>
   )
 }
+
 
 export default App;
