@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const MainPageRouter = require('./api/mainpage.routes')
-// const testApiRouter = require('./api/test.routes');
+const MainPageRouter = require('./api/mainpage.routes');
 const albumsApiRouter = require('./api/albums.routes');
-
-// router.use('/api/test', testApiRouter);
-router.use('api/gellery', albumsApiRouter);
+// const testApiRouter = require('./api/test.routes');
 
 router.use('/api/MainPage', MainPageRouter);
+router.use('/api/gallery', albumsApiRouter);
+
+// router.use('/api/test', testApiRouter);
 
 module.exports = router;
