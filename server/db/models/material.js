@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Material extends Model {
     static associate({Library,MaterialComment, User}) {
-      this.belongsTo(Library, { foreignKey: 'material_id' })
+      this.hasMany(Library, { foreignKey: 'material_id' })
       this.hasMany(MaterialComment, { foreignKey: 'comment_id' })
       this.belongsTo(User, { foreignKey: 'user_id' })
     }
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   Material.init({
 
     user_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'Users',
@@ -28,20 +28,28 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id'
       },
     },
+    type: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    author: {
+      type: DataTypes.TEXT,
       allowNull: false
     },
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     url: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     file: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     }
   }, {

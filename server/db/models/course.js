@@ -10,8 +10,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Course.init({
-    name: DataTypes.STRING,
-    content: DataTypes.STRING
+    name: {
+      type: Sequelize.TEXT,
+      allowNull: false
+    },
+    content: {
+      type: Sequelize.TEXT,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'Course',
