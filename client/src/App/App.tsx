@@ -10,7 +10,6 @@ import Navbar from '../features/navbar/Navbar';
 import InterviewPage from '../Interview/InterviewPage';
 import LibraryPage from '../features/libraryPage/LibraryPage';
 import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
-import { loadInterview } from '../Interview/reducer/InterviewPageSlice';
 import { loadAlbums } from '../features/photoAlbum/reducer/albumsSlice';
 
 
