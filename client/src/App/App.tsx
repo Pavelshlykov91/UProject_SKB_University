@@ -6,12 +6,15 @@ import { loadMPint } from '../features/mainPage/MainPage/reducers/MainPageSlice'
 import LibraryPage from '../features/libraryPage/LibraryPage';
 import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
 
-const App = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(loadMPint());
-    dispatch(loadMaterials());
-  }, []);
+
+const App = ():JSX.Element => {
+const dispatch = useAppDispatch();
+useEffect(() => {
+  dispatch(loadMPint());
+  dispatch(loadInterview())
+  dispatch(loadMaterials());
+}, [])
+
 
   return (
     <div>
