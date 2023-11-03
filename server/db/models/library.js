@@ -4,9 +4,9 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Library extends Model {
-    static associate({Material,Theme}) {
+    static associate({Material,ThemeLibrary}) {
       this.belongsTo(Material, { foreignKey: 'material_id' })
-      this.belongsTo(Theme, { foreignKey: 'theme_id' })
+      this.belongsTo(ThemeLibrary, { foreignKey: 'theme_id' })
     }
   }
   Library.init({

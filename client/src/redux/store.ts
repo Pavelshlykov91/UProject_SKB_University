@@ -1,15 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
+import albumsSlice from '../features/photoAlbum/reducer/albumsSlice';
 import MainPageSlice from '../features/mainPage/MainPage/reducers/MainPageSlice';
 import InterviewPageSlice from '../Interview/reducer/InterviewPageSlice';
 
-
-
-
 const store = configureStore({
   reducer: {
-    ints: MainPageSlice,
     interviews: InterviewPageSlice
+    albums: albumsSlice,
+    ints: MainPageSlice,
   },
 });
 

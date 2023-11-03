@@ -1,13 +1,16 @@
 import React from 'react';
-// import PhotoAlbumItem from './PhotoAlbumItem';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../redux/store';
+import PhotoAlbumItem from './PhotoAlbumItem';
 
 export default function PhotosBlock(): JSX.Element {
-  // const testArr = [1, 1, 1, 1, 1, 1];
+  const albums = useSelector((store: RootState) => store.albums.albums);
+
   return (
     <div>
-      {/* {testArr.map((album) => (
-        <PhotoAlbumItem key={album.id} />
-      ))} */}
+      {albums.map((album) => (
+        <PhotoAlbumItem key={album.id} album={album} />
+      ))}
     </div>
   );
 }
