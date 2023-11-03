@@ -1,12 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-
-
-
+import albumsSlice from '../features/photoAlbum/reducer/albumsSlice';
 
 const store = configureStore({
   reducer: {
-
+    albums: albumsSlice,
   },
 });
 
