@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 // import MainPage from '../features/mainPage/MainPage/MainPage';
 import { useAppDispatch } from '../redux/store';
 import { loadMPint } from '../features/mainPage/MainPage/reducers/MainPageSlice';
-// import PhotoAlbumsPage from '../features/photoAlbum/PhotoAlbumsPage';
+import { loadAlbums } from '../features/photoAlbum/reducer/albumsSlice';
 import LibraryPage from '../features/libraryPage/LibraryPage';
 import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
 
@@ -13,7 +13,9 @@ useEffect(() => {
   dispatch(loadMPint());
   dispatch(loadInterview())
   dispatch(loadMaterials());
+  dispatch(loadAlbums());
 }, [])
+
 
 
   return (
