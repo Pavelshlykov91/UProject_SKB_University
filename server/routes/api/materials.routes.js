@@ -1,7 +1,8 @@
 const router = require('express').Router()
-const {Materials} = require('../../db/models')
+const {Material} = require('../../db/models')
 
 router.get('/', async (req,res)=> {
-  const materials = await Materials.findAll()
+  const materials = await Material.findAll()
   res.json(materials)
 })
+module.exports = router;
