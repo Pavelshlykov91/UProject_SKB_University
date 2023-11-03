@@ -1,7 +1,10 @@
 import React from 'react';
+import LibraryPage from '../features/libraryPage/LibraryPage'
 
 const App = (): JSX.Element => {
-  return <div>App</div>;
+  return <div>
+    <LibraryPage/>
+  </div>;
 };
 
 export default App;

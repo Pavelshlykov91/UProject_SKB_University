@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LibraryItemPage = () => {
+const LibraryItemPage = ():JSX.Element => {
   return (
     <div>LibraryItemPage</div>
   )
