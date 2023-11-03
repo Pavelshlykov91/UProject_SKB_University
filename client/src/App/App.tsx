@@ -5,13 +5,14 @@ import { loadMPint } from '../features/mainPage/MainPage/reducers/MainPageSlice'
 import { loadAlbums } from '../features/photoAlbum/reducer/albumsSlice';
 import LibraryPage from '../features/libraryPage/LibraryPage';
 import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
+import { loadInterview } from '../Interview/reducer/InterviewPageSlice';
 
 
 const App = ():JSX.Element => {
 const dispatch = useAppDispatch();
 useEffect(() => {
   dispatch(loadMPint());
-  dispatch(loadInterview())
+  dispatch(loadInterview());
   dispatch(loadMaterials());
   dispatch(loadAlbums());
 }, [])
