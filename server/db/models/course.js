@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   Course.init({
     name: {
-      type: Sequelize.TEXT,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     content: {
-      type: Sequelize.TEXT,
+      type: DataTypes.TEXT,
       allowNull: false
     },
   }, {

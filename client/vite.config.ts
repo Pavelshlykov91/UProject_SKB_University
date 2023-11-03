@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import Checker from 'vite-plugin-checker';
 
-const SERVER_URL = 'http://localhost:4000';
+const SERVER_URL = 'http://localhost:7777';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), Checker({ typescript: true })],
