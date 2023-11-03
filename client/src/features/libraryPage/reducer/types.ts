@@ -1,11 +1,13 @@
-import type { Materials } from '../type'
+import type { Material} from '../type';
 
-export type MaterialsState =  {
-  materials: []
-}
+export type MaterialsState = {
+  materials: Material[];
+  error: string | null;
+  loading: boolean;
+};
 
 export type ThemesState = {
-  themes: []
-}
+  themes: [];
+};
 
-export type Action = {type: 'materials/load', payload: Materials[]}
+export type Action = { type: 'materials/load'; payload: Material[] };

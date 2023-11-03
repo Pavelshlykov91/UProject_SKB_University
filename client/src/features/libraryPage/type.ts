@@ -1,4 +1,4 @@
-export type Materials = {
+export type Material = {
   id: number;
   user_id: number;
   comment_id: number;
@@ -10,12 +10,12 @@ export type Materials = {
   file: string;
 };
 
-export type Themes = {
+export type Theme = {
   id: number;
   name: string;
 };
 
-export type Libreries = {
+export type Libreary = {
   id: number;
   material_id: number;
   theme_id: number;
