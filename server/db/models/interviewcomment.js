@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     interview_id: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'Interviews',
