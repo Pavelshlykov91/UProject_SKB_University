@@ -5,12 +5,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class ThemeLibrary extends Model {
     static associate({Library}) {
-      this.belongsTo(Library, { foreignKey: 'theme_id' })
+      this.hasMany(Library, { foreignKey: 'theme_id' })
     }
   }
   ThemeLibrary.init({
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     }
   }, {

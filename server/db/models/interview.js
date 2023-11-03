@@ -25,13 +25,13 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     title: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     content: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     url: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     }
   }, {
     sequelize,

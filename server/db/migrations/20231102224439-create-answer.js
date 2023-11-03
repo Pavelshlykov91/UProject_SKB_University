@@ -18,11 +18,11 @@ module.exports = {
         allowNull: false
       },
       answer: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       file: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       deprecated: {

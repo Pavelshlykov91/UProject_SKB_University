@@ -18,11 +18,11 @@ module.exports = {
         allowNull: false
       },
       title: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       content: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       createdAt: {
