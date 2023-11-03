@@ -8,8 +8,8 @@ const albumsApiRouter = require('./api/albums.routes');
 
 // router.use('/api/test', testApiRouter);
 router.use('api/gallery', albumsApiRouter);
+router.use('/api/main', MainPageRouter);
+router.use('/api/interview', InterviewPage);
 router.use('/api/materials',materialPageRouter)
-router.use('/api/MainPage', MainPageRouter);
-router.use('/api/InterviewPage', InterviewPage);
 
 module.exports = router;
