@@ -36,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
+    corAnswer: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
     file: {
       type: DataTypes.TEXT,
       allowNull: false
