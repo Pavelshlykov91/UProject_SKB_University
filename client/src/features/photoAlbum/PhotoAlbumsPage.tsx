@@ -1,26 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import HeaderBlock from './HeaderBlock';
 import PhotosBlock from './PhotosBlock';
+import AddAlbumsForm from './AddAlbumsForm';
 
 export default function PhotoAlbumsPage(): JSX.Element {
+  const [flag, setFlag] = useState(false);
+
   return (
-    <div className="container__album">
+    <div className="container__gallery">
       <HeaderBlock />
       <div className="filter-box">
-        <p>Сортировка по дате</p>
-        <select id="date" name="date">
-          <option value="test1">Новые</option>
-          <option value="test2">Прошлый месяц</option>
-          <option value="test3">Старые</option>
-        </select>
-        <p>Сортировка по популярности</p>
-        <select id="date" name="date">
-          <option value="test1">Популярные</option>
-          <option value="test2">Не популярное</option>
-        </select>
+        <button type="button">Сортировка по дате</button>
+        <button type="button">Сортировка по популярности</button>
       </div>
-      <Link to="/gallery/add-form">Создать альбом</Link>
+      <button onClick={() => setFlag(!flag)} type="button">
+        Добавить альбом
+      </button>
+      {flag && <AddAlbumsForm />}
       <PhotosBlock />
     </div>
   );

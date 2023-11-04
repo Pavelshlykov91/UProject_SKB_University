@@ -7,7 +7,7 @@ export default function PhotosBlock(): JSX.Element {
   const albums = useSelector((store: RootState) => store.albums.albums);
 
   return (
-    <div>
+    <div className="container__photoalbum">
       {albums.map((album) => (
         <PhotoAlbumItem key={album.id} album={album} />
       ))}

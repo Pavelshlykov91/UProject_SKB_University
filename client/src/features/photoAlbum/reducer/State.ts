@@ -6,4 +6,6 @@ export type AlbumsState = {
   loading: boolean;
 };
 
-export type Action = { type: 'albums/load'; payload: Album[] };
+export type Action =
+  | { type: 'albums/load'; payload: Album[] }
+  | { type: 'albums/add'; payload: Album };
