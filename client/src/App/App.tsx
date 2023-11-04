@@ -10,7 +10,6 @@ import InterviewPage from '../Interview/InterviewPage';
 import LibraryPage from '../features/libraryPage/LibraryPage';
 import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
 import { loadAlbums } from '../features/photoAlbum/reducer/albumsSlice';
-import AddAlbumsPage from '../features/photoAlbum/AddAlbumsPage';
 import PhotoAlbumPage from '../features/photoAlbum/PhotoAlbumPage';
 
 const App = (): JSX.Element => {
@@ -27,7 +26,6 @@ const App = (): JSX.Element => {
       <Route path="/" element={<Navbar />}>
         <Route path="/" element={<MainPage />} />
         <Route path="/gallery" element={<PhotoAlbumsPage />} />
-        <Route path="/gallery/add-form" element={<AddAlbumsPage />} />
         <Route path="/gallery/:albumId" element={<PhotoAlbumPage />} />
         <Route path="/interview" element={<InterviewPage />} />
         <Route path="/library" element={<LibraryPage />} />
