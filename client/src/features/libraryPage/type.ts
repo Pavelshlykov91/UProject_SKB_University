@@ -9,6 +9,7 @@ export type Material = {
   url: string;
   file: string;
 };
+export type MaterialID = Material['id']
 
 export type Theme = {
   id: number;

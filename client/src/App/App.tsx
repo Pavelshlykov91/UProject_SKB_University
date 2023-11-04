@@ -12,6 +12,8 @@ import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
 import { loadAlbums } from '../features/photoAlbum/reducer/albumsSlice';
 import AddAlbumsPage from '../features/photoAlbum/AddAlbumsPage';
 import PhotoAlbumPage from '../features/photoAlbum/PhotoAlbumPage';
+import LibraryItemPage from '../features/libraryPage/LibraryItemPage'
+
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -31,6 +33,8 @@ const App = (): JSX.Element => {
         <Route path="/gallery/:albumId" element={<PhotoAlbumPage />} />
         <Route path="/interview" element={<InterviewPage />} />
         <Route path="/library" element={<LibraryPage />} />
+        <Route path="/library/:materialId" element={<LibraryItemPage/>} />
+
       </Route>
     </Routes>
   );

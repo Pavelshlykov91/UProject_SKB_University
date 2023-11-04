@@ -6,7 +6,7 @@ import type { RootState } from '../../redux/store';
 export default function PhotoAlbumPage(): JSX.Element {
   const { albumId } = useParams();
   const navigate = useNavigate();
-
+ 
   const albums = useSelector((store: RootState) => store.albums.albums);
 
   const album = albums.find((elem) => albumId && elem.id === +albumId);
