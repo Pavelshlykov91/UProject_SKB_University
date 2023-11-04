@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '../../redux/store';
 import AddPhotoForm from './AddPhotoForm';
 import UpdAlbumForm from './UpdAlbumForm';
+import ModalDelete from '../modalDelete/ModalDelete';
 
 export default function PhotoAlbumPage(): JSX.Element {
   const { albumId } = useParams();
   const navigate = useNavigate();
   const [flag, setFlag] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
 
   const albums = useSelector((store: RootState) => store.albums.albums);
 
@@ -25,6 +27,11 @@ export default function PhotoAlbumPage(): JSX.Element {
         Изменить
       </button>
       {flag && <UpdAlbumForm />}
+      {/* {album?.user_id === user} */}
+      <button onClick={() => setModalActive(!modalActive)} type="button">
+        Удалить
+      </button>
+      <ModalDelete active={modalActive} setActive={setModalActive} id={album?.id} />
       <AddPhotoForm />
       <button onClick={() => navigate(-1)} type="button">
         Назад к альбомам

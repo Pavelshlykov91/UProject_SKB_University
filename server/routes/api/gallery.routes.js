@@ -20,9 +20,22 @@ router.post('/', async (req, res) => {
       user_id: 1,
       foto_id: 1,
     });
-    console.log(album);
 
     res.json(album);
+  } catch ({ message }) {
+    res.json({ message });
+  }
+});
+
+router.delete('/:albumId', async (req, res) => {
+  try {
+    const { albumId } = req.params;
+    const result = await Gallery.destroy({ where: { id: albumId } });
+    if (result > 0) {
+      res.json({ message: 'success', id: +albumId });
+      return;
+    }
+    res.json({ message: 'error' });
   } catch ({ message }) {
     res.json({ message });
   }

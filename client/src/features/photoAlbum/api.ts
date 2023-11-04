@@ -1,4 +1,4 @@
-import type { Album } from './type';
+import type { Album, AlbumId } from './type';
 
 export const fetchAlbums = async (): Promise<Album[]> => {
   const res = await fetch('/api/gallery');
@@ -19,5 +19,12 @@ export const fetchAlbumAdd = async (album: Album): Promise<Album> => {
     body: JSON.stringify(album),
   });
 
+  return res.json();
+};
+
+export const fetchAlbumDelete = async (id: AlbumId): Promise<void> => {
+  const res = await fetch(`/api/gallery/${id}`, {
+    method: 'DELETE',
+  });
   return res.json();
 };
