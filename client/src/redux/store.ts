@@ -6,7 +6,7 @@ import InterviewPageSlice from '../Interview/reducer/InterviewPageSlice';
 
 const store = configureStore({
   reducer: {
-    interviews: InterviewPageSlice
+    interviews: InterviewPageSlice,
     albums: albumsSlice,
     ints: MainPageSlice,
   },

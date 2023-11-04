@@ -7,7 +7,6 @@ router.get('/', async (req, res) => {
   let int4 = {name: 'LALAsss', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfXPoE5gwtASVAQfXmWfvzADyGzhHS3_WYbFRJYq8vQSRVbkq3k2I7ts9iSFtxiwfpyIQ&usqp=CAU', description: 'Lorem ipsum ipsum lorem cool int lalalalllll'}
   let int5 = {name: 'LALALA!!!', img: 'https://shop.by/images/samsung_gt_s5230_7.webp', description: 'Lorem ipsum ipsum lorem cool int lalala uraaaaaaa'}
   const interviews = [int1, int2, int3, int4, int5]
-  console.log(2222222, interviews);
   res.json(interviews);
 });
 
