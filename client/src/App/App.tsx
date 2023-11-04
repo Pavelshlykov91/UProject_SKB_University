@@ -10,10 +10,11 @@ import InterviewPage from '../Interview/InterviewPage';
 import LibraryPage from '../features/libraryPage/LibraryPage';
 import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
 import { loadAlbums } from '../features/photoAlbum/reducer/albumsSlice';
-import AddAlbumsPage from '../features/photoAlbum/AddAlbumsPage';
 import PhotoAlbumPage from '../features/photoAlbum/PhotoAlbumPage';
 import SignIn from '../features/auth/Sign-in';
 import { checkUser } from '../features/auth/authSlice';
+import LibraryItemPage from '../features/libraryPage/LibraryItemPage';
+import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -31,10 +32,11 @@ const App = (): JSX.Element => {
       <Route path="/" element={<Navbar />}>
         <Route path="/" element={<MainPage />} />
         <Route path="/gallery" element={<PhotoAlbumsPage />} />
-        <Route path="/gallery/add-form" element={<AddAlbumsPage />} />
         <Route path="/gallery/:albumId" element={<PhotoAlbumPage />} />
         <Route path="/interview" element={<InterviewPage />} />
         <Route path="/library" element={<LibraryPage />} />
+        <Route path="/library/:materialId" element={<LibraryItemPage />} />
+        <Route path="/library/add-form" element={<AddLibraryForm />} />
       </Route>
     </Routes>
   );
