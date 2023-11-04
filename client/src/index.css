@@ -1,4 +1,4 @@
-* {
+/* * {
   padding: 0;
   margin: 0;
   border: 0;
@@ -80,6 +80,7 @@ h6 {
 #root {
   height: 100vh;
   width: 100vw;
+
 }
 
 input {
@@ -106,3 +107,4 @@ button {
 form {
   display: flex;
   align-items: center;
+

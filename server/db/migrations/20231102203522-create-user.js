@@ -21,6 +21,14 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
+      email: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
+      password: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
       city: {
         type: Sequelize.TEXT,
         allowNull: false
