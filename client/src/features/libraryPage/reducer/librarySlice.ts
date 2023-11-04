@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { MaterialsState } from './types';
 import * as api from '../api';
+import type { Material } from '../type'
 
 const initialState: MaterialsState = {
   materials: [],
@@ -9,6 +10,7 @@ const initialState: MaterialsState = {
 };
 
 export const loadMaterials = createAsyncThunk('materials/load', () => api.fetchMaterials());
+export const addMaterial = createAsyncThunk('materials/add', (material:Material) => api.fetchMaterialsAdd(material));
 
 const materialsSlice = createSlice({
   name: 'materials',
@@ -27,6 +29,15 @@ const materialsSlice = createSlice({
         state.error = action.error.message ? action.error.message : null;
       })
       .addCase(loadMaterials.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(addMaterial.fulfilled, (state, action) => {
+        state.materials.push(action.payload);
+      })
+      .addCase(addMaterial.rejected, (state, action) => {
+        state.error = action.error.message ? action.error.message : null;
+      })
+      .addCase(addMaterial.pending, (state) => {
         state.loading = true;
       });
   },
