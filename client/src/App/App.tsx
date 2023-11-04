@@ -12,6 +12,8 @@ import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
 import { loadAlbums } from '../features/photoAlbum/reducer/albumsSlice';
 import AddAlbumsPage from '../features/photoAlbum/AddAlbumsPage';
 import PhotoAlbumPage from '../features/photoAlbum/PhotoAlbumPage';
+import SignIn from '../features/auth/Sign-in';
+import { checkUser } from '../features/auth/authSlice';
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -23,7 +25,9 @@ const App = (): JSX.Element => {
   }, []);
 
   return (
+ 
     <Routes>
+      <Route index path='/auth' element={<SignIn />} />
       <Route path="/" element={<Navbar />}>
         <Route path="/" element={<MainPage />} />
         <Route path="/gallery" element={<PhotoAlbumsPage />} />
