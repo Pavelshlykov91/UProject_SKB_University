@@ -3,9 +3,8 @@ import React from 'react';
 export default function AddPhotoForm(): JSX.Element {
   return (
     <form className="form__addphoto">
-      <input type="text" />
-      <input type="text" />
-      <button type="button">Добавить альбом</button>
+      <input type="text" placeholder="Ссылка на фото" />
+      <button type="button">Добавить фото</button>
     </form>
   );
 }
