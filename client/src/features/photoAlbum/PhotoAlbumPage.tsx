@@ -9,8 +9,10 @@ import ModalDelete from '../modalDelete/ModalDelete';
 export default function PhotoAlbumPage(): JSX.Element {
   const { albumId } = useParams();
   const navigate = useNavigate();
+
   const [flag, setFlag] = useState(false);
   const [modalActive, setModalActive] = useState(false);
+
 
   const albums = useSelector((store: RootState) => store.albums.albums);
 
