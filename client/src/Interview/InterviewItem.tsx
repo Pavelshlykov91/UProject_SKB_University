@@ -13,14 +13,14 @@ export default function InterviewItem(): JSX.Element {
   const { interviewId } = useParams();
   const interview = interviews.find((int) => (interviewId && int.id === +interviewId));
   const dispatch=useAppDispatch()
+  const comments = useSelector((store:RootState) => store.interviews.comments)
   useEffect(() => {
     dispatch(loadInterviewcomm(interviewId))
     dispatch(checkUser())
     return () => {
     };
-  }, [])
+  }, [interviewId, comments])
   
-  const comments = useSelector((store:RootState) => store.interviews.comments)
   const user = useSelector((store:RootState)=> store.auth.user)
   // const comment = comments.find((comm) => comm.)
   const [content, setContent] = useState('')
