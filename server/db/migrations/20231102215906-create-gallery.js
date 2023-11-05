@@ -13,10 +13,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      foto_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
       title: {
         type: Sequelize.STRING,
         allowNull: false,
