@@ -1,12 +1,17 @@
 const router = require('express').Router();
-const MainPageRouter = require('./api/mainpage.routes')
-const InterviewPage = require('./api/interviews.routes')
+
 // const testApiRouter = require('./api/test.routes');
-const albumsApiRouter = require('./api/albums.routes');
+const MainPageRouter = require('./api/mainpage.routes');
+const materialPageRouter = require('./api/materials.routes');
+const InterviewPage = require('./api/interview.routes');
+const albumsApiRouter = require('./api/gallery.routes');
+const authApiRouter = require('./api/auth.routes')
 
 // router.use('/api/test', testApiRouter);
-router.use('api/gellery', albumsApiRouter);
+router.use('/api/main', MainPageRouter);
+router.use('/api/materials', materialPageRouter);
+router.use('/api/interview', InterviewPage);
+router.use('/api/gallery', albumsApiRouter);
+router.use('/api/auth', authApiRouter)
 
-router.use('/api/MainPage', MainPageRouter);
-router.use('/api/interviews', InterviewPage);
 module.exports = router;

@@ -5,6 +5,7 @@ const SortItem = ():JSX.Element => {
     <div className='sort-item'>
       <input type="text" />
       <input type="text" />
+      <button type='button'>sort</button>
     </div>
   )
 }
