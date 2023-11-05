@@ -40,7 +40,8 @@ const App = (): JSX.Element => {
         <Route path="/" element={<MainPage />} />
         <Route path="/gallery" element={<PhotoAlbumsPage />} />
         <Route path="/gallery/:albumId" element={<PhotoAlbumPage />} />
-        <Route path="/interview" element={<InterviewPage />} />
+        <Route path="/interviews" element={<InterviewPage />} />
+        <Route path="/interviews/:interviewId" element={<InterviewItem />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/library/:materialId" element={<LibraryItemPage />} />
         <Route path="/library/add-form" element={<AddLibraryForm />} />

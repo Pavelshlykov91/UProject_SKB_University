@@ -43,7 +43,7 @@ function Navbar() {
         <NavLink to="/gallery" className="navbar-link">
           Галерея
         </NavLink>
-        <NavLink to="/interview" className="navbar-link">
+        <NavLink to="/interviews" className="navbar-link">
           Интервью
         </NavLink>
         <NavLink onClick={logOut} to="/sign-in" className="navbar-link">

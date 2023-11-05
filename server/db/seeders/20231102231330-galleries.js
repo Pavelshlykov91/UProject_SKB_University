@@ -8,7 +8,6 @@ module.exports = {
       [
         {
           user_id: 1,
-          foto_id: 1,
           title: 'Командообразование1',
           content: 'Поход в баню',
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Boreas.jpg/400px-Boreas.jpg',
@@ -17,22 +16,13 @@ module.exports = {
         },
         {
           user_id: 1,
-          foto_id: 1,
           title: 'Командообразование2',
           content: 'Поход в баню',
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Boreas.jpg/400px-Boreas.jpg',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
-        {
-          user_id: 1,
-          foto_id: 1,
-          title: 'Командообразование3',
-          content: 'Поход в баню',
-          url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Boreas.jpg/400px-Boreas.jpg',
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
+
       ],
       {}
     );
