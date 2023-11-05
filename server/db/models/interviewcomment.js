@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class InterviewComment extends Model {
     static associate({User,Interview}) {
       this.belongsTo(User, { foreignKey: 'user_id' })
-      this.belongsTo(Interview, { foreignKey: 'comment_id' })
+      this.belongsTo(Interview, { foreignKey: 'interview_id' })
     }
   }
   InterviewComment.init({
