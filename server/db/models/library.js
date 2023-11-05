@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Materials',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     theme_id: {
       type: DataTypes.INTEGER,
@@ -25,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'ThemeLibraries',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     }
   }, {
     sequelize,

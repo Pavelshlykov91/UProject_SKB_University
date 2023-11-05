@@ -51,7 +51,12 @@ module.exports = {
       },
       course_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'Courses',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
       foto: {
         type: Sequelize.TEXT,

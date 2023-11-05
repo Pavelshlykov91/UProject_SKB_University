@@ -67,6 +67,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Courses',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     foto: {
       type: DataTypes.TEXT,

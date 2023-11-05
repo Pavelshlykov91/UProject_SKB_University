@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Users',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     comment_id: {
       type: DataTypes.INTEGER,
@@ -27,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'MaterialComments',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     type: {
       type: DataTypes.TEXT,
