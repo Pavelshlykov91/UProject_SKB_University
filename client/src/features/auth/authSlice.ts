@@ -2,7 +2,7 @@
 /* eslint-disable import/no-duplicates */
 /* eslint-disable @typescript-eslint/default-param-last */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import type { AuthState, UserWithoutId, UserSign } from './type';
+import type { AuthState, UserSign } from './type';
 import * as api from './api';
 
 const initialState: AuthState = {

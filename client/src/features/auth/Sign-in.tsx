@@ -9,6 +9,8 @@ import type { User } from './type';
 import './sign-in.css'
 
 const SignIn = (): JSX.Element => {
+//   const [errorcheck, setErrorcheck] = useState(0)
+const [ch,setCh] = useState(false)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -18,16 +20,21 @@ const SignIn = (): JSX.Element => {
 
   const onHandleUserLog = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    fetchSignIn({ email, password }).then((data:User) => {
-      dispatch({ type: 'auth/sign-in', payload: data });
-      navigate('/');
+    fetchSignIn({ email, password }).then((data: User) => {
+        
+        if (data.id) {
+            dispatch({ type: 'auth/sign-in', payload: data });
+            navigate('/');
+        } else if (data.message === 'Такого юзера не существует или пароль неверный') { 
+            setCh(true);
+            setEmail('');
+            setPassword('');
+        }
     });
   };
 
   return (
-
-
- <div className="container">
+    <div className="container">
       <div className="form">
         <form onSubmit={onHandleUserLog} className='form2'>
           <label htmlFor="email" className="label">
@@ -40,7 +47,7 @@ const SignIn = (): JSX.Element => {
               className="input"
             />
           </label>
-
+  
           <label htmlFor="password" className="label">
             Password
             <input
@@ -53,10 +60,14 @@ const SignIn = (): JSX.Element => {
           </label>
           <button type="submit" className="button">Авторизоваться</button>
         </form>
+        {ch && (
+          <div className='loginerror'>
+            Неверные логин или пароль
+          </div>
+        )}
       </div>
-    </div> 
-// </>
+    </div>
   );
-};
+        }
 
-export default SignIn;
+export default SignIn
