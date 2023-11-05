@@ -1,15 +1,16 @@
 const router = require('express').Router();
-const { Gallery } = require('../../db/models');
+const { Gallery, Foto } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   try {
     const albums = await Gallery.findAll();
+    console.log(albums);
     res.json(albums);
   } catch ({ message }) {
     res.status(500).json({ message });
   }
 });
-
+// { include: { model: Foto } }
 router.post('/', async (req, res) => {
   try {
     const { title, content, url } = req.body;
@@ -17,8 +18,7 @@ router.post('/', async (req, res) => {
       title,
       content,
       url,
-      user_id: 1,
-      foto_id: 1,
+      user_id: req.session.userId,
     });
 
     res.json(album);
@@ -36,6 +36,31 @@ router.delete('/:albumId', async (req, res) => {
       return;
     }
     res.json({ message: 'error' });
+  } catch ({ message }) {
+    res.json({ message });
+  }
+});
+
+router.put('/:albumId', async (req, res) => {
+  try {
+    const { albumId } = req.params;
+    const { title, content, url } = req.body;
+    const [result] = await Gallery.update(
+      {
+        title,
+        content,
+        url,
+        user_id: req.session.userId,
+      },
+      { where: { id: albumId, user_id: req.session.userId } }
+    );
+    if (result > 0) {
+      const album = await Gallery.findOne({
+        where: { id: +albumId },
+      });
+      res.json(album);
+      return;
+    }
   } catch ({ message }) {
     res.json({ message });
   }

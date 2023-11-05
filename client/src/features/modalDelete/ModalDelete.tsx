@@ -1,9 +1,9 @@
 import React from 'react';
 // import { useSelector } from 'react-redux';
 import './modalDelete.css';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
 import { deleteAlbum } from '../photoAlbum/reducer/albumsSlice';
-import { useNavigate } from 'react-router-dom';
 
 function ModalDelete({
   active,
@@ -11,13 +11,13 @@ function ModalDelete({
   id,
 }: {
   active: boolean;
-  setActive: () => {};
+  setActive: (active: boolean) => {};
   id: number;
 }): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const onHandleDelete = async (e): Promise<void> => {
+  const onHandleDelete = async (): Promise<void> => {
     dispatch(deleteAlbum(id));
     navigate('/gallery');
     setActive(!active);
@@ -25,9 +25,12 @@ function ModalDelete({
 
   return (
     <div className={active ? 'modal active' : 'modal'}>
-      <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="modal__content"
+        onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
+      >
         <p>Вы точно хотите удалить весь альбом с его содержимым?</p>
-        <button type="button" onClick={(e) => onHandleDelete(e)}>
+        <button type="button" onClick={() => onHandleDelete()}>
           Удалить
         </button>
         <button type="button" onClick={() => setActive(!active)}>
