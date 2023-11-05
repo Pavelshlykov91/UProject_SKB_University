@@ -6,6 +6,8 @@ import librarySlice from '../features/libraryPage/reducer/librarySlice'
 import InterviewPageSlice from '../Interview/reducer/InterviewPageSlice';
 import authSlice from '../features/auth/authSlice';
 import StudentSlice from '../features/Administration/reducer/StudentSlice';
+import ExerciseSlice from '../features/Administration/reducer/ExerciseSlice';
+import GroupSlice from '../features/Administration/reducer/GroupSlice';
 
 
 const store = configureStore({
@@ -16,6 +18,8 @@ const store = configureStore({
     materials: librarySlice,
     auth:authSlice,
     students:StudentSlice,
+    exercises:ExerciseSlice,
+    groups:GroupSlice,
   },
 });
 
