@@ -5,9 +5,7 @@ import { useAppDispatch } from '../redux/store';
 import { loadMPint } from '../features/mainPage/MainPage/reducers/MainPageSlice';
 import PhotoAlbumsPage from '../features/photoAlbum/PhotoAlbumsPage';
 import { loadInterview } from '../Interview/reducer/InterviewPageSlice';
-
 import InterviewItem from '../Interview/InterviewItem';
-
 import Navbar from '../features/navbar/Navbar';
 import InterviewPage from '../Interview/InterviewPage';
 import LibraryPage from '../features/libraryPage/LibraryPage';
@@ -15,7 +13,6 @@ import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
 import { loadAlbums } from '../features/photoAlbum/reducer/albumsSlice';
 import PhotoAlbumPage from '../features/photoAlbum/PhotoAlbumPage';
 import SignIn from '../features/auth/Sign-in';
-import { checkUser } from '../features/auth/authSlice';
 import LibraryItemPage from '../features/libraryPage/LibraryItemPage';
 import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
 
