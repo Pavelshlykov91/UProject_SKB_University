@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'MaterialComments',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     content: {
       type: DataTypes.TEXT,

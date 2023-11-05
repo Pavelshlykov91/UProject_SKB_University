@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
@@ -12,6 +15,7 @@ import type { RootState} from '../../redux/store';
 import { useAppDispatch } from '../../redux/store';
 import { fetchLogOut } from '../auth/api';
 import { checkUser } from '../auth/authSlice';
+import '../../../public/img/Frame-19svg.svg'
 
 
 function Navbar() {
@@ -30,13 +34,16 @@ function Navbar() {
   }
   return (
     <>
+    {user && (
       <div className="navbar">
-        <div>
-          Добро пожалова, {user?.firstName}!
-        </div>
+        
         <NavLink to="/" className="navbar-link">
           Главная страница
         </NavLink>
+        {user.role === 'преподаватель' && (
+        <NavLink to="/administration" className="navbar-link">
+        Администрирование
+        </NavLink>)}
         <NavLink to="/library" className="navbar-link">
           Библиотека
         </NavLink>
@@ -46,10 +53,24 @@ function Navbar() {
         <NavLink to="/interviews" className="navbar-link">
           Интервью
         </NavLink>
-        <NavLink onClick={logOut} to="/sign-in" className="navbar-link">
-          Выйти
-        </NavLink>
-      </div>
+        <div className='usernavbar'>
+           {user?.firstName}
+           <img className='logoUser' src={user.foto} alt='foto'/>
+           <ul className="navigation"><li><a href="" title="Portfolio"><img className='frame_nav' src='../../../public/img/Frame-19svg.svg'/></a>
+      <ul className='strNavBar'>
+      <li>        <NavLink  to="/" className="navbar-link-frame">
+          личный кабинет
+        </NavLink></li>
+        <li>        <NavLink onClick={logOut} to="/sign-in" className="navbar-link-frame">
+          выход
+        </NavLink></li>
+      </ul>
+    </li></ul>
+        </div>
+
+        
+
+      </div>)}
       <Outlet />
     </>
   );

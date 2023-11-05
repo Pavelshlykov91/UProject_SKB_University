@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Users',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     gallery_id: {
       type: DataTypes.INTEGER,
@@ -26,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Galleries',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     comment_id: {
       type: DataTypes.INTEGER,
@@ -34,6 +36,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Foto_comments',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     url: {
       type: DataTypes.TEXT,

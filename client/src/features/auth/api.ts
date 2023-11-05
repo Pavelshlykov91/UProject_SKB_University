@@ -22,7 +22,6 @@ export const fetchSignIn = async (user: UserSign): Promise<User> => {
   export const fetchLogOut = async (): Promise<{ message: string }> => {
     const res = await fetch('/api/auth/logout');
     const data: { message: string } = await res.json();
-    console.log(data);
   
     return data;
   };

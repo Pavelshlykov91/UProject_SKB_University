@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Users',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     exercise_id: {
       type: DataTypes.INTEGER,
@@ -26,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Exercises',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     answer: {
       type: DataTypes.TEXT,

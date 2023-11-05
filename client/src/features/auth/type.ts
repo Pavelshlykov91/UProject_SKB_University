@@ -1,5 +1,6 @@
 export type User = {
-    id:number,
+    success: any;
+    id: number,
     firstName:string,
     lastName:string,
     surname:string,
@@ -12,6 +13,7 @@ export type User = {
     role:string,
     course_id:number,
     foto:string,
+    message?: string;
 }
 
 export type AuthState = {

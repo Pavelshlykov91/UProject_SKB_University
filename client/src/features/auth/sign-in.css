@@ -36,6 +36,7 @@
     padding: 5px;
     margin-bottom: 10px; /* Add spacing between form elements */
     border-radius: 15px;
+    width: 210px;
   }
   
   .button {
@@ -47,4 +48,8 @@
   
   .button:hover {
     background-color: lightgray; /* Change the background color of the button on hover */
+  }
+  .loginerror{
+    color: red;
+    margin-top: 15px;
   }
