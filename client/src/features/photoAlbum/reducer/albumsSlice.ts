@@ -15,6 +15,9 @@ export const addAlbum = createAsyncThunk('albums/add', (album: Album) => api.fet
 export const deleteAlbum = createAsyncThunk('albums/delete', (id: AlbumId) =>
   api.fetchAlbumDelete(id),
 );
+export const updateAlbum = createAsyncThunk('albums/update', (album: Album) =>
+  api.fetchAlbumUpdate(album),
+);
 
 const albumsSlice = createSlice({
   name: 'albums',
@@ -51,6 +54,17 @@ const albumsSlice = createSlice({
         state.error = action.error.message ? action.error.message : null;
       })
       .addCase(deleteAlbum.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateAlbum.fulfilled, (state, action) => {
+        state.albums = state.albums.map((album) =>
+          album.id === action.payload.id ? (album = action.payload) : album,
+        );
+      })
+      .addCase(updateAlbum.rejected, (state, action) => {
+        state.error = action.error.message ? action.error.message : null;
+      })
+      .addCase(updateAlbum.pending, (state) => {
         state.loading = true;
       });
   },
