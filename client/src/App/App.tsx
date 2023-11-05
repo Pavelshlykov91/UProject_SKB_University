@@ -15,7 +15,6 @@ import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
 import { loadAlbums } from '../features/photoAlbum/reducer/albumsSlice';
 import PhotoAlbumPage from '../features/photoAlbum/PhotoAlbumPage';
 import SignIn from '../features/auth/Sign-in';
-import { checkUser } from '../features/auth/authSlice';
 import LibraryItemPage from '../features/libraryPage/LibraryItemPage';
 import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
 
