@@ -11,7 +11,12 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'MaterialComments',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
       content: {
         type: Sequelize.TEXT,

@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Users',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     group_id: {
       type: DataTypes.INTEGER,
@@ -27,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Groups',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     exercise_id: {
       type: DataTypes.INTEGER,
@@ -35,6 +37,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Exercises',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     }
   }, {
     sequelize,

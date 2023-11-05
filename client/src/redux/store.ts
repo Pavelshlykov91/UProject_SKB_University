@@ -5,6 +5,7 @@ import MainPageSlice from '../features/mainPage/MainPage/reducers/MainPageSlice'
 import librarySlice from '../features/libraryPage/reducer/librarySlice'
 import InterviewPageSlice from '../Interview/reducer/InterviewPageSlice';
 import authSlice from '../features/auth/authSlice';
+import StudentSlice from '../features/Administration/reducer/StudentSlice';
 
 
 const store = configureStore({
@@ -13,7 +14,8 @@ const store = configureStore({
     albums: albumsSlice,
     ints: MainPageSlice,
     materials: librarySlice,
-    auth:authSlice
+    auth:authSlice,
+    students:StudentSlice,
   },
 });
 

@@ -40,6 +40,10 @@ function Navbar() {
         <NavLink to="/" className="navbar-link">
           Главная страница
         </NavLink>
+        {user.role === 'преподаватель' && (
+        <NavLink to="/administration" className="navbar-link">
+        Администрирование
+        </NavLink>)}
         <NavLink to="/library" className="navbar-link">
           Библиотека
         </NavLink>
@@ -53,7 +57,7 @@ function Navbar() {
            {user?.firstName}
            <img className='logoUser' src={user.foto} alt='foto'/>
            <ul className="navigation"><li><a href="" title="Portfolio"><img className='frame_nav' src='../../../public/img/Frame-19svg.svg'/></a>
-      <ul>
+      <ul className='strNavBar'>
       <li>        <NavLink  to="/" className="navbar-link-frame">
           личный кабинет
         </NavLink></li>

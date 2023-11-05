@@ -11,15 +11,30 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
       gallery_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'Galleries',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
       comment_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'Foto_comments',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
       url: {
         type: Sequelize.TEXT,

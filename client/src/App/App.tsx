@@ -15,6 +15,8 @@ import PhotoAlbumPage from '../features/photoAlbum/PhotoAlbumPage';
 import SignIn from '../features/auth/Sign-in';
 import LibraryItemPage from '../features/libraryPage/LibraryItemPage';
 import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
+import AdminMain from '../features/Administration/AdminMain';
+import * as apiAdmin from '../features/Administration/api'
 
 
 const App = (): JSX.Element => {
@@ -26,6 +28,9 @@ const App = (): JSX.Element => {
     dispatch(loadAlbums());
   }, []);
 
+  useEffect(() => {
+    apiAdmin.UserFetch().then((data) => dispatch({ type: 'user/init', payload: data }));
+}, []);
 
 
   return (
@@ -37,6 +42,7 @@ const App = (): JSX.Element => {
         <Route path="/" element={<MainPage />} />
         <Route path="/gallery" element={<PhotoAlbumsPage />} />
         <Route path="/gallery/:albumId" element={<PhotoAlbumPage />} />
+        <Route path="/administration" element={<AdminMain />} />
         <Route path="/interviews" element={<InterviewPage />} />
         <Route path="/interviews/:interviewId" element={<InterviewItem />} />
         <Route path="/library" element={<LibraryPage />} />
