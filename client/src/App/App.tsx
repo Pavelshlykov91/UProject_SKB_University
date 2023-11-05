@@ -5,6 +5,9 @@ import { useAppDispatch } from '../redux/store';
 import { loadMPint } from '../features/mainPage/MainPage/reducers/MainPageSlice';
 import PhotoAlbumsPage from '../features/photoAlbum/PhotoAlbumsPage';
 import { loadInterview } from '../Interview/reducer/InterviewPageSlice';
+
+import InterviewItem from '../Interview/InterviewItem';
+
 import Navbar from '../features/navbar/Navbar';
 import InterviewPage from '../Interview/InterviewPage';
 import LibraryPage from '../features/libraryPage/LibraryPage';
@@ -16,6 +19,7 @@ import { checkUser } from '../features/auth/authSlice';
 import LibraryItemPage from '../features/libraryPage/LibraryItemPage';
 import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
 
+
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -25,7 +29,10 @@ const App = (): JSX.Element => {
     dispatch(loadAlbums());
   }, []);
 
+
+
   return (
+
  
     <Routes>
       <Route index path='/auth' element={<SignIn />} />
