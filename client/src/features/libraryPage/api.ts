@@ -1,4 +1,4 @@
-import type { Material, MaterialID } from './type';
+import type { Material, MaterialID, Theme } from './type';
 
 export const fetchMaterials = async (): Promise<Material[]> => {
   const res = await fetch('/api/materials');
@@ -42,4 +42,12 @@ export const fetchMaterialsUpdate = async (material: Material): Promise<Material
     }),
   });
   return res.json()
+};
+
+export const fetchThemes = async (): Promise<Theme[]> => {
+  const res = await fetch('/api/themes');
+  if (res.status >= 400) {
+    throw new Error(res.statusText);
+  }
+  return res.json();
 };

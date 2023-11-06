@@ -15,6 +15,7 @@ export type Theme = {
   id: number;
   name: string;
 };
+export type ThemeID = Theme['id']
 
 export type Library = {
   id: number;

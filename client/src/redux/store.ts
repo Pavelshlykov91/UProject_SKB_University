@@ -9,6 +9,7 @@ import photoSlice from '../features/photoAlbum/reducer/photoSlice';
 import StudentSlice from '../features/Administration/reducer/StudentSlice';
 import ExerciseSlice from '../features/Administration/reducer/ExerciseSlice';
 import GroupSlice from '../features/Administration/reducer/GroupSlice';
+import themeSlice from '../features/libraryPage/reducer/themeSlice'
 
 
 const store = configureStore({
@@ -21,6 +22,7 @@ const store = configureStore({
     students:StudentSlice,
     exercises:ExerciseSlice,
     groups:GroupSlice,
+    themes:themeSlice,
   },
 });
 
