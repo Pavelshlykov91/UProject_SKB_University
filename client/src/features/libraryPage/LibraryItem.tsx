@@ -8,7 +8,7 @@ const LibraryItem = ({ material }: { material: Material }): JSX.Element => {
   return (
     <div className="library-item">
       <img src={material.url} alt="не удалось загрузить" />
-      <h3>{material.name}</h3>
+      <h2>{material.name}</h2>
       <h3>{material.author}</h3>
       <p>{material.content}</p>
       <button type="button">

@@ -7,6 +7,8 @@ import HeaderBlockLibrary from './HeaderBlockLibrary'
 import './style/Library.css';
 import SortItem from './SortItem'
 import AddLibraryForm from './AddLibraryForm'
+import ThemesPage from './ThemesPage'
+
 
 const LibraryPage = (): JSX.Element => {
   const materials = useSelector((store: RootState) => store.materials.materials);
@@ -16,6 +18,7 @@ const LibraryPage = (): JSX.Element => {
     <div>
       <HeaderBlockLibrary/>
       <SortItem/>
+      <ThemesPage/>
       <button onClick={() => setFlag(!flag)} type="button">
         Добавить книгу
       </button>
@@ -23,6 +26,7 @@ const LibraryPage = (): JSX.Element => {
       {materials.map((material) => (
         <LibraryItem key={material.id} material={material} />
       ))}
+      
     </div>
   );
 };
