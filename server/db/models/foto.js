@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class Foto extends Model {
     static associate({ User, Gallery, Foto_comment }) {
       this.belongsTo(User, { foreignKey: 'user_id' });
-      this.belongsTo(Gallery, { foreignKey: 'gallary_id' });
+      this.belongsTo(Gallery, { foreignKey: 'gallery_id' });
       this.hasMany(Foto_comment, { foreignKey: 'foto_id' });
     }
   }
