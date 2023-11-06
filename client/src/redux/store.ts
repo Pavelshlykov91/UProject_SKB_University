@@ -7,6 +7,8 @@ import InterviewPageSlice from '../Interview/reducer/InterviewPageSlice';
 import authSlice from '../features/auth/authSlice';
 import photoSlice from '../features/photoAlbum/reducer/photoSlice';
 import StudentSlice from '../features/Administration/reducer/StudentSlice';
+import ExerciseSlice from '../features/Administration/reducer/ExerciseSlice';
+import GroupSlice from '../features/Administration/reducer/GroupSlice';
 
 
 const store = configureStore({
@@ -19,6 +21,8 @@ const store = configureStore({
     // photos: photoSlice,
     auth:authSlice,
     students:StudentSlice,
+    exercises:ExerciseSlice,
+    groups:GroupSlice,
   },
 });
 
