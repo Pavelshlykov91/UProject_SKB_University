@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { addAlbum } from './reducer/albumsSlice';
+import { useAppDispatch } from '../../redux/store';
 
 export default function AddAlbumsForm(): JSX.Element {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [url, setUrl] = useState('');

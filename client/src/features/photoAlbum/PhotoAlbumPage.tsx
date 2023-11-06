@@ -5,6 +5,7 @@ import type { RootState } from '../../redux/store';
 import AddPhotoForm from './AddPhotoForm';
 import UpdAlbumForm from './UpdAlbumForm';
 import ModalDelete from '../modalDelete/ModalDelete';
+import './styles/style.css';
 
 export default function PhotoAlbumPage(): JSX.Element {
   const { albumId } = useParams();
@@ -15,14 +16,18 @@ export default function PhotoAlbumPage(): JSX.Element {
 
   const albums = useSelector((store: RootState) => store.albums.albums);
   const user = useSelector((store: RootState) => store.auth.user);
-  const album = albums.find((elem) => albumId && elem.id === +albumId);
+  const album = albums.find((albumEl) => albumId && albumEl.id === +albumId);
   const error = <h1>Такого альбома нет</h1>;
 
-  const content = (
+  const content = album && (
     <div className="photoalbum-page">
-      <img src={album?.url} alt="img" />
-      <h2>{album?.title}</h2>
-      <p>{album?.content}</p>
+      <div className="photoalbum-page-content">
+        <img src={album?.url} alt="img" />
+        <div className="photoalbum-page-text">
+          <h2>{album?.title}</h2>
+          <p>{album?.content}</p>
+        </div>
+      </div>
       {(user?.id === album?.user_id || user?.role === 'преподаватель') && (
         <div className="album-btns">
           <button onClick={() => setFlag(!flag)} type="button">
@@ -32,14 +37,20 @@ export default function PhotoAlbumPage(): JSX.Element {
           <button onClick={() => setModalActive(!modalActive)} type="button">
             Удалить
           </button>
-          <ModalDelete active={modalActive} setActive={setModalActive} id={album?.id} />
+          <ModalDelete active={modalActive} setActive={setModalActive} id={album.id} />
         </div>
       )}
-      <AddPhotoForm />
+      <AddPhotoForm id={album.id} />
       <button onClick={() => navigate(-1)} type="button">
         Назад к альбомам
       </button>
-      {/* {album?.Fotos.map((foto) => <h2>{foto.id}</h2>)} */}
+      <div className="photoalbum-page-photo">
+        {album.Fotos?.map((foto) => (
+          <div className="photo-item" key={foto.id}>
+            <img src={foto.url} alt="img" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 
