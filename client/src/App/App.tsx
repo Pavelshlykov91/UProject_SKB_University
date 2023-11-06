@@ -17,6 +17,7 @@ import LibraryItemPage from '../features/libraryPage/LibraryItemPage';
 import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
 import AdminMain from '../features/Administration/AdminMain';
 import * as apiAdmin from '../features/Administration/api'
+import StudentCard from '../features/Administration/Student/StudentCard';
 
 
 const App = (): JSX.Element => {
@@ -44,9 +45,10 @@ const App = (): JSX.Element => {
         <Route path="/gallery/:albumId" element={<PhotoAlbumPage />} />
         <Route path="/administration" element={<AdminMain />} />
         <Route path="/interviews" element={<InterviewPage />} />
-        <Route path="/interviews/:interviewId" element={<InterviewItem />} />
+        <Route path="/interviews/:interviewId" element={<StudentCard />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/library/:materialId" element={<LibraryItemPage />} />
+        <Route path="/administration/:studentId" element={<StudentCard />} />
         <Route path="/library/add-form" element={<AddLibraryForm />} />
       </Route>
     </Routes>
