@@ -10,7 +10,6 @@ export const fetchInterviews = async ():Promise<Interview[]> => {
 export const fetchInterviewscomm = async (id:InterviewId):Promise<InterviewComment[]> => {
   
   const res = await(await fetch (`/api/interviews/${id}`)).json()
-  console.log(res, '000000000');
   return res
 }
 

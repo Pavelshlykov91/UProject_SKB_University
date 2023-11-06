@@ -1,2 +1,120 @@
-@import "slick-carousel/slick/slick.css";
-@import "slick-carousel/slick/slick-theme.css";
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&family=Libre+Baskerville:wght@700&family=Lora:wght@600&family=Notable&family=Nunito+Sans:opsz,wght@6..12,800&family=Playfair+Display:wght@400;900&family=Roboto&display=swap');
+
+.mp_header {
+  color: #313c8d;
+  font-family: Nunito Sans;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin-left: 11%;
+}
+
+.mp_interview_it_header {
+  color: #313c8d;
+  font-family: Nunito Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+.mp_gallery_img {
+  width: 500px;
+  height: 300px;
+  border-radius: 23px;
+  margin: 45px 40px 15px 85px;
+  object-fit:cover;
+}
+.mp_interview_it_img {
+  width: 80%;
+  height: 200px;
+  border-radius: 23px;
+  margin: 15px 45px 15px 40px;
+  object-fit:cover;
+}
+
+.mp_interview_it_header {
+  margin: 15px 40px 15px 40px;
+}
+
+.slide_cont {
+  /* margin: 0%; */
+}
+
+.slick-slider {
+  /* background-color: #f0f0f0; */
+  max-width: 80vw;
+  margin: 0 auto;
+  /* display: flex; */
+  
+}
+
+.mp_gal .slick-list {
+  /* background-color: #f0f0f0; */
+  /* display: flex; */
+  max-height: 40vw;
+  padding-left: 50%;
+}
+
+.mp_gal .slick-slide {
+  /* margin-left: 10%; */
+}
+.slick-list {
+  max-width: 70vw;
+}
+
+.slider_butt {
+  border: 0 ;
+  background-color: transparent;
+}
+
+#next {
+  position: absolute;
+  margin-left: 83%;
+  margin-top: -17%;
+}
+
+#back {
+  position: absolute;
+  margin-left: 5%;
+  margin-top: -17%;
+}
+
+.mp_gallery_name {
+  max-width: 300px;
+  position: absolute;
+  margin-left: -8%;
+  margin-top: -330px;
+  color: #313c8d;
+  font-family: Nunito Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.mp_gal_s {
+  color: #313C8D;
+position: absolute;
+/* margin-top: -50%; */
+font-family: Nunito Sans;
+font-size: 128px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.mp_gallery_desc {
+  color: #313C8D;
+  display: block;
+  margin-bottom: 2%;
+  margin-right: 15%;
+font-family: Nunito Sans;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
