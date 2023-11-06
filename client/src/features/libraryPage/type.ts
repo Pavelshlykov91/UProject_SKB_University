@@ -16,7 +16,7 @@ export type Theme = {
   name: string;
 };
 
-export type Libreary = {
+export type Library = {
   id: number;
   material_id: number;
   theme_id: number;

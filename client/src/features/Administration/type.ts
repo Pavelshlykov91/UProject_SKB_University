@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export type User = {
     id:number,
     firstName:string,
@@ -12,7 +13,10 @@ export type User = {
     course_id:number,
     foto:string,
     Course:Course,
+    receipt_date:string;
 }
+
+export type StudentId = User['id']
 
 export type Exercise = {
     id:number,

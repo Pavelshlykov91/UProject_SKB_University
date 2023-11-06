@@ -11,7 +11,7 @@ export type InterviewId = Interview['id'];
 
 export type InterviewState = {
   interviews: Interview[];
-  comments: undefined | InterviewComment[]
+  comments: InterviewComment[]
   error: string | null;
   loading: boolean;
 };
