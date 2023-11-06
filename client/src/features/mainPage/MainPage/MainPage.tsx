@@ -1,4 +1,5 @@
 import React from 'react'
+import './index.css'
 import MPInterviewItem from './MPInterviewItem'
 import MPNotifItem from './MPNotifItem'
 import MPGallery from './MPGallery'

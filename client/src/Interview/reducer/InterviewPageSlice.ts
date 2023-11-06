@@ -9,7 +9,7 @@ export const initialState: InterviewState ={
 
 export const loadInterview = createAsyncThunk('interviews/load', () => api.fetchInterviews());
 export const loadInterviewcomm = createAsyncThunk('interviewscomm/load', (interviewId:InterviewId) => api.fetchInterviewscomm(interviewId));
-export const addInterviewcomm = createAsyncThunk('interviews/add', (comment:InterviewComment) => api.fetchInterviewscommAdd(comment));
+export const addInterviewcomm = createAsyncThunk('interviewscomm/add', (comment:InterviewComment) => api.fetchInterviewscommAdd(comment));
 export const addInterview = createAsyncThunk('interviews/add', (interview:Interview) => api.fetchInterviewAdd(interview));
 const InterviewPageSlice = createSlice({
   name: 'interviews',
@@ -29,6 +29,9 @@ const InterviewPageSlice = createSlice({
     })
     .addCase(loadInterviewcomm.fulfilled, (state, action) => {
       state.comments=action.payload;
+    })
+    .addCase(addInterviewcomm.fulfilled, (state, action) => {
+      state.comments.push(action.payload);
     })
   }
 })

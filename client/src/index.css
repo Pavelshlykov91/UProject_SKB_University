@@ -1,4 +1,4 @@
-/* * {
+ /* * {
   padding: 0;
   margin: 0;
   border: 0;
@@ -80,8 +80,8 @@ h6 {
 #root {
   height: 100vh;
   width: 100vw;
-
 }
+
 
 form {
   display: flex;
@@ -96,4 +96,5 @@ form {
   overflow-x: hidden;
   height: 700vh;
 } 
+
 
