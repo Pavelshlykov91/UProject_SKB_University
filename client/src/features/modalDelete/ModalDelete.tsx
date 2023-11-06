@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-// import { useSelector } from 'react-redux';
 import './modalDelete.css';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
@@ -11,7 +12,7 @@ function ModalDelete({
   id,
 }: {
   active: boolean;
-  setActive: (active: boolean) => {};
+  setActive: (active: boolean) => void;
   id: number;
 }): JSX.Element {
   const dispatch = useAppDispatch();

@@ -13,7 +13,7 @@ export default function MPInterviewItem() {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3, 
+    slidesToShow: 3,
     slidesToScroll: 1,
   };
 

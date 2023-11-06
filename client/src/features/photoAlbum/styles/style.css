@@ -1,0 +1,125 @@
+button {
+  width: 200px;
+  background-color: rgb(19%, 24%, 55%, 0.8);
+  color: white;
+}
+
+.container__gallery {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header-block-box {
+  position: relative;
+  height: 50vh;
+  margin: 20px auto 20px;
+}
+.header-block-box img {
+  min-width: 50vw;
+  max-height: 50vh;
+  margin: 5px;
+  box-shadow: 5px 5px 20px rgb(67, 67, 67);
+  border-radius: 10px;
+  object-fit: cover;
+}
+.gallery-text {
+  position: absolute;
+  color: rgb(213, 213, 217);
+  bottom: 45px;
+  left: 55px;
+  font-size: 26px;
+  width: 20vw;
+}
+.gallery-text h2 {
+  font-size: 40px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.container__photoalbum {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 70vw;
+}
+.photoalbum-item {
+  display: flex;
+  width: 30vw;
+  margin: 20px;
+  border-radius: 20px;
+}
+.photoalbum-item img {
+  min-width: 15vw;
+  max-height: 20vh;
+  border-radius: 20px;
+  margin: 5px;
+  box-shadow: 5px 5px 20px rgb(67, 67, 67);
+  object-fit: cover;
+}
+.photoalbum-item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #313c8d;
+  font-size: 20px;
+  padding: 5px;
+  width: 20vw;
+  margin-left: 20px;
+}
+.photoalbum-item button {
+  margin: 0 auto;
+}
+.photoalbum-item button a:visited {
+  text-decoration: none;
+  color: white;
+}
+.photoalbum-item-text {
+  padding: 5px;
+}
+.photoalbum-item-text h2 {
+  font-size: 26px;
+}
+.photoalbum-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.photoalbum-page img {
+  min-width: 50vw;
+  max-height: 50vh;
+  margin: 5px;
+  box-shadow: 5px 5px 20px rgb(67, 67, 67);
+  border-radius: 10px;
+  object-fit: cover;
+}
+.photoalbum-page-content {
+  position: relative;
+  height: 50vh;
+  margin: 20px auto 20px;
+}
+.photoalbum-page-text {
+  position: absolute;
+  color: rgb(213, 213, 217);
+  bottom: 45px;
+  left: 55px;
+  font-size: 26px;
+  width: 20vw;
+}
+.photo-item {
+  margin: 5px;
+}
+.photo-item img {
+  min-width: 10vw;
+  max-height: 20vh;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.photoalbum-page-photo {
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto 0;
+}
