@@ -23,7 +23,6 @@ const LibraryPage = (): JSX.Element => {
       {materials.map((material) => (
         <LibraryItem key={material.id} material={material} />
       ))}
-      
     </div>
   );
 };

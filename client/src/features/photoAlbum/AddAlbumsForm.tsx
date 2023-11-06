@@ -3,14 +3,14 @@ import { useDispatch } from 'react-redux';
 import { addAlbum } from './reducer/albumsSlice';
 
 export default function AddAlbumsForm(): JSX.Element {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [url, setUrl] = useState('');
-  const dispatch = useDispatch();
 
   const onHandleSubmit: React.FormEventHandler<HTMLFormElement> = async (e): Promise<void> => {
     e.preventDefault();
-    dispatch(addAlbum({ title, url, content }));
+    dispatch(addAlbum({ title, content, url }));
     setTitle('');
     setContent('');
     setUrl('');

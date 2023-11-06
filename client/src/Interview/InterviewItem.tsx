@@ -14,10 +14,12 @@ export default function InterviewItem(): JSX.Element {
   const dispatch=useAppDispatch()
 
   useEffect(() => {
+
     if (interviewId) {
       dispatch(loadInterviewcomm(interviewId));
     }
   }, []);
+
   
   const error = <h1>Такого интервью мы пока не придумали</h1>;
   const contentpage = (
