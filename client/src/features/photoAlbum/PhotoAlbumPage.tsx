@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -5,7 +7,9 @@ import type { RootState } from '../../redux/store';
 import AddPhotoForm from './AddPhotoForm';
 import UpdAlbumForm from './UpdAlbumForm';
 import ModalDelete from '../modalDelete/ModalDelete';
+import ModalPhoto from '../modalPhotos/ModalPhoto';
 import './styles/style.css';
+import PhotoItem from './PhotoItem';
 
 export default function PhotoAlbumPage(): JSX.Element {
   const { albumId } = useParams();
@@ -44,13 +48,7 @@ export default function PhotoAlbumPage(): JSX.Element {
       <button onClick={() => navigate(-1)} type="button">
         Назад к альбомам
       </button>
-      <div className="photoalbum-page-photo">
-        {album.Fotos?.map((foto) => (
-          <div className="photo-item" key={foto.id}>
-            <img src={foto.url} alt="img" />
-          </div>
-        ))}
-      </div>
+      <div className="photoalbum-page-photo">{album.Fotos?.map((foto) => <PhotoItem key={foto.id} foto={foto}/>)}</div>
     </div>
   );
 
