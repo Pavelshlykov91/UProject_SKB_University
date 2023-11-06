@@ -2,12 +2,12 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Fotos', {
+    await queryInterface.createTable('Foto_comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       user_id: {
         type: Sequelize.INTEGER,
@@ -18,39 +18,30 @@ module.exports = {
         },
         onDelete: 'CASCADE',
       },
-      gallery_id: {
+      foto_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Galleries',
+          model: 'Fotos',
           key: 'id'
         },
         onDelete: 'CASCADE',
       },
-      comment_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Foto_comments',
-          key: 'id'
-        },
-        onDelete: 'CASCADE',
-      },
-      url: {
+      content: {
         type: Sequelize.TEXT,
-        allowNull: false,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-      },
+        type: Sequelize.DATE
+      }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Fotos');
-  },
+    await queryInterface.dropTable('Foto_comments');
+  }
 };
