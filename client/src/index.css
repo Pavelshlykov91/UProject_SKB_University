@@ -83,3 +83,17 @@ h6 {
 
 }
 
+form {
+  display: flex;
+  align-items: center;
+}
+ body { 
+  position: relative;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #000;
+  min-width: 320px;
+  overflow-x: hidden;
+  height: 700vh;
+} 
+

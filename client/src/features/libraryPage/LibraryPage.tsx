@@ -23,7 +23,7 @@ const LibraryPage = (): JSX.Element => {
       {materials.map((material) => (
         <LibraryItem key={material.id} material={material} />
       ))}
-      
+      <button type='button'>Удалить</button>
     </div>
   );
 };

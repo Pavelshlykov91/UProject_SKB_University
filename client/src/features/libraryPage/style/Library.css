@@ -1,0 +1,13 @@
+
+/* 
+.library-item {
+  display: flex;
+  width: 200px;
+} */
+
+.library-item img {
+  width: 300px;
+}
+.library-item p {
+width: 300px;
+}
