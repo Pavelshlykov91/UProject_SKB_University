@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable import/prefer-default-export */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import type { ExercisesState, GroupState } from "./State";
+import type { GroupState } from "./State";
 import * as api from '../api'
 
 

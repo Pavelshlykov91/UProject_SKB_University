@@ -11,8 +11,8 @@ import GroupItem from './GroupItem';
 function GroupPage():JSX.Element {
   const dispatch = useAppDispatch();
   const groups = useSelector((store:RootState) => store.groups.groups);
-  const error = useSelector((store: RootState) => store.groups.error);
-  const loading = useSelector((store: RootState) => store.groups.loading);
+//   const error = useSelector((store: RootState) => store.groups.error);
+//   const loading = useSelector((store: RootState) => store.groups.loading);
 console.log();
 
   useEffect(() => {

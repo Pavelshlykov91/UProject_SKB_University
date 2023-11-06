@@ -11,8 +11,8 @@ import ExerciseItem from './ExerciseItem';
 function ExercisePage():JSX.Element {
   const dispatch = useAppDispatch();
   const exercises = useSelector((store:RootState) => store.exercises.exercises);
-  const error = useSelector((store: RootState) => store.exercises.error);
-  const loading = useSelector((store: RootState) => store.exercises.loading);
+  // const error = useSelector((store: RootState) => store.exercises.error);
+  // const loading = useSelector((store: RootState) => store.exercises.loading);
 
   useEffect(() => {
     dispatch(loadExercises());

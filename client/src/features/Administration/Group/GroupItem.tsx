@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Exercise, Group } from '../type';
+import type { Group } from '../type';
 
 function GroupItem({ group }: { group: Group }): JSX.Element {
   return (

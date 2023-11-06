@@ -14,8 +14,8 @@ function StudentPage(): JSX.Element {
   const [selectedValue, setSelectedValue] = useState('')
   const dispatch = useAppDispatch();
   const students = useSelector((store: RootState) => store.students.users);
-  const error = useSelector((store: RootState) => store.students.error);
-  const loading = useSelector((store: RootState) => store.students.loading);
+  // const error = useSelector((store: RootState) => store.students.error);
+  // const loading = useSelector((store: RootState) => store.students.loading);
 
   const ChooseFilter = (value: React.SetStateAction<string>) => {   
     setSelectedValue(value)
