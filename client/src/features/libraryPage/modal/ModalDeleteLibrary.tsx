@@ -1,11 +1,12 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
 import './modalDelete.css';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../redux/store';
-import { deleteAlbum } from '../photoAlbum/reducer/albumsSlice';
+import { useAppDispatch } from '../../../redux/store'
+import { deleteMaterial } from '../reducer/librarySlice'
 
-function ModalDelete({
+
+
+function ModalDeleteLibrary({
   active,
   setActive,
   id,
@@ -17,9 +18,9 @@ function ModalDelete({
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const onHandleDelete = async (): Promise<void> => {
-    dispatch(deleteAlbum(id));
-    navigate('/gallery');
+  const onHandleDeleteMaterial = async (): Promise<void> => {
+    dispatch(deleteMaterial(id));
+    navigate('/library');
     setActive(!active);
   };
 
@@ -29,8 +30,8 @@ function ModalDelete({
         className="modal__content"
         onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
       >
-        <p>Вы точно хотите удалить весь альбом с его содержимым?</p>
-        <button type="button" onClick={() => onHandleDelete()}>
+        <p>Вы точно хотите удалить Статью?</p>
+        <button type="button" onClick={() => onHandleDeleteMaterial()}>
           Удалить
         </button>
         <button type="button" onClick={() => setActive(!active)}>
@@ -41,4 +42,4 @@ function ModalDelete({
   );
 }
 
-export default ModalDelete;
+export default ModalDeleteLibrary;

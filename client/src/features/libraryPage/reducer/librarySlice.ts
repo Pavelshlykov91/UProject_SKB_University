@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { MaterialsState } from './types';
 import * as api from '../api';
-import type { Material } from '../type'
+import type { Material, MaterialID } from '../type';
 
 const initialState: MaterialsState = {
   materials: [],
@@ -10,7 +10,14 @@ const initialState: MaterialsState = {
 };
 
 export const loadMaterials = createAsyncThunk('materials/load', () => api.fetchMaterials());
-export const addMaterial = createAsyncThunk('materials/add', (material:Material) => api.fetchMaterialsAdd(material));
+export const addMaterial = createAsyncThunk('materials/add', (material: Material) =>
+  api.fetchMaterialsAdd(material),
+);
+export const deleteMaterial = createAsyncThunk('materials/delete', (id: MaterialID) =>
+  api.fetchMaterialsDelete(id),
+);
+export const updateMaterial = createAsyncThunk('materials/update', (material: Material) => api.fetchMaterialsUpdate(material))
+
 
 const materialsSlice = createSlice({
   name: 'materials',
@@ -39,7 +46,25 @@ const materialsSlice = createSlice({
       })
       .addCase(addMaterial.pending, (state) => {
         state.loading = true;
-      });
+      })
+      .addCase(deleteMaterial.fulfilled, (state, action) => {
+        state.materials = state.materials.filter((material) => material.id !== action.payload.id);
+      })
+      .addCase(deleteMaterial.rejected, (state, action) => {
+        state.error = action.error.message ? action.error.message : null;
+      })
+      .addCase(deleteMaterial.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateMaterial.fulfilled, (state,action)=>{
+        state.materials = state.materials.map((material)=>material.id === action.payload.id ? (material = action.payload):material,)
+      })
+      .addCase(updateMaterial.rejected, (state, action) => {
+        state.error = action.error.message ? action.error.message : null;
+      })
+      .addCase(updateMaterial.pending, (state) => {
+        state.loading = true;
+      })
   },
 });
 
