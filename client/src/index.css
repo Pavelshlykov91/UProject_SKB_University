@@ -95,12 +95,15 @@ input::placeholder {
   font-size: 16px;
 }
 button {
+  width: 200px;
   height: 26px;
   font-size: 14px;
   border: 1px solid gray;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
+  background-color: rgb(19%, 24%, 55%, 0.8);
+  color: white;
 }
 
 form {
