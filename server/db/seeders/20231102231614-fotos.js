@@ -9,7 +9,6 @@ module.exports = {
         {
           user_id: 1,
           gallery_id: 1,
-          comment_id: 1,
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Edmund_blair_leighton_accolade.jpg/400px-Edmund_blair_leighton_accolade.jpg',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -17,7 +16,6 @@ module.exports = {
         {
           user_id: 1,
           gallery_id: 1,
-          comment_id: 1,
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Edmund_blair_leighton_accolade.jpg/400px-Edmund_blair_leighton_accolade.jpg',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -25,7 +23,6 @@ module.exports = {
         {
           user_id: 1,
           gallery_id: 1,
-          comment_id: 1,
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Edmund_blair_leighton_accolade.jpg/400px-Edmund_blair_leighton_accolade.jpg',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -33,7 +30,6 @@ module.exports = {
         {
           user_id: 1,
           gallery_id: 2,
-          comment_id: 1,
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Edmund_blair_leighton_accolade.jpg/400px-Edmund_blair_leighton_accolade.jpg',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -41,7 +37,6 @@ module.exports = {
         {
           user_id: 1,
           gallery_id: 2,
-          comment_id: 1,
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Edmund_blair_leighton_accolade.jpg/400px-Edmund_blair_leighton_accolade.jpg',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -49,7 +44,6 @@ module.exports = {
         {
           user_id: 1,
           gallery_id: 2,
-          comment_id: 1,
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Edmund_blair_leighton_accolade.jpg/400px-Edmund_blair_leighton_accolade.jpg',
           createdAt: new Date(),
           updatedAt: new Date(),

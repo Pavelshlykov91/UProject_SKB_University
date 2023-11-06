@@ -11,11 +11,21 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
       comment_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'MaterialComments',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
       type: {
         type: Sequelize.TEXT,

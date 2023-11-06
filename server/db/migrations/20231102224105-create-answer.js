@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Exercises', {
+    await queryInterface.createTable('Answers', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,26 +11,32 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
-      course_id: {
+      exercise_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'Exercises',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
-      title: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      content: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      corAnswer: {
+      answer: {
         type: Sequelize.TEXT,
         allowNull: false
       },
       file: {
         type: Sequelize.TEXT,
+        allowNull: false
+      },
+      deprecated: {
+        type: Sequelize.BOOLEAN,
         allowNull: false
       },
       createdAt: {
@@ -44,6 +50,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Exercises');
+    await queryInterface.dropTable('Answers');
   }
 };

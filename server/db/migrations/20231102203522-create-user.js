@@ -21,6 +21,14 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
+      email: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
+      password: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
       city: {
         type: Sequelize.TEXT,
         allowNull: false
@@ -43,7 +51,12 @@ module.exports = {
       },
       course_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'Courses',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
       foto: {
         type: Sequelize.TEXT,

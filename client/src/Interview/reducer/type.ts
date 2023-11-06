@@ -1,14 +1,34 @@
-export type Interview = {
-id: number
-title: string,
-content: string,
-url: string 
-}
+import { User } from "../../features/auth/type";
 
-export type InterviewID = Interview ['id'] 
+export type Interview = {
+  id?: number|string;
+  title: string;
+  content: string;
+  url: string;
+};
+
+export type InterviewId = Interview['id'];
 
 export type InterviewState = {
   interviews: Interview[];
-  error: string | null,
-  loading: boolean  
-}
+  comments: undefined | InterviewComment[]
+  error: string | null;
+  loading: boolean;
+};
+
+export type InterviewComment = {
+  id?: number|string;
+  user_id?: number;
+  interview_id?: number|string;
+  content: string;
+  User: User|undefined
+};
+
+
+
+
+export type InterviewCommId = InterviewComment['id'];
+
+export type Acction =
+  | { type: 'interviews/load'; payload: Interview[] }
+  | { type: 'interviews/add'; payload: Interview };

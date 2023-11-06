@@ -17,6 +17,16 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Users',
         key: 'id'
       },
+      onDelete: 'CASCADE',
+    },
+    foto_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Fotos',
+        key: 'id'
+      },
+      onDelete: 'CASCADE',
     },
     content: {
       type: DataTypes.TEXT,

@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../../public/img/jake-hills-TfJKSjoESc4-unsplash.jpg');
+    background-size: cover; /* Make the image cover the entire background */
+    font-family: Arial, sans-serif; /* Change the font */
+    color: white; /* Set the text color to white */
+    font-weight: bolder;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .form {
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+  }
+  .form2 {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+  }
+
+  .label {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input {
+    border: 1px solid red;
+    padding: 5px;
+    margin-bottom: 10px; /* Add spacing between form elements */
+    border-radius: 15px;
+    width: 210px;
+  }
+  
+  .button {
+    margin-top: 10px;
+    background-color: transparent; /* Make the button transparent */
+    color: white; /* Set the text color of the button to white */
+    border-radius: 15px;
+  }
+  
+  .button:hover {
+    background-color: lightgray; /* Change the background color of the button on hover */
+  }
+  .loginerror{
+    color: red;
+    margin-top: 15px;
+  }

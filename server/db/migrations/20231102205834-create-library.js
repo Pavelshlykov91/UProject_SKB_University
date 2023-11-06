@@ -11,11 +11,21 @@ module.exports = {
       },
       material_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'Materials',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
       theme_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'ThemeLibraries',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,

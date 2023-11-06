@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Fotos', {
+    await queryInterface.createTable('Interviews', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,14 +11,19 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+      },
+      title: {
+        type: Sequelize.TEXT,
         allowNull: false
       },
-      gallery_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      comment_id: {
-        type: Sequelize.INTEGER,
+      content: {
+        type: Sequelize.TEXT,
         allowNull: false
       },
       url: {
@@ -36,6 +41,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Fotos');
+    await queryInterface.dropTable('Interviews');
   }
 };

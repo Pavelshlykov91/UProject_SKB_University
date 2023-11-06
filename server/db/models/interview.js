@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Interview extends Model {
     static associate({User, InterviewComment}) {
       this.belongsTo(User, { foreignKey: 'user_id' })
-      this.hasMany(InterviewComment, { foreignKey: 'comment_id' })
+      this.hasMany(InterviewComment, { foreignKey: 'interview_id' })
     }
   }
   Interview.init({
@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Users',
         key: 'id'
       },
+      onDelete: 'CASCADE',
     },
     title: {
       type: DataTypes.TEXT

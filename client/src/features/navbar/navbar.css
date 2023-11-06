@@ -2,7 +2,7 @@
   display: flex;
   justify-content:space-around;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color:transparent;
   padding: 10px;
 }
 
@@ -16,4 +16,112 @@
 
 .navbar-link:hover {
   color: #ff0000;
+}
+.navbar-link-frame{
+  font-size: 15px;
+  text-decoration: none;
+  color: #333;
+  /* margin-right: 10px; */
+}
+.navbar-link-frame:hover {
+  color: rgb(234, 153, 40);
+}
+.logoUser {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+.usernavbar {
+display: flex;
+align-items: center;
+}
+.navigation {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border-top: solid 3px #fff;
+  border-bottom: solid 3px #fff;
+  /*
+  box-shadow:  0px -2px 3px -1px rgba(0, 0, 0, 1);
+  */
+}
+
+.navigation li {
+  float: left;
+}
+
+.navigation li:hover {
+  background: #ffffff;
+}
+
+.navigation li:first-child {
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 0 0 5px;
+}
+
+.navigation li a {
+  display: block;
+  padding: 0 20px;
+  text-decoration: none;
+  line-height: 40px;
+  color: #121212;
+}
+
+.navigation ul {
+  display: none;
+  position: absolute;
+  list-style: none;
+  margin-left: -3px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navigation ul li {
+  float: none;
+}
+
+.navigation li:hover > ul {
+  display: block;
+  background: white;
+  border: solid 3px #fff;
+  border-top: 0;
+  
+  -webkit-border-radius: 0 0 8px 8px;
+  border-radius: 0 0 8px 8px;
+  
+  -webkit-box-shadow:  0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  box-shadow:  0px 3px 3px 0px rgba(255, 255, 255, 0.25);
+}
+
+.navigation li:hover > ul li:hover {
+  -webkit-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+
+.navigation li li a:hover {
+  background: transparent;
+}
+
+.navigation ul li:last-child a,
+.navigation ul li:last-child a:hover {
+  -webkit-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+.arrow-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-image: url('path/to/arrow-icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.frame_nav {
+width: 15px;
+height: 15px;
+}
+.strNavBar{
+width: 150px;
 }

@@ -1,47 +1,42 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Foto extends Model {
-    static associate({User,Gallery, Foto_comment}) {
-      this.belongsTo(User, { foreignKey: 'user_id' })
-      this.belongsTo(Gallery, { foreignKey: 'foto_id' })
-      this.hasMany(Foto_comment, { foreignKey: 'comment_id' })
+    static associate({ User, Gallery, Foto_comment }) {
+      this.belongsTo(User, { foreignKey: 'user_id' });
+      this.belongsTo(Gallery, { foreignKey: 'gallary_id' });
+      this.hasMany(Foto_comment, { foreignKey: 'foto_id' });
     }
   }
-  Foto.init({
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Users',
-        key: 'id'
+  Foto.init(
+    {
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+      },
+      gallery_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Galleries',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+      },
+      url: {
+        type: DataTypes.TEXT,
+        allowNull: false,
       },
     },
-    gallery_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Galleries',
-        key: 'id'
-      },
-    },
-    comment_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Foto_comments',
-        key: 'id'
-      },
-    },
-    url: {
-      type: DataTypes.TEXT,
-      allowNull: false
+    {
+      sequelize,
+      modelName: 'Foto',
     }
-  }, {
-    sequelize,
-    modelName: 'Foto',
-  });
+  );
   return Foto;
 };
