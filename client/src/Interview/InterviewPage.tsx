@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState} from '../redux/store';
 import { Link } from 'react-router-dom';
+import type { RootState} from '../redux/store';
 import AddInterview from './AddInterview';
 // import { Link } from 'react-router-dom'
 
-function InterviewPage() {
+function InterviewPage():JSX.Element {
   
   
   const interviews = useSelector((store: RootState) => store.interviews.interviews);
@@ -26,7 +26,7 @@ function InterviewPage() {
         {interviews.map((int) => (
           <div key={int.id} className="interview-card">
             <Link to={`/interviews/${int.id}`}>
-              <img src={int.url} />
+              <img src={int.url} alt='int'/>
               <h3>{int.title}</h3>
             </Link>
           </div>
