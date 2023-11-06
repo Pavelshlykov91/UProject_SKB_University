@@ -69,6 +69,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       onDelete: 'CASCADE',
     },
+    receipt_date: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
     foto: {
       type: DataTypes.TEXT,
       allowNull: false

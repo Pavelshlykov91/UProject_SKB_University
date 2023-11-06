@@ -18,8 +18,6 @@ const store = configureStore({
     ints: MainPageSlice,
     materials: librarySlice,
     auth: authSlice,
-    // photos: photoSlice,
-    auth:authSlice,
     students:StudentSlice,
     exercises:ExerciseSlice,
     groups:GroupSlice,

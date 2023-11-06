@@ -58,6 +58,10 @@ module.exports = {
         },
         onDelete: 'CASCADE',
       },
+      receipt_date: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
       foto: {
         type: Sequelize.TEXT,
         allowNull: false

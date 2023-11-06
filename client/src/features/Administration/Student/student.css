@@ -1,0 +1,54 @@
+.profile-container {
+    width: 400px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    margin-top: 200px;
+  }
+  
+  .profile-picture {
+    text-align: center;
+  }
+  
+  .profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .profile-details {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .profile-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-details p {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .personal-details, .professional-details {
+    width: 45%;
+  }
+  
+  .personal-details {
+    border-right: 1px solid #ccc;
+  }
+  
+  .professional-details {
+    padding-left: 10px;
+  }
+  .p-style {
+    width: 300px;
+  }
+  .imgCard{
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+  }

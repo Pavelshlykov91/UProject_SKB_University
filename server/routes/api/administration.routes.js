@@ -4,6 +4,7 @@ const { User, Exercise, User_group, Group, Course } = require("../../db/models")
 router.get("/students", async (req, res) => {
   try {
     const users = await User.findAll({
+      where: {role:'студент'},
         include: [
           {model: Course},
       ]
