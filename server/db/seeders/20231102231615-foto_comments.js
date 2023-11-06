@@ -8,6 +8,7 @@ module.exports = {
       [
         {
           user_id: 1,
+          foto_id: 2,
           content: 'Лучшая фото',
           createdAt: new Date(),
           updatedAt: new Date(),

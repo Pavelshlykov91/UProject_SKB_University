@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class Gallery extends Model {
     static associate({ User, Foto }) {
       this.belongsTo(User, { foreignKey: 'user_id' });
-      this.hasMany(Foto, { foreignKey: 'foto_id' });
+      this.hasMany(Foto, { foreignKey: 'gallery_id' });
     }
   }
   Gallery.init(
@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         references: {
           model: 'Users',
-          key: 'id'
+          key: 'id',
         },
         onDelete: 'CASCADE',
       },
