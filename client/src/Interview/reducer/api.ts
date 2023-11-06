@@ -1,5 +1,5 @@
-import { User } from "../../features/auth/type";
-import { Interview,  InterviewComment,  InterviewId } from "./type";
+import type { User } from "../../features/auth/type";
+import type { Interview,  InterviewComment,  InterviewId } from "./type";
 
 export const fetchInterviews = async ():Promise<Interview[]> => {
   const res = await(await fetch ('/api/interviews')).json()

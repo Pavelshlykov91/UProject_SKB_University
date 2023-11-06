@@ -19,7 +19,7 @@ export default function InterviewItem(): JSX.Element {
     dispatch(checkUser())
     return () => {
     };
-  }, [interviewId, comments])
+  }, [interview])
   
   const user = useSelector((store:RootState)=> store.auth.user)
   // const comment = comments.find((comm) => comm.)
