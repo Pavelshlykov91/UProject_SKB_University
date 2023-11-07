@@ -1,4 +1,4 @@
-import type { Material, MaterialID, Theme } from './type';
+import type { Material, MaterialContent, MaterialID, Theme } from './type';
 
 export const fetchMaterials = async (): Promise<Material[]> => {
   const res = await fetch('/api/materials');
@@ -28,7 +28,7 @@ export const fetchMaterialsDelete = async (
   return res.json();
 };
 
-export const fetchMaterialsUpdate = async (material: Material): Promise<Material> => {
+export const fetchMaterialsUpdate = async (material: MaterialContent): Promise<Material> => {
   const res = await fetch(`/api/materials/${material.id}`, {
     method: 'PUT',
     headers: {

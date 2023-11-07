@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { MaterialsState } from './types';
 import * as api from '../api';
-import type { Material, MaterialID } from '../type';
+import type { Material, MaterialContent, MaterialID } from '../type';
 
 const initialState: MaterialsState = {
   materials: [],
@@ -16,7 +16,7 @@ export const addMaterial = createAsyncThunk('materials/add', (material: Material
 export const deleteMaterial = createAsyncThunk('materials/delete', (id: MaterialID) =>
   api.fetchMaterialsDelete(id),
 );
-export const updateMaterial = createAsyncThunk('materials/update', (material: Material) => api.fetchMaterialsUpdate(material))
+export const updateMaterial = createAsyncThunk('materials/update', (material: MaterialContent) => api.fetchMaterialsUpdate(material))
 
 
 const materialsSlice = createSlice({

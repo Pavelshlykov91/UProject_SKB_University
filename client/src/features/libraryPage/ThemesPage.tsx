@@ -8,7 +8,7 @@ const ThemesPage = ():JSX.Element => {
 
 
   return (
-    <div>
+    <div className='themes-item'>
       {themes.map((theme)=> (
         <ThemesItem  key={theme.id} theme={theme}/>
       ))}
