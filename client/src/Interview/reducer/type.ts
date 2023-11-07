@@ -1,10 +1,11 @@
 import { User } from "../../features/auth/type";
 
 export type Interview = {
-  id?: number|string;
+  id?: number;
   title: string;
   content: string;
   url: string;
+  user_id: number
 };
 
 export type InterviewId = Interview['id'];
@@ -17,18 +18,12 @@ export type InterviewState = {
 };
 
 export type InterviewComment = {
-  id?: number|string;
-  user_id?: number;
-  interview_id?: number|string;
+  id?: number;
+  user_id: number;
+  interview_id:  string|number ;
   content: string;
-  User: User|undefined
+  User: User
 };
-
-
-
 
 export type InterviewCommId = InterviewComment['id'];
 
-export type Acction =
-  | { type: 'interviews/load'; payload: Interview[] }
-  | { type: 'interviews/add'; payload: Interview };
