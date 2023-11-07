@@ -4,7 +4,13 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import * as api from '../api';
 import type { AlbumsState } from './State';
-import type { AlbumContent, AlbumContentWithId, AlbumId, PhotoContentWithId } from '../type';
+import type {
+  AlbumContent,
+  AlbumContentWithId,
+  AlbumId,
+  PhotoContentWithId,
+  PhotoId,
+} from '../type';
 
 const initialState: AlbumsState = {
   albums: [],
@@ -25,6 +31,9 @@ export const updateAlbum = createAsyncThunk('albums/update', (album: AlbumConten
 );
 export const addPhoto = createAsyncThunk('photos/add', (photo: PhotoContentWithId) =>
   api.fetchPhotoAdd(photo),
+);
+export const deletePhoto = createAsyncThunk('photos/delete', (photo: PhotoContentWithId) =>
+  api.fetchPhotoDelete(photo),
 );
 
 const albumsSlice = createSlice({
@@ -79,6 +88,13 @@ const albumsSlice = createSlice({
         state.albums = state.albums.map((albumTemp) =>
           albumTemp.id === action.payload.gallery_id
             ? { ...albumTemp, Fotos: [...albumTemp.Fotos, action.payload] }
+            : albumTemp,
+        );
+      })
+      .addCase(deletePhoto.fulfilled, (state, action) => {
+        state.albums = state.albums.map((albumTemp) =>
+          albumTemp.id === action.payload.gallery_id
+            ? (albumTemp.Fotos = albumTemp.Fotos.filter((photo) => photo.id !== action.payload.id))
             : albumTemp,
         );
       });

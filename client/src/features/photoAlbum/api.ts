@@ -7,6 +7,7 @@ import type {
   AlbumId,
   Photo,
   PhotoContentWithId,
+  PhotoId,
 } from './type';
 
 export const fetchAlbums = async (): Promise<Album[]> => {
@@ -55,7 +56,7 @@ export const fetchAlbumUpdate = async (album: AlbumContentWithId): Promise<Album
 };
 
 export const fetchPhotoAdd = async (photo: PhotoContentWithId): Promise<Photo> => {
-  const res = await fetch(`/api/gallery/${photo.gallery_id}`, {
+  const res = await fetch(`/api/gallery/${photo.gallery_id}/photo`, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
@@ -63,5 +64,14 @@ export const fetchPhotoAdd = async (photo: PhotoContentWithId): Promise<Photo> =
     body: JSON.stringify(photo),
   });
 
+  return res.json();
+};
+
+export const fetchPhotoDelete = async (
+  photo: PhotoContentWithId,
+): Promise<{ message: string; id: number; gallery_id: number }> => {
+  const res = await fetch(`/api/gallery/${photo.gallery_id}/photo/${photo.id}`, {
+    method: 'DELETE',
+  });
   return res.json();
 };

@@ -1,10 +1,8 @@
 import React from 'react';
-import './modalDelete.css';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../../redux/store'
-import { deleteMaterial } from '../reducer/librarySlice'
-
-
+import { useAppDispatch } from '../../../redux/store';
+import { deleteMaterial } from '../reducer/librarySlice';
+import './modalDeleteLibrary.css';
 
 function ModalDeleteLibrary({
   active,
@@ -25,12 +23,12 @@ function ModalDeleteLibrary({
   };
 
   return (
-    <div className={active ? 'modal active' : 'modal'}>
+    <div className={active ? 'modal-library active-library' : 'modal-library'}>
       <div
-        className="modal__content"
+        className="modal-library__content"
         onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
       >
-        <p>Вы точно хотите удалить Статью?</p>
+        <p>Вы точно хотите удалить статью?</p>
         <button type="button" onClick={() => onHandleDeleteMaterial()}>
           Удалить
         </button>

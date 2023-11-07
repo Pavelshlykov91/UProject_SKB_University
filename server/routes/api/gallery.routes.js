@@ -65,7 +65,7 @@ router.put('/:albumId', async (req, res) => {
   }
 });
 
-router.post('/:albumId', async (req, res) => {
+router.post('/:albumId/photo', async (req, res) => {
   try {
     const { albumId } = req.params;
     const { url } = req.body;
@@ -80,5 +80,21 @@ router.post('/:albumId', async (req, res) => {
     res.json({ message });
   }
 });
+
+router.delete('/:albumId/photo/photoId', async (req, res) => {
+  try {
+    const { albumId, photoId } = req.params;
+    const result = await Foto.destroy({ where: { gallery_id: albumId, where: {id: photoId} } });
+    if (result > 0) {
+      const photo = { message: 'success', id: +photoId, gallery_id: +albumId }
+      res.json(photo);
+      return;
+    }
+    res.json({ message: 'error' });
+  } catch ({ message }) {
+    res.json({ message });
+  }
+});
+
 
 module.exports = router;

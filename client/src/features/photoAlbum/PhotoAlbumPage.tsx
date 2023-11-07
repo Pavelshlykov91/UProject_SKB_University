@@ -6,10 +6,9 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '../../redux/store';
 import AddPhotoForm from './AddPhotoForm';
 import UpdAlbumForm from './UpdAlbumForm';
-import ModalDelete from '../modalDelete/ModalDelete';
-import ModalPhoto from '../modalPhotos/ModalPhoto';
-import './styles/style.css';
+import ModalDeleteGallery from '../modalDeleteGallery/ModalDeleteGallery';
 import PhotoItem from './PhotoItem';
+import './styles/style.css';
 
 export default function PhotoAlbumPage(): JSX.Element {
   const { albumId } = useParams();
@@ -41,7 +40,7 @@ export default function PhotoAlbumPage(): JSX.Element {
           <button onClick={() => setModalActive(!modalActive)} type="button">
             Удалить
           </button>
-          <ModalDelete active={modalActive} setActive={setModalActive} id={album.id} />
+          <ModalDeleteGallery active={modalActive} setActive={setModalActive} id={album.id} />
         </div>
       )}
       <AddPhotoForm id={album.id} />

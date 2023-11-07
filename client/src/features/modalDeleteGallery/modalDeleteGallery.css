@@ -1,4 +1,4 @@
-.modal {
+.modal-gallery {
   display: none;
   justify-content: center;
   align-items: center;
@@ -7,19 +7,19 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   pointer-events: none;
   transition: 0.3s;
   overflow-y: scroll;
   z-index: 2;
 }
 
-.modal.active {
+.modal-gallery.active-gallery {
   display: flex;
   pointer-events: all;
 }
 
-.modal__content {
+.modal-gallery__content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +29,13 @@
   background-image: linear-gradient(to right, #ffffff 0%, #d0d2d2 100%);
   border-radius: 20px;
   width: 400px;
-  height: 150px;
+  height: 170px;
   font-size: 20px;
   z-index: 1;
+}
+.modal-gallery__content p {
+  margin: 15px;
+}
+.modal-gallery__content button {
+  margin: 0 0 10px;
 }
