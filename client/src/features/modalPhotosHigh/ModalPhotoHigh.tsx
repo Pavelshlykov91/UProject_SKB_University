@@ -21,10 +21,12 @@ function ModalPhoto({
 
   const onHandleDelete = async (): Promise<void> => {
     dispatch(deletePhoto(foto));
-    // setActive(!active);
   };
   return (
-    <div className={active ? 'modal-photo active-photo' : 'modal-photo'} onClick={() => setActive(false)}>
+    <div
+      className={active ? 'modal-photo active-photo' : 'modal-photo'}
+      onClick={() => setActive(false)}
+    >
       <div
         className="modal-photo__content"
         onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
@@ -34,7 +36,7 @@ function ModalPhoto({
           <button onClick={() => onHandleDelete()} type="button" className="modal-photo-btn">
             Удалить
           </button>
-      )}
+        )}
       </div>
     </div>
   );

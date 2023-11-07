@@ -32,7 +32,7 @@ router.delete('/:albumId', async (req, res) => {
     const { albumId } = req.params;
     const result = await Gallery.destroy({ where: { id: albumId } });
     if (result > 0) {
-      res.json({ message: 'success', id: +albumId });
+      res.json({ id: +albumId });
       return;
     }
     res.json({ message: 'error' });
@@ -65,5 +65,42 @@ router.put('/:albumId', async (req, res) => {
     res.json({ message });
   }
 });
+
+
+router.post('/:albumId/photo', async (req, res) => {
+  try {
+    const { albumId } = req.params;
+    const { url } = req.body;
+    const photo = await Foto.create({
+      url,
+      user_id: req.session.userId,
+      gallery_id: +albumId,
+    });
+
+    res.json(photo);
+  } catch ({ message }) {
+    res.json({ message });
+  }
+});
+
+router.delete('/:albumId/photo/:photoId', async (req, res) => {
+  try {
+    const { albumId, photoId } = req.params;
+    console.log(albumId, photoId);
+
+    const result = await Foto.destroy({
+      where: { id: +photoId, gallery_id: +albumId },
+    });
+    if (result > 0) {
+      const photo = { id: +photoId, gallery_id: +albumId };
+      res.json(photo);
+      return;
+    }
+    res.json({ message: 'error' });
+  } catch ({ message }) {
+    res.json({ message });
+  }
+});
+
 
 module.exports = router;

@@ -9,6 +9,7 @@ import type {
   AlbumContentWithId,
   AlbumId,
   PhotoContentWithId,
+  PhotoContentWithIdAndId,
   PhotoId,
 } from '../type';
 
@@ -32,7 +33,7 @@ export const updateAlbum = createAsyncThunk('albums/update', (album: AlbumConten
 export const addPhoto = createAsyncThunk('photos/add', (photo: PhotoContentWithId) =>
   api.fetchPhotoAdd(photo),
 );
-export const deletePhoto = createAsyncThunk('photos/delete', (photo: PhotoContentWithId) =>
+export const deletePhoto = createAsyncThunk('photos/delete', (photo: PhotoContentWithIdAndId) =>
   api.fetchPhotoDelete(photo),
 );
 
@@ -85,17 +86,17 @@ const albumsSlice = createSlice({
         state.loading = true;
       })
       .addCase(addPhoto.fulfilled, (state, action) => {
-        state.albums = state.albums.map((albumTemp) =>
-          albumTemp.id === action.payload.gallery_id
-            ? { ...albumTemp, Fotos: [...albumTemp.Fotos, action.payload] }
-            : albumTemp,
+        state.albums = state.albums.map((album) =>
+          album.id === action.payload.gallery_id
+            ? { ...album, Fotos: [...album.Fotos, action.payload] }
+            : album,
         );
       })
       .addCase(deletePhoto.fulfilled, (state, action) => {
-        state.albums = state.albums.map((albumTemp) =>
-          albumTemp.id === action.payload.gallery_id
-            ? (albumTemp.Fotos = albumTemp.Fotos.filter((photo) => photo.id !== action.payload.id))
-            : albumTemp,
+        state.albums = state.albums.map((album) =>
+          album.id === action.payload.gallery_id
+            ? { ...album, Fotos: album.Fotos.filter((photo) => photo.id !== action.payload.id) }
+            : album,
         );
       });
   },
