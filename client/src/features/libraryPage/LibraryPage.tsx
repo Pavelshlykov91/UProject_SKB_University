@@ -15,18 +15,21 @@ const LibraryPage = (): JSX.Element => {
   const [flag, setFlag] = useState(false);
 
   return (
-    <div>
+    <div className='container-library'>
       <HeaderBlockLibrary/>
       <SortItem/>
       <ThemesPage/>
       <button onClick={() => setFlag(!flag)} type="button">
         Добавить книгу
       </button>
+      <div className="container__library">
       {flag && <AddLibraryForm />}
+
       {materials.map((material) => (
         <LibraryItem key={material.id} material={material} />
       ))}
       
+      </div>
     </div>
   );
 };
