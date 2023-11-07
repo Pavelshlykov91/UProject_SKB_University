@@ -20,14 +20,15 @@ const LibraryItemPage = (): JSX.Element => {
 
   const content = material && (
     <div className="book-page">
-      <div className="book-img-page">
-        <img src={material?.url} alt="img" />
+      <div className='book-content'>
+        <div className="book-img-page">
+          <img src={material?.url} alt="img" />
+        </div>
         <div className="book-text-page">
           <h2>{material?.author}</h2>
           <p>{material?.content}</p>
         </div>
       </div>
-
       <div className="book-btn">
         {(user?.id === material?.user_id || user?.role === 'преподаватель') && (
           <div className="library-btns">

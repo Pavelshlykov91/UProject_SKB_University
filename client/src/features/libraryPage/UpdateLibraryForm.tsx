@@ -3,6 +3,7 @@ import { RootState, useAppDispatch } from '../../redux/store';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { updateMaterial } from './reducer/librarySlice';
+import { MaterialContent } from './type'
 
 function UpdateLibraryForm({
   flag,
@@ -15,12 +16,12 @@ function UpdateLibraryForm({
   const { materialId } = useParams();
 
   const materials = useSelector((store: RootState) => store.materials.materials);
-  const material = materials.find((elem) => materialId && elem.id === +materialId);
+  const material:MaterialContent = materials.find((elem) => materialId && elem.id === +materialId);
 
-  const [name, setName] = useState(material?.name);
-  const [author, setAuthor] = useState(material?.author);
-  const [content, setContent] = useState(material?.content);
-  const [url, setUrl] = useState(material?.url);
+  const [name, setName] = useState(material.name);
+  const [author, setAuthor] = useState(material.author);
+  const [content, setContent] = useState(material.content);
+  const [url, setUrl] = useState(material.url);
 
   const onHandleUpdate: React.FormEventHandler<HTMLFormElement> = async (e): Promise<void> => {
     e.preventDefault();

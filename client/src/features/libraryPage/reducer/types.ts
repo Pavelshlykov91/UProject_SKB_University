@@ -1,4 +1,4 @@
-import type { Material, Theme } from '../type';
+import type { Material, MaterialID, Theme } from '../type';
 
 export type MaterialsState = {
   materials: Material[];
@@ -7,7 +7,7 @@ export type MaterialsState = {
 };
 
 export type ThemesState = {
-  themes:Theme [];
+  themes: Theme[];
   error: string | null;
   loading: boolean;
 };
@@ -15,5 +15,6 @@ export type ThemesState = {
 export type Action =
   | { type: 'materials/load'; payload: Material[] }
   | { type: 'materials/add'; payload: Material }
-  | { type: 'themes/load'; payload: Theme[] }
-
+  | { type: 'materials/delete'; payload: MaterialID }
+  | { type: 'materials/update'; payload: MaterialID }
+  | { type: 'themes/load'; payload: Theme[] };
