@@ -20,3 +20,4 @@ export type Action =
   | { type: 'albums/update'; payload: AlbumId }
   | { type: 'photos/add'; payload: Photo }
   | { type: 'photos/delete'; payload: PhotoId };
+
