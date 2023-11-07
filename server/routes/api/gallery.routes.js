@@ -100,4 +100,6 @@ router.delete('/:albumId/photo/:photoId', async (req, res) => {
   }
 });
 
+// test
+
 module.exports = router;
