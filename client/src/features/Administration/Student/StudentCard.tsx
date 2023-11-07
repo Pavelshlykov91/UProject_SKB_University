@@ -3,11 +3,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @typescript-eslint/no-shadow */
 import { useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect } from "react";
 import type { RootState} from "../../../redux/store";
 import { useAppDispatch } from "../../../redux/store";
-import * as api from '../api'
 import { loadUsers } from "../reducer/StudentSlice";
 import './student.css'
 
@@ -32,14 +31,13 @@ export default function StudentCard(): JSX.Element {
     };
   }, [])
   
-  const user = useSelector((store:RootState)=> store.auth.user)
 
 
   return (
     <div className="profile-container">
-  <div className="profile-picture">
-  </div>
+  <div className = "profile-picture">
     <img className='imgCard'src={student?.foto} alt="User Profile Picture"/>
+    </div>
   <div className="profile-details">
     <div className="personal-details">
       <h2>{`${student?.firstName} ${student?.lastName} ${student?.surname}`}</h2>
@@ -54,7 +52,7 @@ export default function StudentCard(): JSX.Element {
       <p className="p-style">Департамент: {student?.department}</p>
     </div>
   </div>
-  <button onClick={() => navigate(-1)}>Вернуться</button>
+ <button onClick={() => navigate(-1)}>Вернуться</button>
 </div>
   );
           }

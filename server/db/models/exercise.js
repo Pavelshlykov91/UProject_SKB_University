@@ -38,14 +38,27 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
+    file: {
+      type: DataTypes.TEXT,
+    },
     corAnswer: {
+      type: DataTypes.TEXT,
+    },
+    deadline: {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    file: {
+    goals: {
       type: DataTypes.TEXT,
       allowNull: false
-    }
+    },
+    addMaterial: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    critery: {
+      type: DataTypes.TEXT,
+    },
   }, {
     sequelize,
     modelName: 'Exercise',
