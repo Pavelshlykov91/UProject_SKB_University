@@ -21,6 +21,7 @@ export type Photo = {
 export type PhotoId = Photo['id'];
 export type PhotoContent = Pick<Album, 'url'>;
 export type PhotoContentWithId = Pick<Photo, 'url' | 'id' | 'gallery_id'>;
+export type PhotoContentWithIdAndId = Pick<Photo, 'id' | 'gallery_id'>;
 
 export type PhotoComment = {
   id: number;
