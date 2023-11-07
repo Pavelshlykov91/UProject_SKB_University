@@ -31,7 +31,7 @@ router.delete('/:albumId', async (req, res) => {
     const { albumId } = req.params;
     const result = await Gallery.destroy({ where: { id: albumId } });
     if (result > 0) {
-      res.json({ message: 'success', id: +albumId });
+      res.json({ id: +albumId });
       return;
     }
     res.json({ message: 'error' });
@@ -81,12 +81,16 @@ router.post('/:albumId/photo', async (req, res) => {
   }
 });
 
-router.delete('/:albumId/photo/photoId', async (req, res) => {
+router.delete('/:albumId/photo/:photoId', async (req, res) => {
   try {
     const { albumId, photoId } = req.params;
-    const result = await Foto.destroy({ where: { gallery_id: albumId, where: {id: photoId} } });
+    console.log(albumId, photoId);
+
+    const result = await Foto.destroy({
+      where: { id: +photoId, gallery_id: +albumId },
+    });
     if (result > 0) {
-      const photo = { message: 'success', id: +photoId, gallery_id: +albumId }
+      const photo = { id: +photoId, gallery_id: +albumId };
       res.json(photo);
       return;
     }
@@ -95,6 +99,5 @@ router.delete('/:albumId/photo/photoId', async (req, res) => {
     res.json({ message });
   }
 });
-
 
 module.exports = router;
