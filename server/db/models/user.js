@@ -4,8 +4,10 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate({Course,Material,MaterialComment,Foto_comment, Foto, Gallery, Interview,InterviewComment, Mark, User_group, Answer, Exercise}) {
+    static associate({BusinessGroup, Department, Course,Material,MaterialComment,Foto_comment, Foto, Gallery, Interview,InterviewComment, Mark, User_group, Answer, Exercise}) {
       this.belongsTo(Course, { foreignKey: 'course_id' })
+      this.belongsTo(Department, { foreignKey: 'department_id' })
+      this.belongsTo(BusinessGroup, { foreignKey: 'bg_id' })
       this.hasMany(Material, { foreignKey: 'user_id' })
       this.hasMany(MaterialComment, { foreignKey: 'user_id' })
       this.hasMany(Foto_comment, { foreignKey: 'user_id' })
@@ -48,13 +50,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    department: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    bg: {
-      type: DataTypes.TEXT,
-      allowNull: false
+    department_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Departments',
+        key: 'id'
+      },
+      onDelete: 'CASCADE',
     },
     role: {
       type: DataTypes.TEXT,
@@ -74,6 +77,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     foto: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    bg_id: {
       type: DataTypes.TEXT,
       allowNull: false
     }
