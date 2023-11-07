@@ -1,4 +1,4 @@
-import type { Album, AlbumId, Photo } from '../type';
+import type { Album, AlbumId, Photo, PhotoId } from '../type';
 
 export type AlbumsState = {
   albums: Album[];
@@ -18,4 +18,5 @@ export type Action =
   | { type: 'albums/add'; payload: Album }
   | { type: 'albums/delete'; payload: AlbumId }
   | { type: 'albums/update'; payload: AlbumId }
-  | { type: 'photos/add'; payload: Photo };
+  | { type: 'photos/add'; payload: Photo }
+  | { type: 'photos/delete'; payload: PhotoId };
