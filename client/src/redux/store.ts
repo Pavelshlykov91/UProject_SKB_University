@@ -5,11 +5,10 @@ import MainPageSlice from '../features/mainPage/MainPage/reducers/MainPageSlice'
 import librarySlice from '../features/libraryPage/reducer/librarySlice';
 import InterviewPageSlice from '../Interview/reducer/InterviewPageSlice';
 import authSlice from '../features/auth/authSlice';
-import photoSlice from '../features/photoAlbum/reducer/photoSlice';
 import StudentSlice from '../features/Administration/reducer/StudentSlice';
 import ExerciseSlice from '../features/Administration/reducer/ExerciseSlice';
 import GroupSlice from '../features/Administration/reducer/GroupSlice';
-
+import themeSlice from '../features/libraryPage/reducer/themeSlice'
 
 const store = configureStore({
   reducer: {
@@ -18,9 +17,14 @@ const store = configureStore({
     ints: MainPageSlice,
     materials: librarySlice,
     auth: authSlice,
+    students: StudentSlice,
+    exercises: ExerciseSlice,
+    groups: GroupSlice,
     students:StudentSlice,
     exercises:ExerciseSlice,
     groups:GroupSlice,
+    themes:themeSlice,
+
   },
 });
 

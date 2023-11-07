@@ -39,14 +39,15 @@ router.get('/:interviewId', async (req, res) => {
 
 router.post('/:interviewId', async (req, res) => {
   const  interviewId  = req.params.interviewId;
-  const {content, interview_id, User} = req.body
-  const user_id = User.id
+  const {content, interview_id} = req.body
+  const user_id = req.session.userId
   const comment = await InterviewComment.create({
     user_id,
     interview_id,
     content
   });  
-  res.json(comment);
+  const comment2 = await InterviewComment.findOne({where: {id: comment.id}, include: {model: User}})
+  res.json(comment2);
 });
 
 router.put('/:interviewId', async (req, res) => {

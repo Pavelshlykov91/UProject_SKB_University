@@ -18,6 +18,7 @@ import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
 import AdminMain from '../features/Administration/AdminMain';
 import * as apiAdmin from '../features/Administration/api'
 import StudentCard from '../features/Administration/Student/StudentCard';
+import { loadThemes } from '../features/libraryPage/reducer/themeSlice'
 
 
 const App = (): JSX.Element => {
@@ -27,6 +28,7 @@ const App = (): JSX.Element => {
     dispatch(loadInterview());
     dispatch(loadMaterials());
     dispatch(loadAlbums());
+    dispatch(loadThemes())
   }, []);
 
   useEffect(() => {
@@ -48,8 +50,8 @@ const App = (): JSX.Element => {
         <Route path="/interviews/:interviewId" element={<InterviewItem />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/library/:materialId" element={<LibraryItemPage />} />
-        <Route path="/administration/:studentId" element={<StudentCard />} />
         <Route path="/library/add-form" element={<AddLibraryForm />} />
+        <Route path="/administration/:studentId" element={<StudentCard />} />
       </Route>
     </Routes>
   );

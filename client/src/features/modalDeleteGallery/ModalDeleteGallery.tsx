@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-// import { useSelector } from 'react-redux';
-import './modalDelete.css';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
 import { deleteAlbum } from '../photoAlbum/reducer/albumsSlice';
+import './modalDeleteGallery.css'
 
 function ModalDelete({
   active,
@@ -24,9 +25,9 @@ function ModalDelete({
   };
 
   return (
-    <div className={active ? 'modal active' : 'modal'}>
+    <div className={active ? 'modal-gallery active-gallery' : 'modal-gallery'}>
       <div
-        className="modal__content"
+        className="modal-gallery__content"
         onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
       >
         <p>Вы точно хотите удалить весь альбом с его содержимым?</p>

@@ -19,7 +19,7 @@ export const fetchInterviewscommAdd = async ({ content, interview_id, User}:{ co
     headers: {
       'Content-type': 'application/json',
     },
-    body: JSON.stringify({ content, interview_id, User}),
+    body: JSON.stringify({ content, interview_id}),
   });
   console.log(res, '000000000');
 

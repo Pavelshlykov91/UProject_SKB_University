@@ -1,22 +1,39 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable no-return-assign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import * as api from '../api';
 import type { AlbumsState } from './State';
-import type { Album, AlbumId } from '../type';
+import type {
+  AlbumContent,
+  AlbumContentWithId,
+  AlbumId,
+  PhotoContentWithId,
+  PhotoId,
+} from '../type';
 
 const initialState: AlbumsState = {
   albums: [],
+  photos: [],
   error: null,
   loading: true,
 };
 
 export const loadAlbums = createAsyncThunk('albums/load', () => api.fetchAlbums());
-export const addAlbum = createAsyncThunk('albums/add', (album: Album) => api.fetchAlbumAdd(album));
+export const addAlbum = createAsyncThunk('albums/add', (album: AlbumContent) =>
+  api.fetchAlbumAdd(album),
+);
 export const deleteAlbum = createAsyncThunk('albums/delete', (id: AlbumId) =>
   api.fetchAlbumDelete(id),
 );
-export const updateAlbum = createAsyncThunk('albums/update', (album: Album) =>
+export const updateAlbum = createAsyncThunk('albums/update', (album: AlbumContentWithId) =>
   api.fetchAlbumUpdate(album),
+);
+export const addPhoto = createAsyncThunk('photos/add', (photo: PhotoContentWithId) =>
+  api.fetchPhotoAdd(photo),
+);
+export const deletePhoto = createAsyncThunk('photos/delete', (photo: PhotoContentWithId) =>
+  api.fetchPhotoDelete(photo),
 );
 
 const albumsSlice = createSlice({
@@ -66,6 +83,20 @@ const albumsSlice = createSlice({
       })
       .addCase(updateAlbum.pending, (state) => {
         state.loading = true;
+      })
+      .addCase(addPhoto.fulfilled, (state, action) => {
+        state.albums = state.albums.map((albumTemp) =>
+          albumTemp.id === action.payload.gallery_id
+            ? { ...albumTemp, Fotos: [...albumTemp.Fotos, action.payload] }
+            : albumTemp,
+        );
+      })
+      .addCase(deletePhoto.fulfilled, (state, action) => {
+        state.albums = state.albums.map((albumTemp) =>
+          albumTemp.id === action.payload.gallery_id
+            ? (albumTemp.Fotos = albumTemp.Fotos.filter((photo) => photo.id !== action.payload.id))
+            : albumTemp,
+        );
       });
   },
 });

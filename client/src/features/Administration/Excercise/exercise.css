@@ -1,0 +1,16 @@
+.head_exercise_container {
+width:500px;
+display: flex;
+flex-direction: row;
+justify-content: space-between
+}
+.img_arrow {
+width: 30px;
+height:30px;
+}
+.exercise_name{
+padding-left: 50px;
+}
+.exercise_input_material{
+background-color: #FFE4C4;
+}

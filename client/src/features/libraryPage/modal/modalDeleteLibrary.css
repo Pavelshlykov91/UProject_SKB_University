@@ -1,4 +1,4 @@
-.modal {
+.modal-library {
   display: none;
   justify-content: center;
   align-items: center;
@@ -14,12 +14,12 @@
   z-index: 2;
 }
 
-.modal.active {
+.modal-library.active-library {
   display: flex;
   pointer-events: all;
 }
 
-.modal__content {
+.modal-library__content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,4 +32,10 @@
   height: 150px;
   font-size: 20px;
   z-index: 1;
+}
+.modal-library__content p {
+  margin: 15px;
+}
+.modal-library__content button {
+  margin: 0 0 10px;
 }
