@@ -35,30 +35,13 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      file: {
-        type: Sequelize.TEXT,
-      },
       corAnswer: {
         type: Sequelize.TEXT,
-      },
-      deadline: {
-        type: Sequelize.TEXT,
         allowNull: false
       },
-      goals: {
+      file: {
         type: Sequelize.TEXT,
         allowNull: false
-      },
-      addMaterial: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      addMaterial: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      critery: {
-        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,

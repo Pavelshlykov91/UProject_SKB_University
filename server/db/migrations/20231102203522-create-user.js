@@ -37,14 +37,13 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      department_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Departments',
-          key: 'id'
-        },
-        onDelete: 'CASCADE',
+      department: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
+      bg: {
+        type: Sequelize.TEXT,
+        allowNull: false
       },
       role: {
         type: Sequelize.TEXT,
@@ -64,10 +63,6 @@ module.exports = {
         allowNull: false
       },
       foto: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      bg_id: {
         type: Sequelize.TEXT,
         allowNull: false
       },

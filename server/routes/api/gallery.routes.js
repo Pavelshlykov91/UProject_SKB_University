@@ -3,13 +3,14 @@ const { Gallery, Foto } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   try {
-    const albums = await Gallery.findAll({ include: { model: Foto } });
+    const albums = await Gallery.findAll();
+    console.log(albums);
     res.json(albums);
   } catch ({ message }) {
     res.status(500).json({ message });
   }
 });
-
+// { include: { model: Foto } }
 router.post('/', async (req, res) => {
   try {
     const { title, content, url } = req.body;
@@ -65,6 +66,7 @@ router.put('/:albumId', async (req, res) => {
   }
 });
 
+
 router.post('/:albumId/photo', async (req, res) => {
   try {
     const { albumId } = req.params;
@@ -99,5 +101,6 @@ router.delete('/:albumId/photo/:photoId', async (req, res) => {
     res.json({ message });
   }
 });
+
 
 module.exports = router;

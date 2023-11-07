@@ -47,7 +47,7 @@ const App = (): JSX.Element => {
         <Route path="/gallery/:albumId" element={<PhotoAlbumPage />} />
         <Route path="/administration" element={<AdminMain />} />
         <Route path="/interviews" element={<InterviewPage />} />
-        <Route path="/interviews/:interviewId" element={<StudentCard />} />
+        <Route path="/interviews/:interviewId" element={<InterviewItem />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/library/:materialId" element={<LibraryItemPage />} />
         <Route path="/library/add-form" element={<AddLibraryForm />} />
