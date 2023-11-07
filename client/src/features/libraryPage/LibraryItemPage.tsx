@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../redux/store';
 import ModalDeleteLibrary from './modal/ModalDeleteLibrary';
-import UpdateLibraryForm from './UpdateLibraryForm'
+import UpdateLibraryForm from './UpdateLibraryForm';
 
 const LibraryItemPage = (): JSX.Element => {
   const { materialId } = useParams();
@@ -20,24 +20,31 @@ const LibraryItemPage = (): JSX.Element => {
 
   const content = material && (
     <div className="book-page">
-      <img src={material?.url} alt="img" />
-      <h2>{material?.author}</h2>
-      <p>{material?.content}</p>
-      {(user?.id === material?.user_id || user?.role === 'преподаватель') && (
-        <div className='library-btns'>
-          <button onClick={() => setFlag(!flag)} type="button">
-            Изменить
-          </button>
-          {flag && <UpdateLibraryForm flag={flag} setFlag={setFlag}/>}
-          <button onClick={() => setModalActive(!modalActive)} type="button">
-            Удалить
-          </button>
-          <ModalDeleteLibrary active={modalActive} setActive={setModalActive} id={material.id} />
+      <div className="book-img-page">
+        <img src={material?.url} alt="img" />
+        <div className="book-text-page">
+          <h2>{material?.author}</h2>
+          <p>{material?.content}</p>
         </div>
-      )}
-      <button type="button" onClick={() => navigate(-1)}>
-        Назад в Библиотеку
-      </button>
+      </div>
+
+      <div className="book-btn">
+        {(user?.id === material?.user_id || user?.role === 'преподаватель') && (
+          <div className="library-btns">
+            <button onClick={() => setFlag(!flag)} type="button">
+              Изменить
+            </button>
+            {flag && <UpdateLibraryForm flag={flag} setFlag={setFlag} />}
+            <button onClick={() => setModalActive(!modalActive)} type="button">
+              Удалить
+            </button>
+            <ModalDeleteLibrary active={modalActive} setActive={setModalActive} id={material.id} />
+          </div>
+        )}
+        <button type="button" onClick={() => navigate(-1)}>
+          Назад в Библиотеку
+        </button>
+      </div>
     </div>
   );
 
