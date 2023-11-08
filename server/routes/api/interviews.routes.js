@@ -26,7 +26,6 @@ router.post('/', async (req, res) => {
 router.get('/:interviewId', async (req, res) => {
   try {
     const  interviewId  = req.params.interviewId;
-    console.log(77777, interviewId);
     const comments = await InterviewComment.findAll({where: {interview_id: interviewId}, include: { model: User}});
     // console.log(999999, comments);
     // const interview = await Interview.findOne({ where: { id: interviewId } });
