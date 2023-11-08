@@ -56,6 +56,7 @@ router.put('/:albumId', async (req, res) => {
     if (result > 0) {
       const album = await Gallery.findOne({
         where: { id: +albumId },
+        include: { model: Foto },
       });
       res.json(album);
       return;

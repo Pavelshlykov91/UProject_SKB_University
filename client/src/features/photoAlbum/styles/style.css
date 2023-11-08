@@ -9,6 +9,7 @@
   height: 50vh;
   margin: 20px auto 30px;
 }
+
 .header-block-box img {
   min-width: 50vw;
   max-height: 50vh;
@@ -89,6 +90,7 @@
   height: 50vh;
   margin: 20px auto 30px;
 }
+
 .photoalbum-page-text {
   position: absolute;
   color: rgb(213, 213, 217);
@@ -96,6 +98,11 @@
   left: 55px;
   font-size: 26px;
   width: 20vw;
+}
+.photoalbum-page-text h2 {
+  font-size: 40px;
+  color: white;
+  margin-bottom: 10px;
 }
 .photoalbum-page-photo {
   width: 90vw;

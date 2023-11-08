@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable no-return-assign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
@@ -80,12 +81,15 @@ const albumsSlice = createSlice({
         state.loading = true;
       })
       .addCase(addPhoto.fulfilled, (state, action) => {
-
-        state.albums = state.albums.map((album) =>
-          album.id === action.payload[0].gallery_id
-            ? { ...album, Fotos: [...album.Fotos, ...action.payload] }
-            : album,
-        );
+        state.albums = state.albums.map((album) => {
+          if (album.id === action.payload[0].gallery_id && album.Fotos) {
+            return { ...album, Fotos: [...album.Fotos, ...action.payload] };
+          } else if (album.id === action.payload[0].gallery_id) {
+            return { ...album, Fotos: [...action.payload] };
+          } else {
+            return album;
+          }
+        });
       })
       .addCase(deletePhoto.fulfilled, (state, action) => {
         state.albums = state.albums.map((album) =>
