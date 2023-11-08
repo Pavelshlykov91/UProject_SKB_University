@@ -49,14 +49,6 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      addMaterial: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      addMaterial: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
       critery: {
         type: Sequelize.TEXT,
       },

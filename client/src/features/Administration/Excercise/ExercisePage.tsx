@@ -17,6 +17,7 @@ function ExercisePage():JSX.Element {
   useEffect(() => {
     dispatch(loadExercises());
   }, []);
+console.log(exercises, '0000000000000000000000000000000000');
 
   return (
     <div>  

@@ -27,7 +27,10 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id'
       },
       onDelete: 'CASCADE',
-    }
+    },
+    count: {
+      type: DataTypes.INTEGER,
+    },
   }, {
     sequelize,
     modelName: 'InterviewEmoji',

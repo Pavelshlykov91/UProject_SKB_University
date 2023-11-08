@@ -20,11 +20,7 @@ const store = configureStore({
     students: StudentSlice,
     exercises: ExerciseSlice,
     groups: GroupSlice,
-    students:StudentSlice,
-    exercises:ExerciseSlice,
-    groups:GroupSlice,
     themes:themeSlice,
-
   },
 });
 
