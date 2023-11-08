@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { MaterialsState } from './types';
 import * as api from '../api';
-import type { Material, MaterialContent, MaterialID } from '../type';
+import type {  MaterialAdd, MaterialContent, MaterialID } from '../type';
 
 const initialState: MaterialsState = {
   materials: [],
@@ -10,14 +10,15 @@ const initialState: MaterialsState = {
 };
 
 export const loadMaterials = createAsyncThunk('materials/load', () => api.fetchMaterials());
-export const addMaterial = createAsyncThunk('materials/add', (material: Material) =>
+export const addMaterial = createAsyncThunk('materials/add', (material: MaterialAdd) =>
   api.fetchMaterialsAdd(material),
 );
 export const deleteMaterial = createAsyncThunk('materials/delete', (id: MaterialID) =>
   api.fetchMaterialsDelete(id),
 );
-export const updateMaterial = createAsyncThunk('materials/update', (material: MaterialContent) => api.fetchMaterialsUpdate(material))
-
+export const updateMaterial = createAsyncThunk('materials/update', (material: MaterialContent) =>
+  api.fetchMaterialsUpdate(material),
+);
 
 const materialsSlice = createSlice({
   name: 'materials',
@@ -25,6 +26,9 @@ const materialsSlice = createSlice({
   reducers: {
     stopLoading: (state) => {
       state.loading = false;
+    },
+    setMaterials: (state, action) => {
+      state.materials = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -56,17 +60,21 @@ const materialsSlice = createSlice({
       .addCase(deleteMaterial.pending, (state) => {
         state.loading = true;
       })
-      .addCase(updateMaterial.fulfilled, (state,action)=>{
-        state.materials = state.materials.map((material)=>material.id === action.payload.id ? (material = action.payload):material,)
+      .addCase(updateMaterial.fulfilled, (state, action) => {
+        console.log(12312312312312312312);
+        
+        state.materials = state.materials.map((material) =>
+          material.id === action.payload.id ?  action.payload : material,
+        );
       })
       .addCase(updateMaterial.rejected, (state, action) => {
         state.error = action.error.message ? action.error.message : null;
       })
       .addCase(updateMaterial.pending, (state) => {
         state.loading = true;
-      })
+      });
   },
 });
 
-export const { stopLoading } = materialsSlice.actions;
+export const { stopLoading, setMaterials } = materialsSlice.actions;
 export default materialsSlice.reducer;

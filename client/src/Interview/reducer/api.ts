@@ -55,9 +55,19 @@ export const fetchInterviewUpd = async (interview: Interview): Promise<Interview
 
 export const fetchReactions = async ():Promise<InterviewReactions[]> => {
   console.log('kkkkk');
-  
   const res = await (await fetch('/api/reactions')).json();
-  console.log(771717177, res);
-  
+
+  return res.json()
+}
+
+  export const fetchInterviewUpd = async (interview:Interview): Promise<Interview> => {  
+    
+    const res = await fetch(`/api/interviews/${interview.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(interview),
+    });
   return res.json();
 }

@@ -34,7 +34,7 @@ export default function PhotoAlbumPage(): JSX.Element {
       {(user?.id === album?.user_id || user?.role === 'преподаватель') && (
         <div className="album-btns">
           <button onClick={() => setFlag(!flag)} type="button">
-            Изменить
+            Изменить альбом
           </button>
           {flag && <UpdAlbumForm flag={flag} setFlag={setFlag} />}
           <button onClick={() => setModalActive(!modalActive)} type="button">
@@ -45,9 +45,14 @@ export default function PhotoAlbumPage(): JSX.Element {
       )}
       <AddPhotoForm id={album.id} />
       <button onClick={() => navigate(-1)} type="button">
-        Назад к альбомам
+      &#10094; Назад к альбомам
       </button>
-      <div className="photoalbum-page-photo">{album.Fotos?.map((foto) => <PhotoItem key={foto.id} foto={foto}/>)}</div>
+      <div className="photoalbum-page-photo">
+        {album.Fotos?.map((foto) => <PhotoItem key={foto.id} foto={foto} />)}
+      </div>
+      <button onClick={() => navigate(-1)} type="button">
+      &#10094; Назад к альбомам
+      </button>
     </div>
   );
 

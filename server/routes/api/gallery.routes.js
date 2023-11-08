@@ -1,6 +1,18 @@
 const router = require('express').Router();
 const { Gallery, Foto } = require('../../db/models');
 
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/img');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage });
+
 router.get('/', async (req, res) => {
   try {
     const albums = await Gallery.findAll({ include: { model: Foto } });
@@ -10,31 +22,19 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', upload.single('url'), async (req, res) => {
   try {
-    const { title, content, url } = req.body;
+    const { title, content } = req.body;
+    const newFileUrl = `/img/${req.file.originalname}`;
+
     const album = await Gallery.create({
       title,
       content,
-      url,
+      url: newFileUrl,
       user_id: req.session.userId,
     });
 
     res.json(album);
-  } catch ({ message }) {
-    res.json({ message });
-  }
-});
-
-router.delete('/:albumId', async (req, res) => {
-  try {
-    const { albumId } = req.params;
-    const result = await Gallery.destroy({ where: { id: albumId } });
-    if (result > 0) {
-      res.json({ id: +albumId });
-      return;
-    }
-    res.json({ message: 'error' });
   } catch ({ message }) {
     res.json({ message });
   }
@@ -56,6 +56,7 @@ router.put('/:albumId', async (req, res) => {
     if (result > 0) {
       const album = await Gallery.findOne({
         where: { id: +albumId },
+        include: { model: Foto },
       });
       res.json(album);
       return;
@@ -65,17 +66,36 @@ router.put('/:albumId', async (req, res) => {
   }
 });
 
-router.post('/:albumId/photo', async (req, res) => {
+router.delete('/:albumId', async (req, res) => {
   try {
     const { albumId } = req.params;
-    const { url } = req.body;
-    const photo = await Foto.create({
-      url,
-      user_id: req.session.userId,
-      gallery_id: +albumId,
-    });
+    const result = await Gallery.destroy({ where: { id: albumId } });
+    if (result > 0) {
+      res.json({ id: +albumId });
+      return;
+    }
+    res.json({ message: 'error' });
+  } catch ({ message }) {
+    res.json({ message });
+  }
+});
 
-    res.json(photo);
+router.post('/:albumId/photo', upload.any('url'), async (req, res) => {
+  try {
+    const { albumId } = req.params;
+    const photos = await Promise.all(
+      req.files.map((el) => {
+        const newFileUrl = `/img/${el.originalname}`;
+
+        return Foto.create({
+          url: newFileUrl,
+          user_id: req.session.userId,
+          gallery_id: +albumId,
+        });
+      })
+    );
+
+    res.json(photos);
   } catch ({ message }) {
     res.json({ message });
   }
@@ -84,8 +104,6 @@ router.post('/:albumId/photo', async (req, res) => {
 router.delete('/:albumId/photo/:photoId', async (req, res) => {
   try {
     const { albumId, photoId } = req.params;
-    console.log(albumId, photoId);
-
     const result = await Foto.destroy({
       where: { id: +photoId, gallery_id: +albumId },
     });

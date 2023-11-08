@@ -16,7 +16,9 @@ const AddLibraryForm = (): JSX.Element => {
 
   const onHandleMaterialAdd = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
+
     dispatch(addMaterial({ name, author, content, url }));
+
     setName('');
     setAuthor('');
     setContent('');

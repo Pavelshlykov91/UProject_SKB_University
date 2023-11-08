@@ -1,4 +1,4 @@
-import type { Material, MaterialContent, MaterialID, Theme } from './type';
+import type { Material, MaterialAdd, MaterialContent, MaterialID, Theme } from './type';
 
 export const fetchMaterials = async (): Promise<Material[]> => {
   const res = await fetch('/api/materials');
@@ -8,7 +8,7 @@ export const fetchMaterials = async (): Promise<Material[]> => {
   return res.json();
 };
 
-export const fetchMaterialsAdd = async (material: Material): Promise<Material> => {
+export const fetchMaterialsAdd = async (material: MaterialAdd): Promise<Material> => {
   const res = await fetch('/api/materials', {
     method: 'POST',
     headers: {
@@ -41,6 +41,8 @@ export const fetchMaterialsUpdate = async (material: MaterialContent): Promise<M
       url: material.url,
     }),
   });
+  console.log(res,'-----');
+  
   return res.json()
 };
 

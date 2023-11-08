@@ -34,7 +34,7 @@ function ModalPhoto({
         <img src={foto.url} alt="img" />
         {(user?.id === foto.user_id || user?.role === 'преподаватель') && (
           <button onClick={() => onHandleDelete()} type="button" className="modal-photo-btn">
-            Удалить
+            &#10008;
           </button>
         )}
       </div>

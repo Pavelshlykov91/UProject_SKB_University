@@ -4,16 +4,46 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
       await queryInterface.bulkInsert('Emojis', [{
-        emoji: 'smile1',
+        emoji: '❤️',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        emoji: 'smile2',
+        emoji: '✨',
         createdAt: new Date(),
         updatedAt: new Date(),
       },{
-        emoji: 'smile3',
+        emoji: '😍',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        emoji: '🤯',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        emoji: '🤔',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        emoji: '😳',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        emoji: '👏🏻',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        emoji: '😂',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        emoji: '🌚',
         createdAt: new Date(),
         updatedAt: new Date(),
       }], {});

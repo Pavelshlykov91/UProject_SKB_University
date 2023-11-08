@@ -20,9 +20,13 @@ const LibraryItemPage = (): JSX.Element => {
 
   const content = material && (
     <div className="book-page">
-      <div className='book-content'>
+      <div className="book-content">
         <div className="book-img-page">
-          <img src={material?.url} alt="img" />
+          {material.url ? (
+            <img src={material?.url} alt="img" />
+          ) : (
+            <img src="../../../public/img/book.jpeg" alt="img" />
+          )}
         </div>
         <div className="book-text-page">
           <h2>{material?.author}</h2>
@@ -43,7 +47,7 @@ const LibraryItemPage = (): JSX.Element => {
           </div>
         )}
         <button type="button" onClick={() => navigate(-1)}>
-          Назад в Библиотеку
+          &#10094; Назад в Библиотеку
         </button>
       </div>
     </div>
