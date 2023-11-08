@@ -25,7 +25,7 @@ const SortItem = (): JSX.Element => {
         </option>
       </select>
       <button onClick={sortAlphabetically} type="button">
-        sort
+      Применить
       </button>
     </div>
   );

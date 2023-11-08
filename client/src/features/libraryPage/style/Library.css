@@ -25,13 +25,17 @@
   width: 80vw;
 }
 .library-item {
+  display: flex;
+  flex-direction: column;
   margin: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 15vw;
 }
 
 .library-item img {
   width: 15vw;
   height: 20vh;
-
   border-radius: 20px;
   margin: 5px;
   box-shadow: 5px 5px 20px rgb(67, 67, 67);
@@ -49,6 +53,7 @@
 }
 .library-item-text {
   padding: 5px;
+  margin: 0 auto;
 }
 .book-page {
   display: flex;

@@ -4,18 +4,19 @@ import type { Material } from './type';
 
 const LibraryItem = ({ material }: { material: Material }): JSX.Element => {
   return (
-    <div className="library-item">
-      <img src={material.url} alt="не удалось загрузить" />
-      <div className="library-item-content">
-        <div className="library-item-text">
-          <h2>{material.name}</h2>
-          <h3>{material.author}</h3>
-          {/* <p>{material.content}</p> */}
+    <div>
+      <Link to={`/library/${material.id}`}>
+        <div className="library-item">
+          <img src={material.url} alt="не удалось загрузить" />
+          <div className="library-item-content">
+            <div className="library-item-text">
+              <h3>{material.author}</h3>
+              <h2>{material.name}</h2>
+              {/* <p>{material.content}</p> */}
+            </div>
+          </div>
         </div>
-        <button type="button">
-          <Link to={`/library/${material.id}`}>Посмотреть книгу</Link>
-        </button>
-      </div>
+      </Link>
     </div>
   );
 };
