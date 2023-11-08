@@ -6,6 +6,8 @@ import type { Album } from './type';
 
 export default function PhotosBlock(): JSX.Element {
   const albums = useSelector((store: RootState) => store.albums.albums);
+  console.log(albums);
+  
 
   return (
     <div className="container__photoalbum">

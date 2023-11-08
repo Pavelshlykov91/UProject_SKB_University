@@ -2,23 +2,30 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Courses', {
+    await queryInterface.createTable('InterviewEmojis', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.TEXT,
-        allowNull: false
+      interview_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Interviews',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
-      content: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      goals: {
-        type: Sequelize.TEXT,
+      emoji_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Emojis',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +38,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Courses');
+    await queryInterface.dropTable('InterviewEmojis');
   }
 };

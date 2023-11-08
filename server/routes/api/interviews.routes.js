@@ -51,7 +51,7 @@ router.post('/:interviewId', async (req, res) => {
 });
 
 router.put('/:interviewId', async (req, res) => {
-  const { interviewId } = req.params.interviewId;
+  const  interviewId  = req.params.interviewId;
   const { title, url, content, user_id, id } = req.body
   const [result] = await Interview.update({
     title, url, content

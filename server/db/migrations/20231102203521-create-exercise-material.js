@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Courses', {
+    await queryInterface.createTable('ExerciseMaterials', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,12 +13,16 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
+      timing: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
       content: {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      goals: {
-        type: Sequelize.TEXT,
+      file: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +35,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Courses');
+    await queryInterface.dropTable('ExerciseMaterials');
   }
 };
