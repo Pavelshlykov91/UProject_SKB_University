@@ -9,9 +9,6 @@ export default function PhotoAlbumsPage(): JSX.Element {
   return (
     <div className="container__gallery">
       <HeaderBlock />
-      <div className="filter-box">
-        <button type="button">Сортировка по дате</button>
-      </div>
       <button onClick={() => setFlag(!flag)} type="button">
         Добавить альбом
       </button>

@@ -34,17 +34,8 @@ export default function UpdAlbumForm({
     <form className="form__updalbum" onSubmit={onHandleUpd}>
       <input value={title} type="text" onChange={(e) => setTitle(e.target.value)} />
       <input value={content} type="text" onChange={(e) => setContent(e.target.value)} />
-      <input value={url} type="text" onChange={(e) => setUrl(e.target.value)} />
-      <button type="submit">Изменить</button>
+      {/* <input value={url} type="text" onChange={(e) => setUrl(e.target.value)} /> */}
+      <button type="submit">Сохранить</button>
     </form>
   );
 }
-
-// const onHandleUpd: React.FormEventHandler<HTMLFormElement> = async (e): Promise<void> => {
-//   e.preventDefault();
-
-//   if (title && url && content && album?.id) {
-//     dispatch(updateAlbum({ title, url, content, id: album.id }));
-//   }
-//   setFlag(!flag);
-// };
