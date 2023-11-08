@@ -1,36 +1,21 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import type {
-  Album,
-  AlbumContent,
-  AlbumContentWithId,
-  AlbumId,
-  Photo,
-  PhotoContentWithId,
-  PhotoContentWithIdAndId,
-  PhotoId,
-} from './type';
+import type { Album, AlbumContentWithId, AlbumId, Photo, PhotoContentWithIdAndId } from './type';
 
 export const fetchAlbums = async (): Promise<Album[]> => {
- 
-  
   const res = await fetch('/api/gallery');
 
   if (res.status >= 400) {
     throw new Error(res.statusText);
   }
- const data = res.json()
- console.log(data);
-  return data;
+
+  return res.json();
 };
 
-export const fetchAlbumAdd = async (album: AlbumContent): Promise<Album> => {
+export const fetchAlbumAdd = async (album: FormData): Promise<Album> => {
   const res = await fetch('/api/gallery', {
     method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify(album),
+    body: album,
   });
 
   return res.json();
@@ -59,16 +44,20 @@ export const fetchAlbumUpdate = async (album: AlbumContentWithId): Promise<Album
   return res.json();
 };
 
-export const fetchPhotoAdd = async (photo: PhotoContentWithId): Promise<Photo> => {
-  const res = await fetch(`/api/gallery/${photo.gallery_id}/photo`, {
+export const fetchPhotoAdd = async ({
+  data,
+  id,
+}: {
+  data: FormData;
+  id: number;
+}): Promise<Photo[]> => {
+  const res = await fetch(`/api/gallery/${id}/photo`, {
     method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify(photo),
+    body: data,
   });
+  const dataTest = await res.json();
 
-  return res.json();
+  return dataTest;
 };
 
 export const fetchPhotoDelete = async (
@@ -77,5 +66,6 @@ export const fetchPhotoDelete = async (
   const res = await fetch(`/api/gallery/${photo.gallery_id}/photo/${photo.id}`, {
     method: 'DELETE',
   });
+
   return res.json();
 };

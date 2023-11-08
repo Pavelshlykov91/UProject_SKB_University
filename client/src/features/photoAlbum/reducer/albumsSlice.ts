@@ -4,14 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import * as api from '../api';
 import type { AlbumsState } from './State';
-import type {
-  AlbumContent,
-  AlbumContentWithId,
-  AlbumId,
-  PhotoContentWithId,
-  PhotoContentWithIdAndId,
-  PhotoId,
-} from '../type';
+import type { AlbumContentWithId, AlbumId, PhotoContentWithIdAndId } from '../type';
 
 const initialState: AlbumsState = {
   albums: [],
@@ -21,7 +14,8 @@ const initialState: AlbumsState = {
 };
 
 export const loadAlbums = createAsyncThunk('albums/load', () => api.fetchAlbums());
-export const addAlbum = createAsyncThunk('albums/add', (album: AlbumContent) =>
+
+export const addAlbum = createAsyncThunk('albums/add', (album: FormData) =>
   api.fetchAlbumAdd(album),
 );
 export const deleteAlbum = createAsyncThunk('albums/delete', (id: AlbumId) =>
@@ -30,8 +24,8 @@ export const deleteAlbum = createAsyncThunk('albums/delete', (id: AlbumId) =>
 export const updateAlbum = createAsyncThunk('albums/update', (album: AlbumContentWithId) =>
   api.fetchAlbumUpdate(album),
 );
-export const addPhoto = createAsyncThunk('photos/add', (photo: PhotoContentWithId) =>
-  api.fetchPhotoAdd(photo),
+export const addPhoto = createAsyncThunk('photos/add', (value: { data: FormData; id: number }) =>
+  api.fetchPhotoAdd(value),
 );
 export const deletePhoto = createAsyncThunk('photos/delete', (photo: PhotoContentWithIdAndId) =>
   api.fetchPhotoDelete(photo),
@@ -57,7 +51,7 @@ const albumsSlice = createSlice({
         state.loading = true;
       })
       .addCase(addAlbum.fulfilled, (state, action) => {
-        state.albums.push(action.payload);
+        state.albums = [...state.albums, action.payload];
       })
       .addCase(addAlbum.rejected, (state, action) => {
         state.error = action.error.message ? action.error.message : null;
@@ -86,9 +80,10 @@ const albumsSlice = createSlice({
         state.loading = true;
       })
       .addCase(addPhoto.fulfilled, (state, action) => {
+
         state.albums = state.albums.map((album) =>
-          album.id === action.payload.gallery_id
-            ? { ...album, Fotos: [...album.Fotos, action.payload] }
+          album.id === action.payload[0].gallery_id
+            ? { ...album, Fotos: [...album.Fotos, ...action.payload] }
             : album,
         );
       })

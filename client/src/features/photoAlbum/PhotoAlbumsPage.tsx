@@ -11,12 +11,11 @@ export default function PhotoAlbumsPage(): JSX.Element {
       <HeaderBlock />
       <div className="filter-box">
         <button type="button">Сортировка по дате</button>
-        <button type="button">Сортировка по популярности</button>
       </div>
       <button onClick={() => setFlag(!flag)} type="button">
         Добавить альбом
       </button>
-      {flag && <AddAlbumsForm />}
+      {flag && <AddAlbumsForm flag={flag} setFlag={setFlag} />}
       <PhotosBlock />
     </div>
   );
