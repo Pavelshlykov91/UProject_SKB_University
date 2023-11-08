@@ -1,6 +1,18 @@
 const router = require('express').Router();
 const { Gallery, Foto } = require('../../db/models');
 
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/img');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage });
+
 router.get('/', async (req, res) => {
   try {
     const albums = await Gallery.findAll({ include: { model: Foto } });
@@ -10,13 +22,15 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', upload.single('url'), async (req, res) => {
   try {
-    const { title, content, url } = req.body;
+    const { title, content } = req.body;
+    const newFileUrl = `/img/${req.file.originalname}`;
+
     const album = await Gallery.create({
       title,
       content,
-      url,
+      url: newFileUrl,
       user_id: req.session.userId,
     });
 
@@ -84,8 +98,6 @@ router.post('/:albumId/photo', async (req, res) => {
 router.delete('/:albumId/photo/:photoId', async (req, res) => {
   try {
     const { albumId, photoId } = req.params;
-    console.log(albumId, photoId);
-
     const result = await Foto.destroy({
       where: { id: +photoId, gallery_id: +albumId },
     });

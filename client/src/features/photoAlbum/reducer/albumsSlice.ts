@@ -5,12 +5,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import * as api from '../api';
 import type { AlbumsState } from './State';
 import type {
-  AlbumContent,
   AlbumContentWithId,
   AlbumId,
   PhotoContentWithId,
   PhotoContentWithIdAndId,
-  PhotoId,
 } from '../type';
 
 const initialState: AlbumsState = {
@@ -21,7 +19,8 @@ const initialState: AlbumsState = {
 };
 
 export const loadAlbums = createAsyncThunk('albums/load', () => api.fetchAlbums());
-export const addAlbum = createAsyncThunk('albums/add', (album: AlbumContent) =>
+
+export const addAlbum = createAsyncThunk('albums/add', (album: FormData) =>
   api.fetchAlbumAdd(album),
 );
 export const deleteAlbum = createAsyncThunk('albums/delete', (id: AlbumId) =>
@@ -57,7 +56,7 @@ const albumsSlice = createSlice({
         state.loading = true;
       })
       .addCase(addAlbum.fulfilled, (state, action) => {
-        state.albums.push(action.payload);
+        state.albums = [...state.albums, action.payload];
       })
       .addCase(addAlbum.rejected, (state, action) => {
         state.error = action.error.message ? action.error.message : null;

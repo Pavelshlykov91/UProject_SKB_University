@@ -47,7 +47,9 @@ export default function PhotoAlbumPage(): JSX.Element {
       <button onClick={() => navigate(-1)} type="button">
         Назад к альбомам
       </button>
-      <div className="photoalbum-page-photo">{album.Fotos?.map((foto) => <PhotoItem key={foto.id} foto={foto}/>)}</div>
+      <div className="photoalbum-page-photo">
+        {album.Fotos?.map((foto) => <PhotoItem key={foto.id} foto={foto} />)}
+      </div>
     </div>
   );
 
