@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable jsx-a11y/heading-has-content */
 import React, { useState } from 'react';
 import { addAlbum } from './reducer/albumsSlice';
 import { useAppDispatch } from '../../redux/store';
@@ -17,8 +20,7 @@ export default function AddAlbumsForm({
   const onHandleSubmit: React.FormEventHandler<HTMLFormElement> = async (e): Promise<void> => {
     e.preventDefault();
 
-    if (!url) {
-      alert('Загрузите картинку');
+    if (!url || !title || !content) {
       return;
     }
 
@@ -34,7 +36,7 @@ export default function AddAlbumsForm({
     setFlag(!flag);
   };
 
-  const onFileChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onFileAdd: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.files) {
       setUrl(e.target.files[0]);
     }
@@ -55,8 +57,9 @@ export default function AddAlbumsForm({
           onChange={(e) => setContent(e.target.value)}
           placeholder="Описание альбома"
         />
-        <input type="file" onChange={onFileChange} className="input-uploader" />
-        <button type="submit">Создать</button>
+        <label>Загрузите изображение:</label>
+        <input type="file" onChange={onFileAdd} className="input-uploader" />
+        {url && title && content && <button type="submit">Создать</button>}
       </form>
     </div>
   );

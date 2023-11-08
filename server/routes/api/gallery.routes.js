@@ -40,20 +40,6 @@ router.post('/', upload.single('url'), async (req, res) => {
   }
 });
 
-router.delete('/:albumId', async (req, res) => {
-  try {
-    const { albumId } = req.params;
-    const result = await Gallery.destroy({ where: { id: albumId } });
-    if (result > 0) {
-      res.json({ id: +albumId });
-      return;
-    }
-    res.json({ message: 'error' });
-  } catch ({ message }) {
-    res.json({ message });
-  }
-});
-
 router.put('/:albumId', async (req, res) => {
   try {
     const { albumId } = req.params;
@@ -79,17 +65,36 @@ router.put('/:albumId', async (req, res) => {
   }
 });
 
-router.post('/:albumId/photo', async (req, res) => {
+router.delete('/:albumId', async (req, res) => {
   try {
     const { albumId } = req.params;
-    const { url } = req.body;
-    const photo = await Foto.create({
-      url,
-      user_id: req.session.userId,
-      gallery_id: +albumId,
-    });
+    const result = await Gallery.destroy({ where: { id: albumId } });
+    if (result > 0) {
+      res.json({ id: +albumId });
+      return;
+    }
+    res.json({ message: 'error' });
+  } catch ({ message }) {
+    res.json({ message });
+  }
+});
 
-    res.json(photo);
+router.post('/:albumId/photo', upload.any('url'), async (req, res) => {
+  try {
+    const { albumId } = req.params;
+    const photos = await Promise.all(
+      req.files.map((el) => {
+        const newFileUrl = `/img/${el.originalname}`;
+
+        return Foto.create({
+          url: newFileUrl,
+          user_id: req.session.userId,
+          gallery_id: +albumId,
+        });
+      })
+    );
+
+    res.json(photos);
   } catch ({ message }) {
     res.json({ message });
   }

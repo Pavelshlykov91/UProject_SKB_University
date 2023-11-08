@@ -33,9 +33,9 @@
 
 .container__photoalbum {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  width: 80vw;
+  width: 90vw;
 }
 .photoalbum-item {
   display: flex;
@@ -103,7 +103,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 20px auto 0;
+  margin: 20px auto 20px;
 }
 .photoalbum-page img {
   min-width: 50vw;
@@ -132,4 +132,5 @@
   border: none;
   height: 33px;
   width: 280px;
+  color: rgba(19%, 24%, 55%, 1);
 }

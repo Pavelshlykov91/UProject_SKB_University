@@ -23,6 +23,7 @@ export default function UpdAlbumForm({
 
   const onHandleUpd: React.FormEventHandler<HTMLFormElement> = async (e): Promise<void> => {
     e.preventDefault();
+
     if (title && url && content && album?.id) {
       dispatch(updateAlbum({ title, url, content, id: album.id }));
     }
@@ -38,3 +39,12 @@ export default function UpdAlbumForm({
     </form>
   );
 }
+
+// const onHandleUpd: React.FormEventHandler<HTMLFormElement> = async (e): Promise<void> => {
+//   e.preventDefault();
+
+//   if (title && url && content && album?.id) {
+//     dispatch(updateAlbum({ title, url, content, id: album.id }));
+//   }
+//   setFlag(!flag);
+// };
