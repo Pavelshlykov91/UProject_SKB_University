@@ -4,14 +4,23 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class ExerciseMaterial extends Model {
-    static associate({ExerciseAddmaterial}) {
-      this.hasMany(ExerciseAddmaterial, { foreignKey: 'exercisematerial_id' })
+    static associate({Exercise}) {
+      this.belongsTo(Exercise, { foreignKey: 'exercise_id' })
     }
   }
   ExerciseMaterial.init({
     name: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    exercise_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Exercises',
+        key: 'id'
+      },
+      onDelete: 'CASCADE',
     },
     timing: {
       type: DataTypes.TEXT,

@@ -21,7 +21,6 @@ export const fetchInterviewscommAdd = async ({ content, interview_id, User}:{ co
     },
     body: JSON.stringify({ content, interview_id}),
   });
-  console.log(res, '000000000');
 
   return res.json();
 };
@@ -48,7 +47,6 @@ export const fetchInterviewAdd = async (interview:Interview): Promise<Interview>
       },
       body: JSON.stringify(interview),
     });
-  console.log('1111111', res);
   
   return res.json();
 }
