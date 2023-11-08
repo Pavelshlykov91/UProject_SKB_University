@@ -11,6 +11,7 @@ export type Material = {
 };
 export type MaterialID = Material['id']
 export type MaterialContent = Pick<Material, 'id'| 'name'| 'author'| 'content'|'url'>
+export type MaterialAdd = Pick<Material, 'name'| 'author'| 'content'|'url'>
 
 export type Theme = {
   id: number;
