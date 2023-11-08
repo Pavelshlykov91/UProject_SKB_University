@@ -9,6 +9,7 @@ import './styles/index.css';
 function InterviewPage() {
   const user = useSelector((store: RootState) => store.auth.user);
   const interviews = useSelector((store: RootState) => store.interviews.interviews);
+  
   return (
     <div className="interviewpage_container">
       <div>

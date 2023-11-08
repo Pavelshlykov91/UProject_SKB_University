@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../redux/store';
-import { loadInterview, updInterview } from './reducer/InterviewPageSlice';
+import {  updInterview } from './reducer/InterviewPageSlice';
 import { useParams } from 'react-router-dom';
 
-export default function UpdateInterview(): JSX.Element {
+export default function UpdateInterview({
+  setUpd,
+}: {
+  setUpd: React.Dispatch<React.SetStateAction<boolean>>;
+}): JSX.Element {
   const user_id = useSelector((store: RootState) => store.auth.user?.id);
   const interviews = useSelector((store: RootState) => store.interviews.interviews);
   const { interviewId } = useParams();
@@ -22,9 +26,7 @@ export default function UpdateInterview(): JSX.Element {
     e.preventDefault();
     if (user_id && title && url && content) {
       dispatch(updInterview({ title, url, content, user_id, id }));
-      setTitle('');
-      setUrl('');
-      setContent('');
+      setUpd(false);
     }
   };
 

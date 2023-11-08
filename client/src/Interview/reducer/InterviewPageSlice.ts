@@ -1,12 +1,11 @@
 import { Interview, InterviewComment, InterviewId, InterviewState } from './type';
 import * as api from './api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
 
 export const initialState: InterviewState = {
   interviews: [],
   comments: [],
+  reactions: [],
   loading: true,
   error: null,
 };
@@ -26,6 +25,7 @@ export const addInterview = createAsyncThunk('interviews/add', (interview: Inter
 export const updInterview = createAsyncThunk('interviews/upd', (interview: Interview) =>
   api.fetchInterviewUpd(interview),
 );
+export const loadReactions = createAsyncThunk('reactions/load', () => api.fetchReactions());
 
 
 const InterviewPageSlice = createSlice({
@@ -57,7 +57,10 @@ const InterviewPageSlice = createSlice({
         state.interviews = state.interviews.map((int) =>
           int.id === action.payload.id ? (int = action.payload) : int,
         );
-      });
+      })
+      .addCase(loadReactions.fulfilled, (state, action) => {
+        state.reactions = action.payload;
+      })
   },
 });
 

@@ -8,6 +8,7 @@ import { checkUser } from '../features/auth/authSlice';
 export default function InterviewAddComm() {
   const dispatch = useAppDispatch();
   const [content, setContent] = useState('');
+  
   const { interviewId } = useParams();
   const comments = useSelector((store: RootState) => store.interviews.comments);
   useEffect(() => {
