@@ -31,6 +31,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       onDelete: 'CASCADE',
     },
+    done_status: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
     title: {
       type: DataTypes.TEXT,
       allowNull: false

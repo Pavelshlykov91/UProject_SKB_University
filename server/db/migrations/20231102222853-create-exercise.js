@@ -1,4 +1,7 @@
 'use strict';
+
+const { sequelize } = require('../models');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -26,6 +29,10 @@ module.exports = {
           key: 'id'
         },
         onDelete: 'CASCADE',
+      },
+      done_status: {
+        type: sequelize.BOOLEAN,
+        allowNull: false
       },
       title: {
         type: Sequelize.TEXT,
