@@ -49,11 +49,29 @@ router.get("/exercisematerial/:id", async (req, res) => {
     const exercisematerials = await ExerciseMaterial.findAll({
       where: { exercise_id: id },
     });
-    // console.log(exercisematerials, "--------------");
     res.json(exercisematerials);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error.message });
+  }
+});
+
+router.post('/addexercise', async (req, res) => {
+  try {
+    const { title, content,file,corAnswer,deadline, goals, critery } = req.body;
+    const exercise = await Exercise.create({
+      user_id,
+      title,
+      content,
+      file,
+      corAnswer,
+      deadline,
+      goals,
+      critery
+    });
+    res.json(exercise);
+  } catch ({ message }) {
+    res.json({ message });
   }
 });
 

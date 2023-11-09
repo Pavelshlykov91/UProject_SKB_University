@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { ExercisesState } from './State';
 import * as api from '../api';
 import * as apiMaterial from '../Excercise/api';
-import type { ExerciseId } from '../type';
+import type { Exercise, ExerciseId } from '../type';
 
 const initialState: ExercisesState = {
   exercises: [],
@@ -14,8 +14,15 @@ const initialState: ExercisesState = {
 
 export const loadExercises = createAsyncThunk('exercise/init', api.ExerciseFetch);
 export const loadExercisesMaterials = createAsyncThunk('exercisematerial/init', (id: ExerciseId) =>
-  apiMaterial.ExerciseMaterialFetch(id),
-);
+  apiMaterial.ExerciseMaterialFetch(id))
+
+// export const addExercises = createAsyncThunk('exercise/add', (Exercise: Exercise) =>
+// apiMaterial.fetchExerciseAdd(),
+// );
+export const addExercises = createAsyncThunk('exercise/add', async (exercise: Exercise) => {
+  const response = await apiMaterial.fetchExerciseAdd({ exercise });
+  return response;
+});
 
 const ExercisesSlice = createSlice({
   name: 'exercises',
@@ -34,7 +41,6 @@ const ExercisesSlice = createSlice({
         state.error = action.error.message ? action.error.message : null;
       })
       .addCase(loadExercisesMaterials.fulfilled, (state, action) => {
-        console.log(action.payload);
 
         state.exercises = state.exercises.map((el) => ({
           ...el,
@@ -44,6 +50,7 @@ const ExercisesSlice = createSlice({
       .addCase(loadExercisesMaterials.rejected, (state, action) => {
         state.error = action.error.message ? action.error.message : null;
       });
+      
   },
 });
 
