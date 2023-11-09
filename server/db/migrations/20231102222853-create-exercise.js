@@ -30,10 +30,6 @@ module.exports = {
         },
         onDelete: 'CASCADE',
       },
-      done_status: {
-        type: sequelize.BOOLEAN,
-        allowNull: false
-      },
       title: {
         type: Sequelize.TEXT,
         allowNull: false
