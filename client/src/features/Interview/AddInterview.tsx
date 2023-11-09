@@ -4,8 +4,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { addInterview } from './reducer/InterviewPageSlice';
-import type { RootState} from '../redux/store';
-import { useAppDispatch } from '../redux/store';
+import type { RootState} from '../../redux/store'
+import { useAppDispatch } from '../../redux/store';
 import AddInterviewVideo from './AddInterviewVideo';
 
 function AddInterview(): JSX.Element {

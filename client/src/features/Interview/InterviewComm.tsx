@@ -1,11 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, {useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
-import type { RootState} from '../redux/store';
-import { useAppDispatch } from '../redux/store'
+import type { RootState} from '../../redux/store';
+import { useAppDispatch } from '../../redux/store'
 import { loadInterviewcomm } from './reducer/InterviewPageSlice';
-import { checkUser } from '../features/auth/authSlice';
+import { checkUser } from '../auth/authSlice';
 
 
 export default function InterviewComm() {
