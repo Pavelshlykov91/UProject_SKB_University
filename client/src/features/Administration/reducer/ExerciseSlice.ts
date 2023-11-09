@@ -34,6 +34,8 @@ const ExercisesSlice = createSlice({
         state.error = action.error.message ? action.error.message : null;
       })
       .addCase(loadExercisesMaterials.fulfilled, (state, action) => {
+        console.log(action.payload);
+
         state.exercises = state.exercises.map((el) => ({
           ...el,
           exerciseMaterial: action.payload,

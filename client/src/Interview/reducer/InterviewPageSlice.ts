@@ -1,6 +1,7 @@
-import { Interview, InterviewComment, InterviewId, InterviewState } from './type';
-import * as api from './api';
+/* eslint-disable no-return-assign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import type { Interview, InterviewComment, InterviewId, InterviewState } from './type';
+import * as api from './api';
 
 export const initialState: InterviewState = {
   interviews: [],

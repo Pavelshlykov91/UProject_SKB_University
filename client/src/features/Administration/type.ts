@@ -1,4 +1,4 @@
-import { ExerciseMaterial } from './Excercise/type';
+import type { ExerciseMaterial } from './Excercise/type';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export type User = {
@@ -30,8 +30,8 @@ export type Exercise = {
   file: string;
   User: User;
   Course: Course;
-  exerciseMaterial:ExerciseMaterial[],
-//   exerciseMaterial: any;
+  ExerciseMaterials: ExerciseMaterial[];
+  //   exerciseMaterial: any;
 };
 export type ExerciseId = Exercise['id'];
 

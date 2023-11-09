@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, {useEffect} from 'react'
 import { useSelector } from 'react-redux'
-import { RootState, useAppDispatch } from '../redux/store'
 import { useParams } from 'react-router-dom';
+import type { RootState} from '../redux/store';
+import { useAppDispatch } from '../redux/store'
 import { loadInterviewcomm } from './reducer/InterviewPageSlice';
 import { checkUser } from '../features/auth/authSlice';
 

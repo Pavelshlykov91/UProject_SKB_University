@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../redux/store';
 import { Link, useParams } from 'react-router-dom';
+import type { RootState} from '../redux/store';
+import { useAppDispatch } from '../redux/store';
 // import InterviewComm from './InterviewComm';
 import InterviewAddComm from './InterviewAddComm';
 import { loadInterview, loadInterviewcomm, loadReactions } from './reducer/InterviewPageSlice';
@@ -15,7 +19,7 @@ export default function InterviewItem(): JSX.Element {
   const interview = interviews.find((int) => interviewId && int.id === +interviewId);
   const dispatch = useAppDispatch();
   const [upd, setUpd] = useState(false);
-  const [reaction, setReaction] = useState('');
+  // const [reaction, setReaction] = useState('');
 
   useEffect(() => {
     if (interviewId) {
@@ -25,14 +29,14 @@ export default function InterviewItem(): JSX.Element {
     }
   }, []);
 
-  const reactions = useSelector((store: RootState) => store.interviews.reactions);
+  // const reactions = useSelector((store: RootState) => store.interviews.reactions);
 
-  const reaction1 = reactions.find((re) => re.interview_id === interviewId);
-  console.log(111122223333, reaction1);
+  // const reaction1 = reactions.find((re) => re.interview_id === interviewId);
+  // console.log(111122223333, reaction1);
 
-  const onHandleChangeReaction = (x: string) => {
-    setReaction(x);
-  };
+  // const onHandleChangeReaction = (x: string) => {
+  //   setReaction(x);
+  // };
 
   const error = <h1>Такого интервью мы пока не придумали</h1>;
   const contentpage = (
@@ -44,7 +48,7 @@ export default function InterviewItem(): JSX.Element {
               <div className="interview_img_cont">
                 <img className="interview_img" src={interview?.url} />
               </div>
-              <div className="current_reactions" onClick={() => onHandleChangeReaction('')}>
+              {/* <div className="current_reactions" onClick={() => onHandleChangeReaction('')}> */}
                 
               </div>
             </div>
@@ -71,7 +75,7 @@ export default function InterviewItem(): JSX.Element {
           <div className="interview_reactions_flag">
             <button className="int_reaction_fl">+</button>
             <div className="reactions_comp">
-              <InterviewReactions onHandleChangeReaction={onHandleChangeReaction} />
+              <InterviewReactions />
             </div>
           </div>
           <div>
@@ -93,7 +97,7 @@ export default function InterviewItem(): JSX.Element {
           </ol>
         </div>
       </div>
-    </div>
+    // </div>
   );
   return <div>{!interview ? error : contentpage}</div>;
 }

@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, { useState, useEffect } from 'react';
-import { RootState, useAppDispatch } from '../redux/store';
-import { addInterviewcomm, loadInterviewcomm } from './reducer/InterviewPageSlice';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import type { RootState} from '../redux/store';
+import { useAppDispatch } from '../redux/store';
+import { addInterviewcomm, loadInterviewcomm } from './reducer/InterviewPageSlice';
 import { checkUser } from '../features/auth/authSlice';
 
 export default function InterviewAddComm() {
@@ -56,7 +59,7 @@ export default function InterviewAddComm() {
               className="intrview_comment"
               onChange={(e) => setContent(e.target.value)}
             />
-            <button type="submit"></button>
+            <button type="submit" />
           </form>
         </div>
       </div>
