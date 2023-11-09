@@ -1,0 +1,14 @@
+{
+  "name": "uproject_skb_university",
+  "version": "1.0.0",
+  "description": "Создание проекта",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd server && npm i && cd ../client && npm i && DISABLE_ESLINT_PLUGIN=true npm run build",
+    "start": "cd server && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

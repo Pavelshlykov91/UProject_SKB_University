@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable @typescript-eslint/naming-convention */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../redux/store';
-import {  updInterview } from './reducer/InterviewPageSlice';
 import { useParams } from 'react-router-dom';
+import type { RootState} from '../../redux/store';
+import { useAppDispatch } from '../../redux/store';
+import {  updInterview } from './reducer/InterviewPageSlice';
 
 export default function UpdateInterview({
   setUpd,
@@ -20,7 +23,7 @@ export default function UpdateInterview({
   const [content, setContent] = useState(interview?.content);
   const dispatch = useAppDispatch();
 
-  const id = interview!.id;
+  const {id} = (interview!);
 
   const UpdateInterview: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();

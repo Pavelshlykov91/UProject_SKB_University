@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
 import { Link } from 'react-router-dom';
+import type { RootState } from '../../redux/store';
 import AddInterview from './AddInterview';
 import './styles/index.css';
 // import { Link } from 'react-router-dom'

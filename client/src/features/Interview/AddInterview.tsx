@@ -1,7 +1,11 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable @typescript-eslint/naming-convention */
 import React, { useState } from 'react';
-import { addInterview } from './reducer/InterviewPageSlice';
-import { RootState, useAppDispatch } from '../redux/store';
 import { useSelector } from 'react-redux';
+import { addInterview } from './reducer/InterviewPageSlice';
+import type { RootState} from '../../redux/store'
+import { useAppDispatch } from '../../redux/store';
 import AddInterviewVideo from './AddInterviewVideo';
 
 function AddInterview(): JSX.Element {

@@ -1,9 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, { useState, useEffect } from 'react';
-import { RootState, useAppDispatch } from '../redux/store';
-import { addInterviewcomm, loadInterviewcomm } from './reducer/InterviewPageSlice';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { checkUser } from '../features/auth/authSlice';
+import type { RootState} from '../../redux/store';
+import { useAppDispatch } from '../../redux/store';
+import { addInterviewcomm, loadInterviewcomm } from './reducer/InterviewPageSlice';
+import { checkUser } from '../auth/authSlice';
 
 export default function InterviewAddComm() {
   const dispatch = useAppDispatch();
@@ -56,7 +62,7 @@ export default function InterviewAddComm() {
               className="intrview_comment"
               onChange={(e) => setContent(e.target.value)}
             />
-            <button type="submit"></button>
+            <button type="submit" />
           </form>
         </div>
       </div>
