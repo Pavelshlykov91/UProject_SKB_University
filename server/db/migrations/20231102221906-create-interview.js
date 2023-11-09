@@ -30,6 +30,9 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
+      url_video: {
+        type: Sequelize.TEXT,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
