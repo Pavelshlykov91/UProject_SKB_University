@@ -47,7 +47,7 @@ const LibraryItemPage = (): JSX.Element => {
           </div>
         )}
         <button type="button" onClick={() => navigate(-1)}>
-          &#10094; Назад в Библиотеку
+        &#11164; Назад в Библиотеку
         </button>
       </div>
     </div>
