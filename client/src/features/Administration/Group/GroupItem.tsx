@@ -1,13 +1,26 @@
-import React from 'react';
-import type { Group } from '../type';
+import React, { useState } from 'react';
+import GroupContent from './GroupContent';
+import './styles/styles.css';
 
-function GroupItem({ group }: { group: Group }): JSX.Element {
+function GroupItem({ index }: { index: number }): JSX.Element {
+  const [flag, setFlag] = useState(false);
+
   return (
-    <div>
-      {`Номер группы: ${group.group_id}; `}
-      {`Номер задания: ${group.exercise_id}; `}
-      {`Город студента: ${group.User.city}; `}
-      <button type='button'>Показать группу</button>
+    <div className="groups__container">
+      <h2>{`Группа: №${index}`}</h2>
+      {!flag && (
+        <button onClick={() => setFlag(!flag)} type="button" className="groups-btn">
+          &#11166;
+        </button>
+      )}
+      {flag && (
+        <>
+          <button onClick={() => setFlag(!flag)} type="button" className="groups-btn">
+            &#11167;
+          </button>
+          <GroupContent index={index} />
+        </>
+      )}
     </div>
   );
 }
