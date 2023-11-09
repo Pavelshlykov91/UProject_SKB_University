@@ -43,12 +43,11 @@ router.post('/', upload.single('url'), async (req, res) => {
 router.put('/:albumId', async (req, res) => {
   try {
     const { albumId } = req.params;
-    const { title, content, url } = req.body;
+    const { title, content } = req.body;
     const [result] = await Gallery.update(
       {
         title,
         content,
-        url,
         user_id: req.session.userId,
       },
       { where: { id: albumId, user_id: req.session.userId } }
