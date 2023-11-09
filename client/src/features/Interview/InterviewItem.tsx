@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import type { RootState} from '../redux/store';
-import { useAppDispatch } from '../redux/store';
+import type { RootState} from '../../redux/store';
+import { useAppDispatch } from '../../redux/store';
 // import InterviewComm from './InterviewComm';
 import InterviewAddComm from './InterviewAddComm';
 import { loadInterview, loadInterviewcomm, loadReactions } from './reducer/InterviewPageSlice';

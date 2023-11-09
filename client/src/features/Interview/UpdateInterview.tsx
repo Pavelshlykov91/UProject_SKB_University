@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import type { RootState} from '../redux/store';
-import { useAppDispatch } from '../redux/store';
+import type { RootState} from '../../redux/store';
+import { useAppDispatch } from '../../redux/store';
 import {  updInterview } from './reducer/InterviewPageSlice';
 
 export default function UpdateInterview({
