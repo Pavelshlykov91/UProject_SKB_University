@@ -13,11 +13,12 @@ function ExercisePage():JSX.Element {
   const exercises = useSelector((store:RootState) => store.exercises.exercises);
   // const error = useSelector((store: RootState) => store.exercises.error);
   // const loading = useSelector((store: RootState) => store.exercises.loading);
+  console.log(exercises);
+  
 
   useEffect(() => {
     dispatch(loadExercises());
   }, []);
-console.log(exercises, '0000000000000000000000000000000000');
 
   return (
     <div>  

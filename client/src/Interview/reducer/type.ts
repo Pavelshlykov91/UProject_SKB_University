@@ -1,4 +1,4 @@
-import { User } from '../../features/auth/type';
+import type { User } from '../../features/auth/type';
 
 export type Interview = {
   id?: number;
