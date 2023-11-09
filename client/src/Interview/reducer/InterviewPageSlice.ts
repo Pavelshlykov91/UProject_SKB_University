@@ -1,4 +1,4 @@
-import { Interview, InterviewComment, InterviewId, InterviewState } from './type';
+import { Interview, InterviewComment, InterviewId, InterviewReaction, InterviewState } from './type';
 import * as api from './api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
@@ -26,6 +26,7 @@ export const updInterview = createAsyncThunk('interviews/upd', (interview: Inter
   api.fetchInterviewUpd(interview),
 );
 export const loadReactions = createAsyncThunk('reactions/load', () => api.fetchReactions());
+export const changeReactions = createAsyncThunk('reactions/change', (reaction:InterviewReaction) => api.fetchReactionschange(reaction));
 
 
 const InterviewPageSlice = createSlice({
@@ -47,9 +48,7 @@ const InterviewPageSlice = createSlice({
       .addCase(loadInterviewcomm.fulfilled, (state, action) => {
         state.comments = action.payload;
       })
-      .addCase(addInterviewcomm.fulfilled, (state, action) => {
-        console.log(777771111, action.payload);
-        
+      .addCase(addInterviewcomm.fulfilled, (state, action) => {        
         state.comments.push(action.payload);
       })
       .addCase(updInterview.fulfilled, (state, action) => {
@@ -59,7 +58,19 @@ const InterviewPageSlice = createSlice({
         );
       })
       .addCase(loadReactions.fulfilled, (state, action) => {
-        state.reactions = action.payload;
+        const currentreactions = state.reactions.map((el) => {
+          const getpayload = action.payload.find((ap) => ap.interview_id === el.interview_id);
+          if (getpayload) {
+            return {
+              ...el,
+              emoji: getpayload.Emoji,
+              count: getpayload.count,
+            };
+          }
+          return el;
+        });
+      
+        state.reactions = currentreactions;
       })
   },
 });

@@ -58,7 +58,7 @@ function Navbar() {
            <img className='logoUser' src={user.foto} alt='foto'/>
            <ul className="navigation"><li><a href="" title="Portfolio"><img className='frame_nav' src='../../../public/img/Frame-19svg.svg'/></a>
       <ul className='strNavBar'>
-      <li>        <NavLink  to="/" className="navbar-link-frame">
+      <li>        <NavLink  to="/myaccount" className="navbar-link-frame">
           личный кабинет
         </NavLink></li>
         <li>        <NavLink onClick={logOut} to="/sign-in" className="navbar-link-frame">

@@ -5,11 +5,11 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useEffect } from 'react';
 import type { Exercise } from '../type';
-import type { RootState } from '../../../redux/store';
+// import type { RootState } from '../../../redux/store';
 import { useAppDispatch } from '../../../redux/store';
 import './exercise.css';
 import { loadExercisesMaterials } from '../reducer/ExerciseSlice';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import ExerciseMaterialItem from './ExerciseMaterialItem';
 
 function ExerciseItem({ exercise }: { exercise: Exercise }): JSX.Element {

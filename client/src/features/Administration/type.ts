@@ -31,6 +31,9 @@ export type Exercise = {
   User: User;
   Course: Course;
   exerciseMaterial:ExerciseMaterial[],
+  deadline: string;
+  critery: string;
+  goals: string
 //   exerciseMaterial: any;
 };
 export type ExerciseId = Exercise['id'];

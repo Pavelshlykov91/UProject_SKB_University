@@ -1,4 +1,4 @@
-import type { Interview, InterviewComment, InterviewId, InterviewReactions } from './type';
+import type { Interview, InterviewComment, InterviewId, InterviewReaction } from './type';
 
 export const fetchInterviews = async (): Promise<Interview[]> => {
   const res = await (await fetch('/api/interviews')).json();
@@ -53,10 +53,25 @@ export const fetchInterviewUpd = async (interview: Interview): Promise<Interview
 };
 
 
-export const fetchReactions = async ():Promise<InterviewReactions[]> => {
+export const fetchReactions = async ():Promise<InterviewReaction[]> => {
   console.log('kkkkk');
   const res = await (await fetch('/api/reactions')).json();
-
-  return res.json()
+  console.log(res, 909009099);
+  
+  return res
 }
 
+
+
+export const fetchReactionschange = async (reaction: InterviewReaction): Promise<InterviewReaction
+> => {
+  const res = await fetch(`/api/reactions/${reaction.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(reaction),
+  });
+
+  return res.json();
+};

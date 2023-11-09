@@ -15,7 +15,7 @@ export default function InterviewItem(): JSX.Element {
   const interview = interviews.find((int) => interviewId && int.id === +interviewId);
   const dispatch = useAppDispatch();
   const [upd, setUpd] = useState(false);
-  const [reaction, setReaction] = useState('');
+  // const [reaction, setReaction] = useState('');
 
   useEffect(() => {
     if (interviewId) {
@@ -27,11 +27,11 @@ export default function InterviewItem(): JSX.Element {
 
   const reactions = useSelector((store: RootState) => store.interviews.reactions);
 
-  const reaction1 = reactions.find((re) => re.interview_id === interviewId);
-  console.log(111122223333, reaction1);
+  // const reaction1 = reactions.find((el)=> el.interview_id===interview?.id);
+  console.log(111122223333, reactions);
 
-  const onHandleChangeReaction = (x: string) => {
-    setReaction(x);
+  const onHandleChangeReaction = () => {
+    
   };
 
   const error = <h1>Такого интервью мы пока не придумали</h1>;
@@ -44,8 +44,8 @@ export default function InterviewItem(): JSX.Element {
               <div className="interview_img_cont">
                 <img className="interview_img" src={interview?.url} />
               </div>
-              <div className="current_reactions" onClick={() => onHandleChangeReaction('')}>
-                
+              <div className="current_reactions" onClick={() => onHandleChangeReaction()}>
+                {/* {curreact.Emoji.emoji}{curreact.count} */}
               </div>
             </div>
             <div className="interview_item_card_headcontent">
@@ -71,7 +71,7 @@ export default function InterviewItem(): JSX.Element {
           <div className="interview_reactions_flag">
             <button className="int_reaction_fl">+</button>
             <div className="reactions_comp">
-              <InterviewReactions onHandleChangeReaction={onHandleChangeReaction} />
+              <InterviewReactions  />
             </div>
           </div>
           <div>
