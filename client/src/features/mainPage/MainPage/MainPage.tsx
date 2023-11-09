@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react'
 import './index.css'
 import MPInterviewItem from './MPInterviewItem'
@@ -8,7 +10,7 @@ export default function MainPage() {
   return (
     <div>
       <div>
-        <img/> // main img
+        <img/> 
       </div>
       <div className='mp__interview__cont'> 
           <MPInterviewItem/>

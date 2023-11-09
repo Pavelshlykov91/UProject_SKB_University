@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */

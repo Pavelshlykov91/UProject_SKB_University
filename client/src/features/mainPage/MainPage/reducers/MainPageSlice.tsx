@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import * as api from './api'
-import { IntState } from "./types";
+import type { IntState } from "./types";
 
 
 

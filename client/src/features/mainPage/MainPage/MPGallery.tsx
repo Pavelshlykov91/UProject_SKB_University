@@ -1,3 +1,8 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -43,10 +48,10 @@ export default function MPGallery() {
       <br />
       <br />
       <button className='slider_butt' id='back' onClick={previousSlide}><svg xmlns="http://www.w3.org/2000/svg" width="46" height="97" viewBox="0 0 46 97" fill="none">
-<path d="M37 9L11 48.5L37 88" stroke="#313C8D" stroke-width="17" stroke-linecap="round"/>
+<path d="M37 9L11 48.5L37 88" stroke="#313C8D" strokeWidth="17" strokeLinecap="round"/>
 </svg></button>
       <button className='slider_butt' id='next' onClick={nextSlide}><svg xmlns="http://www.w3.org/2000/svg" width="46" height="97" viewBox="0 0 46 97" fill="none">
-  <path d="M9 9L35 48.5L9 88" stroke="#313C8D" stroke-width="17" stroke-linecap="round"/>
+  <path d="M9 9L35 48.5L9 88" stroke="#313C8D" strokeWidth="17" strokeLinecap="round"/>
 </svg></button>
     </div>
   );
