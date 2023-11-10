@@ -61,8 +61,6 @@ const materialsSlice = createSlice({
         state.loading = true;
       })
       .addCase(updateMaterial.fulfilled, (state, action) => {
-        console.log(12312312312312312312);
-        
         state.materials = state.materials.map((material) =>
           material.id === action.payload.id ?  action.payload : material,
         );

@@ -41,9 +41,7 @@ export const fetchMaterialsUpdate = async (material: MaterialContent): Promise<M
       url: material.url,
     }),
   });
-  console.log(res,'-----');
-  
-  return res.json()
+  return res.json();
 };
 
 export const fetchThemes = async (): Promise<Theme[]> => {

@@ -8,7 +8,9 @@ import authSlice from '../features/auth/authSlice';
 import StudentSlice from '../features/Administration/reducer/StudentSlice';
 import ExerciseSlice from '../features/Administration/reducer/ExerciseSlice';
 import GroupSlice from '../features/Administration/reducer/GroupSlice';
-import themeSlice from '../features/libraryPage/reducer/themeSlice'
+import themeSlice from '../features/libraryPage/reducer/themeSlice';
+import forumSlice from '../features/forumPage/reducer/forumSlice';
+import commentSlice from '../features/forumPage/reducer/commentSlice';
 
 const store = configureStore({
   reducer: {
@@ -20,7 +22,9 @@ const store = configureStore({
     students: StudentSlice,
     exercises: ExerciseSlice,
     groups: GroupSlice,
-    themes:themeSlice,
+    themes: themeSlice,
+    forums: forumSlice,
+    comments: commentSlice,
   },
 });
 

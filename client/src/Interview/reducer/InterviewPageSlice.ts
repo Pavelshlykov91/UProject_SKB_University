@@ -48,8 +48,6 @@ const InterviewPageSlice = createSlice({
         state.comments = action.payload;
       })
       .addCase(addInterviewcomm.fulfilled, (state, action) => {
-        console.log(777771111, action.payload);
-        
         state.comments.push(action.payload);
       })
       .addCase(updInterview.fulfilled, (state, action) => {

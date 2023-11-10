@@ -16,10 +16,13 @@ import SignIn from '../features/auth/Sign-in';
 import LibraryItemPage from '../features/libraryPage/LibraryItemPage';
 import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
 import AdminMain from '../features/Administration/AdminMain';
-import * as apiAdmin from '../features/Administration/api'
+import * as apiAdmin from '../features/Administration/api';
 import StudentCard from '../features/Administration/Student/StudentCard';
-import { loadThemes } from '../features/libraryPage/reducer/themeSlice'
-
+import { loadThemes } from '../features/libraryPage/reducer/themeSlice';
+import ForumPage from '../features/forumPage/ForumPage';
+import { loadForums } from '../features/forumPage/reducer/forumSlice';
+import ForumItemPage from '../features/forumPage/ForumItemPage';
+import { loadComments } from '../features/forumPage/reducer/commentSlice'
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -28,19 +31,18 @@ const App = (): JSX.Element => {
     dispatch(loadInterview());
     dispatch(loadMaterials());
     dispatch(loadAlbums());
-    dispatch(loadThemes())
+    dispatch(loadThemes());
+    dispatch(loadForums());
+    dispatch(loadComments())
   }, []);
 
   useEffect(() => {
     apiAdmin.UserFetch().then((data) => dispatch({ type: 'user/init', payload: data }));
-}, []);
-
+  }, []);
 
   return (
-
- 
     <Routes>
-      <Route index path='/auth' element={<SignIn />} />
+      <Route index path="/auth" element={<SignIn />} />
       <Route path="/" element={<Navbar />}>
         <Route path="/" element={<MainPage />} />
         <Route path="/gallery" element={<PhotoAlbumsPage />} />
@@ -52,6 +54,8 @@ const App = (): JSX.Element => {
         <Route path="/library/:materialId" element={<LibraryItemPage />} />
         <Route path="/library/add-form" element={<AddLibraryForm />} />
         <Route path="/administration/:studentId" element={<StudentCard />} />
+        <Route path="/forum" element={<ForumPage />} />
+        <Route path="/forum/:forumId" element={<ForumItemPage />} />
       </Route>
     </Routes>
   );
