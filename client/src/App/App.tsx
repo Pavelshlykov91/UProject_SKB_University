@@ -4,10 +4,10 @@ import MainPage from '../features/mainPage/MainPage/MainPage';
 import { useAppDispatch } from '../redux/store';
 import { loadMPint } from '../features/mainPage/MainPage/reducers/MainPageSlice';
 import PhotoAlbumsPage from '../features/photoAlbum/PhotoAlbumsPage';
-import { loadInterview } from '../Interview/reducer/InterviewPageSlice';
-import InterviewItem from '../Interview/InterviewItem';
+import { loadInterview } from '../features/Interview/reducer/InterviewPageSlice';
+import InterviewItem from '../features/Interview/InterviewItem';
 import Navbar from '../features/navbar/Navbar';
-import InterviewPage from '../Interview/InterviewPage';
+import InterviewPage from '../features/Interview/InterviewPage';
 import LibraryPage from '../features/libraryPage/LibraryPage';
 import { loadMaterials } from '../features/libraryPage/reducer/librarySlice';
 import { loadAlbums } from '../features/photoAlbum/reducer/albumsSlice';
@@ -45,10 +45,10 @@ const App = (): JSX.Element => {
 
  
     <Routes>
-      <Route index path='/auth' element={<SignIn />} />
+      <Route index path='/' element={<SignIn />} />
       <Route path="/" element={<Navbar />}>
-        <Route path="/" element={<MainPage />} />
         <Route path="/myaccount" element={<LK />} />
+        <Route path="/main" element={<MainPage />} />
         <Route path="/gallery" element={<PhotoAlbumsPage />} />
         <Route path="/gallery/:albumId" element={<PhotoAlbumPage />} />
         <Route path="/administration" element={<AdminMain />} />

@@ -18,40 +18,47 @@ module.exports = {
         updatedAt: new Date(),
         },
         {
-          user_id:3,
-          group_id:1,
+          user_id:4,
+          group_id:2,
           exercise_id:1,
           createdAt: new Date(),
           updatedAt: new Date(),
           },
                 {
-          user_id:6,
+          user_id:5,
           group_id:2,
           exercise_id:1,
           createdAt: new Date(),
           updatedAt: new Date(),
           },
           {
-            user_id:7,
-            group_id:2,
-            exercise_id:1,
+            user_id:6,
+            group_id:3,
+            exercise_id:2,
             createdAt: new Date(),
             updatedAt: new Date(),
             },
             {
-              user_id:4,
-              group_id:4,
+              user_id:7,
+              group_id:3,
               exercise_id:2,
               createdAt: new Date(),
               updatedAt: new Date(),
               },
               {
-                user_id:5,
+                user_id:8,
                 group_id:4,
                 exercise_id:2,
                 createdAt: new Date(),
                 updatedAt: new Date(),
-                }], {});
+                },
+                {
+                  user_id:9,
+                  group_id:4,
+                  exercise_id:2,
+                  createdAt: new Date(),
+                  updatedAt: new Date(),
+                  }], {});
   },
 
   async down (queryInterface, Sequelize) {

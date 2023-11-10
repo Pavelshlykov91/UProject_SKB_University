@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import albumsSlice from '../features/photoAlbum/reducer/albumsSlice';
 import MainPageSlice from '../features/mainPage/MainPage/reducers/MainPageSlice';
 import librarySlice from '../features/libraryPage/reducer/librarySlice';
-import InterviewPageSlice from '../Interview/reducer/InterviewPageSlice';
+import InterviewPageSlice from '../features/Interview/reducer/InterviewPageSlice';
 import authSlice from '../features/auth/authSlice';
 import StudentSlice from '../features/Administration/reducer/StudentSlice';
 import ExerciseSlice from '../features/Administration/reducer/ExerciseSlice';

@@ -1,6 +1,7 @@
-import { EmojiId, Interview, InterviewComment, InterviewId, InterviewReaction, InterviewState } from './type';
-import * as api from './api';
+/* eslint-disable no-return-assign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import type { Interview, InterviewComment, InterviewId, InterviewState } from './type';
+import * as api from './api';
 
 export const initialState: InterviewState = {
   interviews: [],
@@ -25,7 +26,7 @@ export const addInterview = createAsyncThunk('interviews/add', (interview: Inter
 export const updInterview = createAsyncThunk('interviews/upd', (interview: Interview) =>
   api.fetchInterviewUpd(interview),
 );
-export const loadReactions = createAsyncThunk('reactions/load', () => api.fetchReactions());
+// export const loadReactions = createAsyncThunk('reactions/load', () => api.fetchReactions());
 // export const addReaction = createAsyncThunk('reactions/change', (id:EmojiId) => api.fetchReactionschange(id));
 export const deleteInterview = createAsyncThunk('interview/delete', (id: InterviewId) => api.fetchDeleteInterview(id));
 
@@ -61,21 +62,21 @@ const InterviewPageSlice = createSlice({
           int.id === action.payload.id ? (int = action.payload) : int,
         );
       })
-      .addCase(loadReactions.fulfilled, (state, action) => {
-        const currentreactions = state.reactions.map((el) => {
-          const getpayload = action.payload.find((ap) => ap.interview_id === el.interview_id);
-          if (getpayload) {
-            return {
-              ...el,
-              emoji: getpayload.Emoji,
-              count: getpayload.count,
-            };
-          }
-          return el;
-        });
+      // .addCase(loadReactions.fulfilled, (state, action) => {
+      //   const currentreactions = state.reactions.map((el) => {
+      //     const getpayload = action.payload.find((ap) => ap.interview_id === el.interview_id);
+      //     if (getpayload) {
+      //       return {
+      //         ...el,
+      //         emoji: getpayload.Emoji,
+      //         count: getpayload.count,
+      //       };
+      //     }
+      //     return el;
+      //   });
       
-        state.reactions = currentreactions;
-      })
+        // state.reactions = currentreactions;
+      
   },
 });
 

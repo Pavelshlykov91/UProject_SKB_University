@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import type { Material, MaterialAdd, MaterialContent, MaterialID, Theme } from './type';
 
 export const fetchMaterials = async (): Promise<Material[]> => {

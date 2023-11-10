@@ -11,7 +11,7 @@ export interface ReactionBarSelectorEmojiProps {
 export const ReactionBarSelectorEmoji = React.forwardRef<
   HTMLDivElement,
   ReactionBarSelectorEmojiProps
->(({ reaction, onSelect }, ref) => {
+>(({ reaction }, ref) => {
   const { node, label, key } = reaction;
   console.log({key, label});
   

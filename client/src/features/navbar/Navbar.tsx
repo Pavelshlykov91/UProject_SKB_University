@@ -29,7 +29,7 @@ function Navbar() {
   const logOut = (): void => {
     fetchLogOut().then((data:{ message: string }) => {
       dispatch({ type: 'auth/logout', payload: data });
-      navigate('/auth');
+      navigate('/');
     });
   }
   return (
@@ -37,7 +37,7 @@ function Navbar() {
     {user && (
       <div className="navbar">
         
-        <NavLink to="/" className="navbar-link">
+        <NavLink to="/main" className="navbar-link">
           Главная страница
         </NavLink>
         {user.role === 'преподаватель' && (

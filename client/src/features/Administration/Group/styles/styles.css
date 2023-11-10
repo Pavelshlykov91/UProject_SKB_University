@@ -1,0 +1,36 @@
+.groups__container {
+  display: flex;
+  align-items: start;
+  min-width: 50vw;
+}
+.groups__container h2 {
+  font-size: 22px;
+  margin: 10px;
+}
+.groups-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.groups__container-items {
+  border: 2px solid rgba(19%, 24%, 55%, 0.8);
+  border-radius: 5px;
+  min-width: 30vw;
+  padding: 0 5px 5px 5px;
+  margin: 0 5px 5px 5px;
+}
+.groups__container-items h2 {
+  font-size: 22px;
+}
+.groups__container-items-text {
+  font-size: 18px;
+  margin: 5px 0px 5px 30px;
+}
+.groups__container-items-text-info {
+  margin: 5px;
+}
+.groups__container-items-btn {
+  height: 30px;
+  width: 100px;
+  margin: 15px 10px 10px 10px;
+}

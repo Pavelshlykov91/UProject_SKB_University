@@ -1,4 +1,4 @@
-import { ExerciseMaterial } from './Excercise/type';
+import type { ExerciseMaterial } from './Excercise/type';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export type User = {
@@ -35,6 +35,7 @@ export type Exercise = {
   critery: string;
   goals: string
 //   exerciseMaterial: any;
+  //   exerciseMaterial: any;
 };
 export type ExerciseId = Exercise['id'];
 

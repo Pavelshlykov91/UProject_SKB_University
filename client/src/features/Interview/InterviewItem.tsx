@@ -1,10 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../redux/store';
 import { Link, useParams } from 'react-router-dom';
+import type { RootState} from '../../redux/store';
+import { useAppDispatch } from '../../redux/store';
 // import InterviewComm from './InterviewComm';
 import InterviewAddComm from './InterviewAddComm';
-import { loadInterview, loadInterviewcomm, loadReactions } from './reducer/InterviewPageSlice';
+import { loadInterview, loadInterviewcomm } from './reducer/InterviewPageSlice';
 import UpdateInterview from './UpdateInterview';
 import InterviewReactions from './InterviewReactions';
 import InterviewModalDelete from './InterviewModalDelete';
@@ -24,7 +29,7 @@ export default function InterviewItem(): JSX.Element {
 
   useEffect(() => {
     if (interviewId) {
-      dispatch(loadReactions());
+      // dispatch(loadReactions());
       dispatch(loadInterviewcomm(interview?.id));
       dispatch(loadInterview());
     }
@@ -35,6 +40,12 @@ export default function InterviewItem(): JSX.Element {
   const reaction1 = reactions.find((el) => el.interview_id === interview?.id);
 
   const onHandleChangeReaction = () => {};
+  // const reaction1 = reactions.find((re) => re.interview_id === interviewId);
+  // console.log(111122223333, reaction1);
+
+  // const onHandleChangeReaction = (x: string) => {
+  //   setReaction(x);
+  // };
 
   const error = <h1>Такого интервью мы пока не придумали</h1>;
   const contentpage = (
@@ -53,6 +64,8 @@ export default function InterviewItem(): JSX.Element {
                     {/* {reaction1.count} */}
                   </div>
                 )}
+              {/* <div className="current_reactions" onClick={() => onHandleChangeReaction('')}> */}
+                
               </div>
             </div>
             <div className="interview_item_card_headcontent">
@@ -105,6 +118,7 @@ export default function InterviewItem(): JSX.Element {
       </div>
       {del && <InterviewModalDelete id={interview?.id} setDel={setDel} del={del} />}
     </div>
+    // </div>
   );
   return <div>{!interview ? error : contentpage}</div>;
 }

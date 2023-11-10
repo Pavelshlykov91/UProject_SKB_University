@@ -1,5 +1,5 @@
 import { Reaction } from '@charkour/react-reactions';
-import { User } from '../../features/auth/type';
+import type { User } from '../../auth/type';
 
 export type Interview = {
   id?: number;

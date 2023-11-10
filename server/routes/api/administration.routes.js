@@ -23,8 +23,9 @@ router.get("/students", async (req, res) => {
 router.get("/exercise", async (req, res) => {
   try {
     const exercises = await Exercise.findAll({
-      include: [{ model: User }, { model: Course }],
+      include: [{ model: User }, { model: Course }, {model: ExerciseMaterial}],
     });
+    console.log(exercises);
     res.json(exercises);
   } catch ({ message }) {
     res.status(500).json({ message });
@@ -48,6 +49,7 @@ router.get("/exercisematerial/:id", async (req, res) => {
     const exercisematerials = await ExerciseMaterial.findAll({
       where: { exercise_id: id },
     });
+    // console.log(exercisematerials, "--------------");
     res.json(exercisematerials);
   } catch (error) {
     console.log(error);

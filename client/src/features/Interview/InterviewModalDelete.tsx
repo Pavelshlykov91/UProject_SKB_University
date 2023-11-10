@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router';
 import { InterviewId } from './reducer/type';
 import { deleteInterview } from './reducer/InterviewPageSlice';
-import { useAppDispatch } from '../redux/store';
+import { useAppDispatch } from '../../redux/store';
 
 export default function InterviewModalDelete({setDel, del, id}:{setDel: (active: boolean) => void, del:boolean, id:InterviewId}) {
   const dispatch=useAppDispatch()

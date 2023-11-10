@@ -27,6 +27,10 @@ module.exports = {
         },
         onDelete: 'CASCADE',
       },
+      done_status: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+      },
       answer: {
         type: Sequelize.TEXT,
         allowNull: false

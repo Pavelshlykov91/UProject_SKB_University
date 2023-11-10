@@ -76,7 +76,7 @@ export const defaultProps: Required<ReactionBarSelectorProps> = {
 
   ],
   iconSize: 38,
-  onSelect: (id: number) => {
+  onSelect: () => {
      },
 };
 
