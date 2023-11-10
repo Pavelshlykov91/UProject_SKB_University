@@ -4,12 +4,15 @@ import './styles/style.css';
 export default function HeaderBlock(): JSX.Element {
   return (
     <div className="header-block-box">
-      <img src="https://art-nto.ru/800/600/https/allpainters.ru/wp-content/uploads/2014/11/ohota-na-kalidonskogo-veprya-Rubens.jpg" alt="" />
+      <img src="../../../public/img/ohota-na-kalidonskogo-veprya-Rubens.jpg" alt="" />
       <p className="gallery-text">
         <h2>Галерея</h2>
         <p>
-          Здесь какое то описание галереи и то для чего она нужна. Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Amet dolor sed ipsum delectus molestias dolorum?
+          Нам нравятся идеи, приносящие пользу клиентам, Банку и сотрудникам. Но оживают они только
+          в процессе их дисциплинированной реализации. Мы не боимся много работать, учиться,
+          преодолевать препятствия и решать сложные задачи. Мы не берёмся за всё подряд, фокусируясь
+          на стратегических приоритетах. Мы умеем эффективно работать в команде и гордимся нашими
+          достижениями.
         </p>
       </p>
     </div>
