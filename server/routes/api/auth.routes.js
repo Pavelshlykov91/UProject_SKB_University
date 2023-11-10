@@ -52,5 +52,19 @@ router.post('/sign-in', async (req, res) => {
         .json({ message: 'success' });
     });
   });
-  
+
+  router.put('/change', async (req, res) => {
+        const {id, firstName, lastName, surname, city, position, email} = req.body
+        const idq = req.session.userId
+        const [result] = await User.update({
+          firstName, lastName, surname, city, position, email
+        }, {where : {id: idq}});
+        console.log(10010110, result);
+        if(result > 0){
+          const user = await User.findOne({
+            where: {id: idq}
+          })
+          res.json(user)
+      }});
+      
   module.exports = router;

@@ -18,7 +18,13 @@ import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
 import AdminMain from '../features/Administration/AdminMain';
 import * as apiAdmin from '../features/Administration/api';
 import StudentCard from '../features/Administration/Student/StudentCard';
-import { loadThemes } from '../features/libraryPage/reducer/themeSlice';
+
+import { loadThemes } from '../features/libraryPage/reducer/themeSlice'
+import LK from '../features/LK/LK';
+import { loadEvents } from '../features/LK/reducers/LKSlice';
+import ExercisesSt from '../features/ExercisesStudent/ExercisesSt';
+import ExerciseItemSt from '../features/ExercisesStudent/ExerciseItemSt';
+
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -27,7 +33,9 @@ const App = (): JSX.Element => {
     dispatch(loadInterview());
     dispatch(loadMaterials());
     dispatch(loadAlbums());
-    dispatch(loadThemes());
+    dispatch(loadThemes())
+    dispatch(loadEvents())
+
   }, []);
 
   useEffect(() => {
@@ -38,6 +46,7 @@ const App = (): JSX.Element => {
     <Routes>
       <Route index path="/" element={<SignIn />} />
       <Route path="/" element={<Navbar />}>
+        <Route path="/myaccount" element={<LK />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/gallery" element={<PhotoAlbumsPage />} />
         <Route path="/gallery/:albumId" element={<PhotoAlbumPage />} />
@@ -47,6 +56,8 @@ const App = (): JSX.Element => {
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/library/:materialId" element={<LibraryItemPage />} />
         <Route path="/library/add-form" element={<AddLibraryForm />} />
+        <Route path="/exercises" element={<ExercisesSt />} />
+        <Route path="/exercises/:exerciseId" element={<ExerciseItemSt/>} />
         <Route path="/administration/:studentId" element={<StudentCard />} />
       </Route>
     </Routes>

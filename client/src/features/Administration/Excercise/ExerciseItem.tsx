@@ -7,6 +7,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useEffect } from 'react';
 import type { Exercise } from '../type';
+
 import { useAppDispatch } from '../../../redux/store';
 import './exercise.css';
 import { loadExercisesMaterials } from '../reducer/ExerciseSlice';
@@ -55,7 +56,7 @@ function ExerciseItem({ exercise }: { exercise: Exercise }): JSX.Element {
         {arrowdirection === true && (
           <div className="exercise_input_material" key={exercise.id}>
             {/* {execisematerials.map((exmat)=> <ExerciseMaterialItem exmat={exmat} key={exmat.id}/>)} */}
-            {exercise.ExerciseMaterials.map((exmat) => (
+            {exercise.exerciseMaterial.map((exmat) => (
               <ExerciseMaterialItem exmat={exmat} key={exmat.id} />
             ))}
             {/* <a href="/library/:materialId">Описание задания</a>

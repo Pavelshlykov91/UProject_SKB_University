@@ -30,6 +30,11 @@ export type Exercise = {
   file: string;
   User: User;
   Course: Course;
+  exerciseMaterial:ExerciseMaterial[],
+  deadline: string;
+  critery: string;
+  goals: string
+//   exerciseMaterial: any;
   ExerciseMaterials: ExerciseMaterial[];
   Answer: Answer[];
 };
