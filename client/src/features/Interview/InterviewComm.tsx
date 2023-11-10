@@ -15,7 +15,6 @@ export default function InterviewComm() {
   const { interviewId } = useParams();
   const dispatch=useAppDispatch()
   const comments = useSelector((store:RootState) => store.interviews.comments)
-  console.log(11111, comments);
   
   useEffect(() => {
 if (interviewId) {
