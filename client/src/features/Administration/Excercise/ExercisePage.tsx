@@ -40,7 +40,7 @@ export default function ExercisePage(): JSX.Element {
     const formData = new FormData();
 
  
-
+    formData.append('user_id',String(user?.id) )
     formData.append('title', exTitle);
     formData.append('content', exContent);
     formData.append('file', exFile);
@@ -48,7 +48,7 @@ export default function ExercisePage(): JSX.Element {
     formData.append('deadline', exDeadline);
     formData.append('goals', exGoals);
     formData.append('critery', exCritery);
-    // formData.append('user_id',user?.id )
+    
     
 
     console.log(exTitle)
