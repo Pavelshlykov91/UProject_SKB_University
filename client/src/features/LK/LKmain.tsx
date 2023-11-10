@@ -36,7 +36,6 @@ export default function LKmain() {
         <div className="LK_main_header">Личная информация</div>
         <form className="LK_pers_info" onSubmit={onHandleSubmit}>
           <div className="LK_pers_info_photo">
-            <img></img>
           </div>
           <div className="LK_pers_info_names">
             <div onClick={() => setButt(true)} className="LK_pers_info_fname">

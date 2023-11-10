@@ -44,6 +44,9 @@ function Navbar() {
               Администрирование
             </NavLink>
           )}
+          {user.role === 'студент' && (<NavLink to="/exercises" className="navbar-link">
+            Задания
+          </NavLink>)}
           <NavLink to="/forum" className="navbar-link">
             Форум
           </NavLink>
