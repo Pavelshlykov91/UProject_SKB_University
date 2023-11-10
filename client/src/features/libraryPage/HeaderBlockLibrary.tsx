@@ -7,8 +7,7 @@ const HeaderBlockLibrary = ():JSX.Element => {
       <p className="gallery-text">
         <h2>Библиотека</h2>
         <p>
-          Здесь какое то описание галереи и то для чего она нужна. Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Amet dolor sed ipsum delectus molestias dolorum?
+          Менеджеры в офисах обслуживают наших заёмщиков и вкладчиков. Все остальные помогают им обслуживать клиентов. Основа нашего сервиса - экспертные знания, внимание, четкая технология и душевгая теплота. Наши сотрудники умеют слушать и слышать, верят в наши продукты
         </p>
       </p>
     </div>

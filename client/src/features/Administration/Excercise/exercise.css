@@ -1,16 +1,22 @@
 .head_exercise_container {
-width:500px;
-display: flex;
-flex-direction: row;
-justify-content: space-between
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500px;
+  margin: 8px;
 }
 .img_arrow {
-width: 30px;
-height:30px;
+  width: 30px;
+  height: 30px;
 }
-.exercise_name{
-padding-left: 50px;
+.exercise_name {
+  padding-left: 50px;
 }
-.exercise_input_material{
-background-color: #FFE4C4;
+.exercise_input_material {
+  min-height: 50px;
+  background-color: rgba(19%, 24%, 55%, 0.2);
+  padding: 5px;
+}
+.exercise_input_material div {
+  margin: 5px;
 }
