@@ -7,7 +7,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   pointer-events: none;
   transition: 0.3s;
   overflow-y: scroll;
@@ -26,7 +26,6 @@
   justify-content: center;
   text-align: center;
   padding: 25px;
-  background-image: linear-gradient(to right, #ffffff 0%, #d0d2d2 100%);
   border-radius: 20px;
   width: 400px;
   height: 150px;
@@ -35,7 +34,15 @@
 }
 .modal-library__content p {
   margin: 15px;
+  color: white;
 }
 .modal-library__content button {
   margin: 0 0 10px;
+}
+
+.modal-btns {
+  display: flex;
+}
+.modal-btns button {
+  margin: 5px;
 }
