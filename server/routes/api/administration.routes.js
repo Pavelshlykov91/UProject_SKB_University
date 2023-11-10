@@ -32,6 +32,7 @@ router.get('/exercise', async (req, res) => {
         {model: Answer}
       ],
     });
+
     res.json(exercises);
   } catch ({ message }) {
     res.status(500).json({ message });
