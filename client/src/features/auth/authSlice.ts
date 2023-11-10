@@ -2,7 +2,7 @@
 /* eslint-disable import/no-duplicates */
 /* eslint-disable @typescript-eslint/default-param-last */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import type { AuthState, UserSign } from './type';
+import type { AuthState,  UserSign, UserUpdate } from './type';
 import * as api from './api';
 
 const initialState: AuthState = {
@@ -18,6 +18,10 @@ export const signIn = createAsyncThunk('auth/sign-in', (user: UserSign) =>
 
 export const logOut = createAsyncThunk('auth/logout', ()=>
 api.fetchLogOut()
+);
+
+export const changeUserData = createAsyncThunk('auth/change', (user: UserUpdate) =>
+  api.fetchUserChange(user),
 );
 
 const authSlice = createSlice({
@@ -42,7 +46,10 @@ const authSlice = createSlice({
       })
       .addCase(logOut.fulfilled, (state) => {
         state.user = undefined;
-      });
+      })
+      .addCase(changeUserData.fulfilled, (state, action) => {
+        state.user = action.payload;
+      })
   },
 });
 

@@ -24,7 +24,7 @@ const [ch,setCh] = useState(false)
         
         if (data.id) {
             dispatch({ type: 'auth/sign-in', payload: data });
-            navigate('/');
+            navigate('/main');
         } else if (data.message === 'Такого юзера не существует или пароль неверный') { 
             setCh(true);
             setEmail('');

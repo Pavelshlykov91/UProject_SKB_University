@@ -4,7 +4,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
 import { deleteAlbum } from '../photoAlbum/reducer/albumsSlice';
-import './modalDeleteGallery.css'
+import './modalDeleteGallery.css';
 
 function ModalDelete({
   active,
@@ -31,12 +31,22 @@ function ModalDelete({
         onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
       >
         <p>Вы точно хотите удалить весь альбом с его содержимым?</p>
-        <button type="button" onClick={() => onHandleDelete()}>
-          Удалить
-        </button>
-        <button type="button" onClick={() => setActive(!active)}>
-          Отмена
-        </button>
+        <div className="modal-btns">
+          <button
+            className="LK_delete_event_modal_bttn"
+            type="button"
+            onClick={() => onHandleDelete()}
+          >
+            Удалить
+          </button>
+          <button
+            className="LK_delete_event_modal_bttn"
+            type="button"
+            onClick={() => setActive(!active)}
+          >
+            Отмена
+          </button>
+        </div>
       </div>
     </div>
   );

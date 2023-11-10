@@ -8,13 +8,8 @@ import './exercise.css';
 import type { ExerciseMaterial } from './type';
 
 function ExerciseMaterialItem({ exmat }: { exmat: ExerciseMaterial }): JSX.Element {
-  console.log(exmat, '++++++++++++++++++++');
 
-  return (
-    <div>
-      {exmat.name}
-    </div>
-  );
+  return <div>{exmat.name}</div>;
 }
 
 export default ExerciseMaterialItem;

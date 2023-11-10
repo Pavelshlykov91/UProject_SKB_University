@@ -45,13 +45,13 @@ export default function PhotoAlbumPage(): JSX.Element {
       )}
       <AddPhotoForm id={album.id} />
       <button onClick={() => navigate(-1)} type="button">
-      &#10094; Назад к альбомам
+      &#11164; Назад к альбомам
       </button>
       <div className="photoalbum-page-photo">
         {album.Fotos?.map((foto) => <PhotoItem key={foto.id} foto={foto} />)}
       </div>
       <button onClick={() => navigate(-1)} type="button">
-      &#10094; Назад к альбомам
+      &#11164; Назад к альбомам
       </button>
     </div>
   );

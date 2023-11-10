@@ -1,9 +1,13 @@
 .navbar {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
-  background-color:transparent;
-  padding: 10px;
+  background-color: transparent;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(215, 215, 215, 0.8);
+}
+.navbar a {
+  color: #313c8d;
 }
 
 .navbar-link {
@@ -15,27 +19,30 @@
 }
 
 .navbar-link:hover {
-  color: #ff0000;
+  color: rgb(234, 153, 40);
 }
-.navbar-link-frame{
-  font-size: 15px;
+.navbar-link-frame {
+  font-size: 13px;
   text-decoration: none;
-  color: #333;
-  /* margin-right: 10px; */
+  color: #313c8d;
 }
 .navbar-link-frame:hover {
   color: rgb(234, 153, 40);
 }
 .logoUser {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   margin-left: 15px;
+  padding: 2px;
+  border: 2px solid #313c8d;
 }
 .usernavbar {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
+
 .navigation {
   list-style: none;
   padding: 0;
@@ -43,9 +50,6 @@ align-items: center;
   background: transparent;
   border-top: solid 3px #fff;
   border-bottom: solid 3px #fff;
-  /*
-  box-shadow:  0px -2px 3px -1px rgba(0, 0, 0, 1);
-  */
 }
 
 .navigation li {
@@ -66,7 +70,7 @@ align-items: center;
   padding: 0 20px;
   text-decoration: none;
   line-height: 40px;
-  color: #121212;
+  color: #313c8d;
 }
 
 .navigation ul {
@@ -87,12 +91,12 @@ align-items: center;
   background: white;
   border: solid 3px #fff;
   border-top: 0;
-  
+
   -webkit-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
-  
-  -webkit-box-shadow:  0px 3px 3px 0px rgba(0, 0, 0, 0.25);
-  box-shadow:  0px 3px 3px 0px rgba(255, 255, 255, 0.25);
+
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 3px 0px rgba(255, 255, 255, 0.25);
 }
 
 .navigation li:hover > ul li:hover {
@@ -119,9 +123,13 @@ align-items: center;
   background-size: contain;
 }
 .frame_nav {
-width: 15px;
-height: 15px;
+  width: 15px;
+  height: 15px;
+  margin-top: 13px;
 }
-.strNavBar{
-width: 150px;
+.strNavBar {
+  width: 155px;
+}
+.nav-logo {
+  height: 40px;
 }

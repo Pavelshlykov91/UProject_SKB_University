@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import albumsSlice from '../features/photoAlbum/reducer/albumsSlice';
 import MainPageSlice from '../features/mainPage/MainPage/reducers/MainPageSlice';
 import librarySlice from '../features/libraryPage/reducer/librarySlice';
-import InterviewPageSlice from '../Interview/reducer/InterviewPageSlice';
+import InterviewPageSlice from '../features/Interview/reducer/InterviewPageSlice';
 import authSlice from '../features/auth/authSlice';
 import StudentSlice from '../features/Administration/reducer/StudentSlice';
 import ExerciseSlice from '../features/Administration/reducer/ExerciseSlice';
@@ -11,6 +11,7 @@ import GroupSlice from '../features/Administration/reducer/GroupSlice';
 import themeSlice from '../features/libraryPage/reducer/themeSlice';
 import forumSlice from '../features/forumPage/reducer/forumSlice';
 import commentSlice from '../features/forumPage/reducer/commentSlice';
+import EventsSlice from '../features/LK/reducers/LKSlice';
 
 const store = configureStore({
   reducer: {
@@ -25,6 +26,8 @@ const store = configureStore({
     themes: themeSlice,
     forums: forumSlice,
     comments: commentSlice,
+    events: EventsSlice
+
   },
 });
 

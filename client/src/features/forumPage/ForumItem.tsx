@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { Forum } from './type';

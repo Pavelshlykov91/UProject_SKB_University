@@ -6,6 +6,7 @@ import { deleteForum } from './reducer/forumSlice';
 import UpdateForum from './UpdateForum'
 import CommentList from './CommentList'
 
+
 const ForumItemPage = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { forumId } = useParams();
@@ -16,7 +17,7 @@ const ForumItemPage = (): JSX.Element => {
   const forum = forums.find((elem) => forumId && elem.id === +forumId);
   const user = useSelector((store: RootState) => store.auth.user);
 
-  const onHandleDeleteForum = async (id): Promise<void> => {
+  const onHandleDeleteForum = async (id: number | undefined): Promise<void> => {
     dispatch(deleteForum(id));
     navigate('/forum');
   };

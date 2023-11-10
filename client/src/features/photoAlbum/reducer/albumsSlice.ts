@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable no-else-return */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable no-return-assign */
@@ -5,7 +7,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import * as api from '../api';
 import type { AlbumsState } from './State';
-import type { AlbumContentWithId, AlbumId, PhotoContentWithIdAndId } from '../type';
+import type { AlbumContentWithOutUrl, AlbumId, PhotoContentWithIdAndId } from '../type';
 
 const initialState: AlbumsState = {
   albums: [],
@@ -22,7 +24,7 @@ export const addAlbum = createAsyncThunk('albums/add', (album: FormData) =>
 export const deleteAlbum = createAsyncThunk('albums/delete', (id: AlbumId) =>
   api.fetchAlbumDelete(id),
 );
-export const updateAlbum = createAsyncThunk('albums/update', (album: AlbumContentWithId) =>
+export const updateAlbum = createAsyncThunk('albums/update', (album: AlbumContentWithOutUrl) =>
   api.fetchAlbumUpdate(album),
 );
 export const addPhoto = createAsyncThunk('photos/add', (value: { data: FormData; id: number }) =>

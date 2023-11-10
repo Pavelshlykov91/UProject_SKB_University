@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { MaterialsState } from './types';
 import * as api from '../api';

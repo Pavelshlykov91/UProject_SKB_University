@@ -3,7 +3,7 @@ import { RootState, useAppDispatch } from '../../redux/store';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { updateMaterial } from './reducer/librarySlice';
-import { MaterialContent } from './type'
+import type { MaterialContent } from './type'
 
 function UpdateLibraryForm({
   flag,

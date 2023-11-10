@@ -49,7 +49,6 @@ router.put('/:materialId', async (req, res) => {
 			url,
 			user_id: req.session.userId,
 		}, { where: { id: materialId, user_id: req.session.userId }})
-		console.log(result);
 		if(result > 0){
 			const material = await Material.findOne({
 				where: {id: +materialId}

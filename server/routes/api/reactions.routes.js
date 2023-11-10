@@ -2,23 +2,21 @@ const router = require('express').Router();
 const {Emoji, InterviewEmoji} = require('../../db/models')
 
 router.get('/', async (req, res) => {
-  console.log('0000000000');
   const reactions = await InterviewEmoji.findAll({ include: { model: Emoji } });
-  console.log(reactions, 99999999999999999);
   res.json(reactions);
 });
 
-// router.get('/:interviewId', async (req, res) => {
-//   try {
-//     const  interviewId  = req.params.interviewId;
-//     const reactions = await InterviewComment.findAll({where: {interview_id: interviewId}, include: { model: User}});
-//     // console.log(999999, comments);
-//     // const interview = await Interview.findOne({ where: { id: interviewId } });
-//     res.json(comments);
-//   } catch ({message}) {
-//     res.json({message})
-//   }
-  
-// });
+// router.put('/:reactionId', async (req, res) => {
+//   const { id, Emoji, count, interview_id } = req.body
+//   const [result] = await Interview.update({
+//     count, Emoji
+//   }, {where : {id: id}});
+
+//   if(result > 0){
+//     const reaction = await Reaction.findOne({
+//       where: {id: id}
+//     })
+//     res.json(reaction)
+// }});
 
 module.exports = router;

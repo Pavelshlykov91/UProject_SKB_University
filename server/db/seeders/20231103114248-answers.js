@@ -6,6 +6,7 @@ module.exports = {
      await queryInterface.bulkInsert('Answers', [{
       user_id:1,
       exercise_id:1,
+      done_status:false,
       answer:'Все отлично',
       file:'++',
       deprecated:false,
@@ -15,6 +16,7 @@ module.exports = {
      {
       user_id:2,
       exercise_id:1,
+      done_status:false,
       answer:'На пять',
       file:'-',
       deprecated:false,
@@ -24,6 +26,7 @@ module.exports = {
      {
       user_id:3,
       exercise_id:1,
+      done_status:false,
       answer:'Так и так',
       file:'++',
       deprecated:false,
@@ -33,6 +36,7 @@ module.exports = {
      {
       user_id:6,
       exercise_id:1,
+      done_status:true,
       answer:'Вот так',
       file:'++',
       deprecated:false,
@@ -42,6 +46,7 @@ module.exports = {
      {
       user_id:7,
       exercise_id:1,
+      done_status:false,
       answer:'И может так',
       file:'++',
       deprecated:false,
@@ -51,6 +56,7 @@ module.exports = {
      {
       user_id:4,
       exercise_id:2,
+      done_status:false,
       answer:'И может так',
       file:'++',
       deprecated:false,
@@ -60,6 +66,7 @@ module.exports = {
      {
       user_id:5,
       exercise_id:2,
+      done_status:true,
       answer:'И может так',
       file:'++',
       deprecated:false,

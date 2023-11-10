@@ -5,7 +5,6 @@ const { User } = require('../../db/models');
 router.post('/sign-in', async (req, res) => {
     try {
       const { email, password } = req.body;
-      console.log(req.body);
       const user = await User.findOne({ where: { email } });
       if (!user) {
         res.json({ message: 'Такого юзера не существует или пароль неверный' });
@@ -52,5 +51,19 @@ router.post('/sign-in', async (req, res) => {
         .json({ message: 'success' });
     });
   });
-  
+
+  router.put('/change', async (req, res) => {
+        const {id, firstName, lastName, surname, city, position, email} = req.body
+        const idq = req.session.userId
+        const [result] = await User.update({
+          firstName, lastName, surname, city, position, email
+        }, {where : {id: idq}});
+        console.log(10010110, result);
+        if(result > 0){
+          const user = await User.findOne({
+            where: {id: idq}
+          })
+          res.json(user)
+      }});
+      
   module.exports = router;

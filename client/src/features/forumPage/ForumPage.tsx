@@ -9,6 +9,7 @@ const ForumPage = (): JSX.Element => {
   const forums = useSelector((store: RootState) => store.forums.forums);
   const [flag, setFlag] = useState(false);
 
+
   return (
     <div className="container--forum">
       <button onClick={() => setFlag(!flag)} type="button">

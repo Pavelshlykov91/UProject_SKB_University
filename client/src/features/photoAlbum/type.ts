@@ -9,7 +9,7 @@ export type Album = {
 
 export type AlbumId = Album['id'];
 export type AlbumContent = Pick<Album, 'title' | 'content' | 'url'>;
-export type AlbumContentWithId = Pick<Album, 'title' | 'content' | 'url' | 'id'>;
+export type AlbumContentWithOutUrl = Pick<Album, 'title' | 'content' | 'id'>;
 
 export type Photo = {
   id: number;

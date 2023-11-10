@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../redux/store';
@@ -29,12 +31,22 @@ function ModalDeleteLibrary({
         onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
       >
         <p>Вы точно хотите удалить статью?</p>
-        <button type="button" onClick={() => onHandleDeleteMaterial()}>
-          Удалить
-        </button>
-        <button type="button" onClick={() => setActive(!active)}>
-          Отмена
-        </button>
+        <div className="modal-btns">
+          <button
+            className="LK_delete_event_modal_bttn"
+            type="button"
+            onClick={() => onHandleDeleteMaterial()}
+          >
+            Удалить
+          </button>
+          <button
+            className="LK_delete_event_modal_bttn"
+            type="button"
+            onClick={() => setActive(!active)}
+          >
+            Отмена
+          </button>
+        </div>
       </div>
     </div>
   );
