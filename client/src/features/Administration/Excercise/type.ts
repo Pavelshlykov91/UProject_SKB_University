@@ -8,12 +8,15 @@ export type ExerciseMaterial = {
 }
 
 export type addExercise = {
-    user_id: number;
+    user_id?: number;
     course_id: number;
     title: string;
     content: string;
     corAnswer: string;
     file: string;
+    deadline?: string;
+    goals?: string;
+    critery?: string;
 }
 
 export type ExerciseMaterialState = ExerciseMaterial[]
