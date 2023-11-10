@@ -43,8 +43,7 @@
 }
 .library-item-content {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  align-items:center;
   color: #313c8d;
   font-size: 20px;
   padding: 5px;

@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react'
-import { useAppDispatch } from '../../redux/store';
 import { useNavigate } from 'react-router';
+import { useAppDispatch } from '../../redux/store';
 import { deleteEvent } from './reducers/LKSlice';
-import { EventId } from './reducers/type';
+import type { EventId } from './reducers/type';
 
 export default function LKDeleteModal({setModal, modal, id}:{setModal: (active: boolean) => void, modal:boolean, id:EventId}) {
   const dispatch=useAppDispatch()

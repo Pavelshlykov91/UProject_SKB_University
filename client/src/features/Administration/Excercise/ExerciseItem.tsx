@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable import/order */
@@ -22,12 +23,10 @@ function ExerciseItem({ exercise }: { exercise: Exercise }): JSX.Element {
   const arrowChange = () => {
     const value = !arrowdirection;
     setArrowdirection(value);
-    console.log(arrowdirection);
   };
   useEffect(() => {
     dispatch(loadExercisesMaterials(exercise.id));
   }, []);
-  console.log(exercise);
 
   return (
     <div className="main_exerciseitem">
@@ -36,20 +35,14 @@ function ExerciseItem({ exercise }: { exercise: Exercise }): JSX.Element {
           <div className="exercise_name">{exercise.title}</div>
           <div className="exercise_arrow">
             {arrowdirection === false && (
-              <img
-                className="img_arrow"
-                onClick={arrowChange}
-                src="../../../../public/img/arrow-down.png"
-                alt="arrow_down"
-              />
+              <button className="groups-btn" onClick={arrowChange}>
+                &#11167;
+              </button>
             )}
             {arrowdirection === true && (
-              <img
-                className="img_arrow"
-                onClick={arrowChange}
-                src="../../../../public/img/arrow-up.png"
-                alt="arrow_down"
-              />
+              <button className="groups-btn" onClick={arrowChange}>
+              &#11165;
+            </button>
             )}
           </div>
         </div>
