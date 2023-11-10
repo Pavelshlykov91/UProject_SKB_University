@@ -13,6 +13,7 @@ import { loadInterview, loadInterviewcomm } from './reducer/InterviewPageSlice';
 import UpdateInterview from './UpdateInterview';
 import InterviewReactions from './InterviewReactions';
 import InterviewModalDelete from './InterviewModalDelete';
+import InterviewItemVideo from './InterviewItemVideo';
 
 export default function InterviewItem(): JSX.Element {
   const { interviewId } = useParams();
@@ -55,7 +56,7 @@ export default function InterviewItem(): JSX.Element {
           <div className="interview_item_card_edit">
             <div className="interview_item_card">
               <div className="interview_img_cont">
-                <img className="interview_img" src={interview?.url} />
+                {interview?.url_video && interview?.url_video?.length>5 ? <InterviewItemVideo/>: <img className="interview_img" src={interview?.url} />}
               </div>
               <div className="current_reactions" onClick={() => onHandleChangeReaction()}>
                 {reaction1 && (

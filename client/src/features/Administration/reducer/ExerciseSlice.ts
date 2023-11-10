@@ -16,6 +16,8 @@ export const loadExercises = createAsyncThunk('exercise/init', api.ExerciseFetch
 export const loadExercisesMaterials = createAsyncThunk('exercisematerial/init', (id: ExerciseId) =>
   apiMaterial.ExerciseMaterialFetch(id),
 );
+// export const addAnswers = createAsyncThunk('answer/add', (answer:Answer) => api.AnswerFetch(answer));
+
 
 const ExercisesSlice = createSlice({
   name: 'exercises',

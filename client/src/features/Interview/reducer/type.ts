@@ -7,6 +7,7 @@ export type Interview = {
   content: string;
   url: string;
   user_id: number;
+  url_video?: string 
 };
 
 export type Emoji = {

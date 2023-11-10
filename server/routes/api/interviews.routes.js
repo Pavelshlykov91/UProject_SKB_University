@@ -10,12 +10,13 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { title, url, content, user_id  } = req.body;
+    const { title, url, content, user_id, url_video  } = req.body;
     const interview = await Interview.create({
       user_id,
       title,
       url,
       content,
+      url_video
     });
     res.json(interview);
   } catch ({ message }) {

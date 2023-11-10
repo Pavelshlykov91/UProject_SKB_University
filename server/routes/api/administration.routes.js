@@ -29,6 +29,7 @@ router.get('/exercise', async (req, res) => {
         { model: User },
         { model: Course },
         { model: ExerciseMaterial },
+        {model: Answer}
       ],
     });
     console.log(exercises);
@@ -69,5 +70,17 @@ router.get('/exercisematerial/:id', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+// router.post('/api/administration/exercise', async (req, res) => {
+//   try {
+//     const { user_id, answer, exerciseId } = req.body;
+//     const answer1 = await Answer.create({
+//       user_id, answer, exerciseId, done_status: true, file: 'la', deprecated: false
+//     });
+//     res.json(answer1);
+//   } catch ({ message }) {
+//     res.json({ message });
+//   }
+// });
 
 module.exports = router;

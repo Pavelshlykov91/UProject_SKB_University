@@ -8,6 +8,7 @@ import './administration.css';
 import StudentPage from './Student/StudentPage';
 import ExercisePage from './Excercise/ExercisePage';
 import GroupPage from './Group/GroupPage';
+import LKevents from '../LK/LKEvents';
 
 function AdminMain(): JSX.Element {
   const [page, setPage] = useState(1);
@@ -30,9 +31,14 @@ function AdminMain(): JSX.Element {
               Группы
             </label>
           </li>
+          <li>
+            <label htmlFor="groups" onClick={() => setPage(4)}>
+              Мероприятия
+            </label>
+          </li>
         </ul>
       </div>
-      {page === 1 ? <StudentPage /> : page === 2 ? <ExercisePage /> : <GroupPage />}
+      {page === 1 ? <StudentPage /> : page === 2 ? <ExercisePage /> :  page === 3 ? <GroupPage /> : <LKevents/>}
       {/* <div>
 <div className='filterStudent'> 
     <label htmlFor="select_admin">Курс</label>
