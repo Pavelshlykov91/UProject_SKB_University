@@ -23,9 +23,12 @@ router.get("/students", async (req, res) => {
 router.get("/exercise", async (req, res) => {
   try {
     const exercises = await Exercise.findAll({
-      include: [{ model: User }, { model: Course }, {model: ExerciseMaterial}],
+      include: [
+        { model: User },
+        { model: Course },
+        { model: ExerciseMaterial },
+      ],
     });
-    console.log(exercises);
     res.json(exercises);
   } catch ({ message }) {
     res.status(500).json({ message });
@@ -56,23 +59,61 @@ router.get("/exercisematerial/:id", async (req, res) => {
   }
 });
 
-router.post('/addexercise', async (req, res) => {
+// router.post('/addexercise', async (req, res) => {
+//   try {
+//     const { user_id, course_id, title, content,file,corAnswer,deadline, goals, critery } = req.body;
+//     console.log(req.body,'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+//     const exercise = await Exercise.create({
+//       user_id: parseInt(user_id),
+//       course_id: parseInt(course_id),
+//       title,
+//       content,
+//       file,
+//       corAnswer,
+//       deadline,
+//       goals,
+//       critery
+//     });
+//     console.log(exercise,'------------------++++++++++++++');
+//     res.json(exercise);
+//   } catch ({ message }) {
+//     res.json({ message });
+//   }
+// });
+
+router.post("/addexercise", async (req, res) => {
   try {
-    const { title, content,file,corAnswer,deadline, goals, critery } = req.body;
-    const exercise = await Exercise.create({
+    const {
       user_id,
+      course_id,
       title,
       content,
       file,
       corAnswer,
       deadline,
       goals,
-      critery
+      critery,
+    } = req.body.exercise;
+    // if (typeof user_id !== 'undefined' && typeof course_id !== 'undefined' && Number.isInteger(parseInt(user_id)) && Number.isInteger(parseInt(course_id))) {
+    console.log(req.body, "---------------======================111111111");
+    const exercise = await Exercise.create({
+      user_id,
+      course_id,
+      title,
+      content,
+      file,
+      corAnswer,
+      deadline,
+      goals,
+      critery,
     });
+    console.log(exercise, "++++++++++++++++++++++++++++++++++");
     res.json(exercise);
+    // } else {
+    //   res.json({ message: 'Invalid user_id or course_id' });
+    // }
   } catch ({ message }) {
     res.json({ message });
   }
 });
-
 module.exports = router;

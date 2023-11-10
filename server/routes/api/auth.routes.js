@@ -5,7 +5,6 @@ const { User } = require('../../db/models');
 router.post('/sign-in', async (req, res) => {
     try {
       const { email, password } = req.body;
-      console.log(req.body);
       const user = await User.findOne({ where: { email } });
       if (!user) {
         res.json({ message: 'Такого юзера не существует или пароль неверный' });

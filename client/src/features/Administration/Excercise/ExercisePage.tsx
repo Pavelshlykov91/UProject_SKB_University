@@ -10,7 +10,7 @@ import type { RootState } from '../../../redux/store';
 import { useAppDispatch } from '../../../redux/store';
 import { addExercises, loadExercises } from '../reducer/ExerciseSlice';
 import ExerciseItem from './ExerciseItem';
-import { checkUser } from '../../auth/authSlice';
+import type { addExercise } from './type';
 
 export default function ExercisePage(): JSX.Element {
 
@@ -22,7 +22,9 @@ export default function ExercisePage(): JSX.Element {
   const [exDeadline, setExDeadline] = useState('');
   const [exGoals, setExGoals] = useState('');
   const [exCritery, setExCritery] = useState('');
+  const [exCourse, setExCourse] = useState('');
   const dispatch = useAppDispatch();
+  
 
   const exercises = useSelector((store: RootState) => store.exercises.exercises);
   const user = useSelector((store:RootState)=>store.auth.user)
@@ -41,6 +43,7 @@ export default function ExercisePage(): JSX.Element {
 
  
     formData.append('user_id',String(user?.id) )
+    formData.append('course_id', exCourse);
     formData.append('title', exTitle);
     formData.append('content', exContent);
     formData.append('file', exFile);
@@ -48,13 +51,25 @@ export default function ExercisePage(): JSX.Element {
     formData.append('deadline', exDeadline);
     formData.append('goals', exGoals);
     formData.append('critery', exCritery);
-    
+
+    const addexercise:addExercise = {
+      user_id: user?.id,
+      course_id: +exCourse,
+      title: exTitle,
+      content: exContent,
+      file:exFile,
+      corAnswer:exCorAnswer,
+      deadline:exDeadline,
+      goals: exGoals,
+      critery:exCritery
+    }
     
 
-    console.log(exTitle)
-    console.log(user?.id)
+    // console.log(exTitle)
+    // console.log(user?.id)
+    console.log(exCourse)
   //     try {
-    dispatch(addExercises(formData));
+    dispatch(addExercises(addexercise));
   // } catch (error) {
   // }
 };
@@ -108,8 +123,23 @@ export default function ExercisePage(): JSX.Element {
               type="text"
               value={exCritery}
               onChange={(e) => setExCritery(e.target.value)}
-              placeholder="Какие цели задания"
+              placeholder="Критерии выполнения"
             />
+            <div>
+        <div className="filterExercise">
+          <label htmlFor="select_admin">Задание</label>
+          <select
+        id="select_admin"
+        className="select_admin"
+        value={exCourse}
+        onChange={(e) => setExCourse(e.target.value)}
+      >
+        <option value="1">первый</option>
+        <option value="2">второй</option>
+        <option value="3">третий</option>
+      </select>
+        </div>
+      </div>
             <button type="submit">Добавить задание</button>
           </form>
         </div>

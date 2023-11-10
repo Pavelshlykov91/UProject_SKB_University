@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable import/prefer-default-export */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
@@ -5,6 +6,7 @@ import type { ExercisesState } from './State';
 import * as api from '../api';
 import * as apiMaterial from '../Excercise/api';
 import type { Exercise, ExerciseId } from '../type';
+import type { addExercise } from '../Excercise/type';
 
 const initialState: ExercisesState = {
   exercises: [],
@@ -19,8 +21,8 @@ export const loadExercisesMaterials = createAsyncThunk('exercisematerial/init', 
 // export const addExercises = createAsyncThunk('exercise/add', (Exercise: Exercise) =>
 // apiMaterial.fetchExerciseAdd(),
 // );
-export const addExercises = createAsyncThunk('exercise/add', async (exercise: Exercise) => {
-  const response = await apiMaterial.fetchExerciseAdd({ exercise });
+export const addExercises = createAsyncThunk('exercise/add', async (exercise: addExercise) => {
+  const response = await apiMaterial.fetchExerciseAdd(exercise);
   return response;
 });
 
@@ -49,8 +51,13 @@ const ExercisesSlice = createSlice({
       })
       .addCase(loadExercisesMaterials.rejected, (state, action) => {
         state.error = action.error.message ? action.error.message : null;
-      });
-      
+      })
+      .addCase(addExercises.fulfilled, (state, action) => {
+        state.exercises = [...state.exercises, action.payload];
+      })
+      .addCase(addExercises.rejected, (state, action) => {
+        state.error = action.error.message ? action.error.message : null;
+      })
   },
 });
 
