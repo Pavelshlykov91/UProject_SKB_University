@@ -22,9 +22,10 @@
   color: rgb(234, 153, 40);
 }
 .navbar-link-frame {
-  font-size: 13px;
+  font-size: 12px;
   text-decoration: none;
   color: #313c8d;
+  height: 30px;
 }
 .navbar-link-frame:hover {
   color: rgb(234, 153, 40);
@@ -69,7 +70,7 @@
   display: block;
   padding: 0 20px;
   text-decoration: none;
-  line-height: 40px;
+  line-height: 20px;
   color: #313c8d;
 }
 
