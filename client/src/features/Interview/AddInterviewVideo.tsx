@@ -6,14 +6,14 @@ import { useSelector } from 'react-redux';
 
 export default function AddInterviewVideo() {
   const [title, setTitle] = useState('');
-  const [url1, setUrl] = useState('');
-  // const [video, setVideo] = useState('')
+  const [url, setUrl] = useState('');
+  const [video1, setVideo] = useState('')
   const [content, setContent] = useState(``);
   const dispatch = useAppDispatch();
   const user_id = useSelector((store: RootState) => (store.auth.user ? store.auth.user.id : 1));
 
   const extractVideoId = (url: string): string | null => {
-    const regexPattern = /\/embed\/([^?]+)/;
+    const regexPattern = /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
 
     const match = regexPattern.exec(url);
 
@@ -22,13 +22,13 @@ export default function AddInterviewVideo() {
 
   const onHandleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    const url: string | null = extractVideoId(url1);
-    if (url) {
-      dispatch(addInterview({ title, url, content, user_id }));
+    
+    const url_video: string | null = extractVideoId(video1);
+      url_video&& dispatch(addInterview({ title, url, content, user_id, url_video }));
       setTitle('');
       setUrl('');
       setContent('');
-    }
+    
   };
   return (
     <div>
@@ -44,8 +44,15 @@ export default function AddInterviewVideo() {
           placeholder="Ссылка на изображение"
           className="interview_add_input_title"
           type="text"
-          value={url1}
+          value={url}
           onChange={(e) => setUrl(`${e.target.value}`)}
+        />
+        <input
+          placeholder="Ссылка на видео"
+          className="interview_add_input_title"
+          type="text"
+          value={video1}
+          onChange={(e) => setVideo(`${e.target.value}`)}
         />
         <input
           placeholder="Содержание"
@@ -61,7 +68,7 @@ export default function AddInterviewVideo() {
       value={video}
       onChange={(e) => setVideo(e.target.value)}
     /> */}
-        {title && content && url1 && (
+        {title && content && url && video1 && (
           <button className="interview_add_butt" type="submit">
             Добавить
           </button>

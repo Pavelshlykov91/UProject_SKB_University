@@ -4,7 +4,7 @@ export type ExerciseMaterial = {
     name:string,
     timing:string,
     content:string,
-    file:string,
+    file:string
 }
 
 export type addExercise = {

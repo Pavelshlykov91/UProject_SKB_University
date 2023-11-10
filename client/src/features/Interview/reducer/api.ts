@@ -41,7 +41,8 @@ export const fetchInterviewAdd = async (interview: Interview): Promise<Interview
     },
     body: JSON.stringify(interview),
   });
-
+  console.log(res, 93939939);
+  
   return res.json();
 };
 export const fetchInterviewUpd = async (interview: Interview): Promise<Interview> => {

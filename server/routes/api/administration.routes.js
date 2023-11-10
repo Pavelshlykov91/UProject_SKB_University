@@ -29,6 +29,7 @@ router.get('/exercise', async (req, res) => {
         { model: User },
         { model: Course },
         { model: ExerciseMaterial },
+        {model: Answer}
       ],
     });
     res.json(exercises);
@@ -68,27 +69,20 @@ router.get('/exercisematerial/:id', async (req, res) => {
   }
 });
 
-// router.post('/addexercise', async (req, res) => {
+
+// router.post('/api/administration/exercise', async (req, res) => {
 //   try {
-//     const { user_id, course_id, title, content,file,corAnswer,deadline, goals, critery } = req.body;
-//     console.log(req.body,'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-//     const exercise = await Exercise.create({
-//       user_id: parseInt(user_id),
-//       course_id: parseInt(course_id),
-//       title,
-//       content,
-//       file,
-//       corAnswer,
-//       deadline,
-//       goals,
-//       critery
+//     const { user_id, answer, exerciseId } = req.body;
+//     const answer1 = await Answer.create({
+//       user_id, answer, exerciseId, done_status: true, file: 'la', deprecated: false
 //     });
-//     console.log(exercise,'------------------++++++++++++++');
-//     res.json(exercise);
+//     res.json(answer1);
+
 //   } catch ({ message }) {
 //     res.json({ message });
 //   }
 // });
+
 
 router.post("/addexercise", async (req, res) => {
   try {
@@ -125,4 +119,5 @@ router.post("/addexercise", async (req, res) => {
     res.json({ message });
   }
 });
+
 module.exports = router;

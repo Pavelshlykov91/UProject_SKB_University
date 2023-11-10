@@ -15,8 +15,13 @@ const initialState: ExercisesState = {
 };
 
 export const loadExercises = createAsyncThunk('exercise/init', api.ExerciseFetch);
+
 export const loadExercisesMaterials = createAsyncThunk('exercisematerial/init', (id: ExerciseId) =>
-  apiMaterial.ExerciseMaterialFetch(id))
+  apiMaterial.ExerciseMaterialFetch(id),
+);
+// export const addAnswers = createAsyncThunk('answer/add', (answer:Answer) => api.AnswerFetch(answer))
+
+//   apiMaterial.ExerciseMaterialFetch(id))
 
 // export const addExercises = createAsyncThunk('exercise/add', (Exercise: Exercise) =>
 // apiMaterial.fetchExerciseAdd(),
@@ -25,6 +30,7 @@ export const addExercises = createAsyncThunk('exercise/add', async (exercise: ad
   const response = await apiMaterial.fetchExerciseAdd(exercise);
   return response;
 });
+
 
 const ExercisesSlice = createSlice({
   name: 'exercises',
