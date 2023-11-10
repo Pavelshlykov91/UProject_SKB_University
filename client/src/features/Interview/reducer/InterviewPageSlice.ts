@@ -50,7 +50,11 @@ const InterviewPageSlice = createSlice({
       .addCase(loadInterviewcomm.fulfilled, (state, action) => {
         state.comments = action.payload;
       })
+<<<<<<< HEAD:client/src/Interview/reducer/InterviewPageSlice.ts
+      .addCase(addInterviewcomm.fulfilled, (state, action) => {
+=======
       .addCase(addInterviewcomm.fulfilled, (state, action) => {        
+>>>>>>> dev:client/src/features/Interview/reducer/InterviewPageSlice.ts
         state.comments.push(action.payload);
       })
       .addCase(deleteInterview.fulfilled, (state, action) => {

@@ -18,12 +18,16 @@ import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
 import AdminMain from '../features/Administration/AdminMain';
 import * as apiAdmin from '../features/Administration/api';
 import StudentCard from '../features/Administration/Student/StudentCard';
-
-import { loadThemes } from '../features/libraryPage/reducer/themeSlice'
+import { loadThemes } from '../features/libraryPage/reducer/themeSlice';
+import ForumPage from '../features/forumPage/ForumPage';
+import { loadForums } from '../features/forumPage/reducer/forumSlice';
+import ForumItemPage from '../features/forumPage/ForumItemPage';
+import { loadComments } from '../features/forumPage/reducer/commentSlice'
 import LK from '../features/LK/LK';
 import { loadEvents } from '../features/LK/reducers/LKSlice';
 import ExercisesSt from '../features/ExercisesStudent/ExercisesSt';
 import ExerciseItemSt from '../features/ExercisesStudent/ExerciseItemSt';
+
 
 
 const App = (): JSX.Element => {
@@ -33,8 +37,11 @@ const App = (): JSX.Element => {
     dispatch(loadInterview());
     dispatch(loadMaterials());
     dispatch(loadAlbums());
+    dispatch(loadForums());
+    dispatch(loadComments())
     dispatch(loadThemes())
     dispatch(loadEvents())
+
 
   }, []);
 
@@ -59,6 +66,8 @@ const App = (): JSX.Element => {
         <Route path="/exercises" element={<ExercisesSt />} />
         <Route path="/exercises/:exerciseId" element={<ExerciseItemSt/>} />
         <Route path="/administration/:studentId" element={<StudentCard />} />
+        <Route path="/forum" element={<ForumPage />} />
+        <Route path="/forum/:forumId" element={<ForumItemPage />} />
       </Route>
     </Routes>
   );
