@@ -16,10 +16,9 @@ import SignIn from '../features/auth/Sign-in';
 import LibraryItemPage from '../features/libraryPage/LibraryItemPage';
 import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
 import AdminMain from '../features/Administration/AdminMain';
-import * as apiAdmin from '../features/Administration/api'
+import * as apiAdmin from '../features/Administration/api';
 import StudentCard from '../features/Administration/Student/StudentCard';
-import { loadThemes } from '../features/libraryPage/reducer/themeSlice'
-
+import { loadThemes } from '../features/libraryPage/reducer/themeSlice';
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -28,19 +27,16 @@ const App = (): JSX.Element => {
     dispatch(loadInterview());
     dispatch(loadMaterials());
     dispatch(loadAlbums());
-    dispatch(loadThemes())
+    dispatch(loadThemes());
   }, []);
 
   useEffect(() => {
     apiAdmin.UserFetch().then((data) => dispatch({ type: 'user/init', payload: data }));
-}, []);
-
+  }, []);
 
   return (
-
- 
     <Routes>
-      <Route index path='/' element={<SignIn />} />
+      <Route index path="/" element={<SignIn />} />
       <Route path="/" element={<Navbar />}>
         <Route path="/main" element={<MainPage />} />
         <Route path="/gallery" element={<PhotoAlbumsPage />} />

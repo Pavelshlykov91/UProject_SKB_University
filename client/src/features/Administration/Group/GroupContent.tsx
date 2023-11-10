@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../../redux/store';
@@ -12,9 +13,11 @@ export default function GroupContent({ index }: { index: number }): JSX.Element 
     <div className="groups__container-items">
       <h2>{`Номер задания: ${userGroups[0].exercise_id}`}</h2>
       {userGroups.map((group) => (
-        <StudentLine group={group} />
+        <StudentLine key={group.id} group={group} />
       ))}
-      <button className='groups__container-items-btn' type='button'>Подробнее &#11166;</button>
+      <button className="groups__container-items-btn" type="button">
+        Подробнее &#11166;
+      </button>
     </div>
   );
 }
