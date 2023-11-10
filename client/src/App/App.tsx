@@ -16,8 +16,9 @@ import SignIn from '../features/auth/Sign-in';
 import LibraryItemPage from '../features/libraryPage/LibraryItemPage';
 import AddLibraryForm from '../features/libraryPage/AddLibraryForm';
 import AdminMain from '../features/Administration/AdminMain';
-import * as apiAdmin from '../features/Administration/api'
+import * as apiAdmin from '../features/Administration/api';
 import StudentCard from '../features/Administration/Student/StudentCard';
+
 import { loadThemes } from '../features/libraryPage/reducer/themeSlice'
 import LK from '../features/LK/LK';
 import { loadEvents } from '../features/LK/reducers/LKSlice';
@@ -34,18 +35,16 @@ const App = (): JSX.Element => {
     dispatch(loadAlbums());
     dispatch(loadThemes())
     dispatch(loadEvents())
+
   }, []);
 
   useEffect(() => {
     apiAdmin.UserFetch().then((data) => dispatch({ type: 'user/init', payload: data }));
-}, []);
-
+  }, []);
 
   return (
-
- 
     <Routes>
-      <Route index path='/' element={<SignIn />} />
+      <Route index path="/" element={<SignIn />} />
       <Route path="/" element={<Navbar />}>
         <Route path="/myaccount" element={<LK />} />
         <Route path="/main" element={<MainPage />} />

@@ -35,7 +35,8 @@ export type Exercise = {
   critery: string;
   goals: string
 //   exerciseMaterial: any;
-  //   exerciseMaterial: any;
+  ExerciseMaterials: ExerciseMaterial[];
+  Answer: Answer[];
 };
 export type ExerciseId = Exercise['id'];
 
@@ -59,3 +60,19 @@ export type Course = {
   name: string;
   content: string;
 };
+
+export type Answer = {
+  id: number;
+  user_id: number;
+  exercise_id: number;
+  answer: string;
+  file: string;
+  deprecation: boolean;
+  Mark: Mark[];
+}
+
+export type Mark = {
+  id: number;
+  answer_id: number;
+  mark: number;
+}

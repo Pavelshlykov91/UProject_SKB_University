@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from 'react';
@@ -34,8 +35,8 @@ function GroupPage(): JSX.Element {
         </div> */}
       </div>
       <div>
-        {groupsUniq.map((elemIndex) => (
-          <GroupItem index={elemIndex}/>
+        {groupsUniq.map((elemIndex, ind) => (
+          <GroupItem key={ind} index={elemIndex}/>
         ))}
       </div>
     </div>
