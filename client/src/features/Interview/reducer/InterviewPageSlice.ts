@@ -50,6 +50,7 @@ const InterviewPageSlice = createSlice({
       .addCase(loadInterviewcomm.fulfilled, (state, action) => {
         state.comments = action.payload;
       })
+
       .addCase(addInterviewcomm.fulfilled, (state, action) => {        
         state.comments.push(action.payload);
       })

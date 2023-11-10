@@ -1,4 +1,4 @@
-import { Reaction } from '@charkour/react-reactions';
+import type { Reaction } from '@charkour/react-reactions';
 import type { User } from '../../auth/type';
 
 export type Interview = {
