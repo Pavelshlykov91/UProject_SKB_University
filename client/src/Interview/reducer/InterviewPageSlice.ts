@@ -1,4 +1,4 @@
-import { Interview, InterviewComment, InterviewId, InterviewReaction, InterviewState } from './type';
+import { EmojiId, Interview, InterviewComment, InterviewId, InterviewReaction, InterviewState } from './type';
 import * as api from './api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
@@ -26,7 +26,8 @@ export const updInterview = createAsyncThunk('interviews/upd', (interview: Inter
   api.fetchInterviewUpd(interview),
 );
 export const loadReactions = createAsyncThunk('reactions/load', () => api.fetchReactions());
-export const changeReactions = createAsyncThunk('reactions/change', (reaction:InterviewReaction) => api.fetchReactionschange(reaction));
+// export const addReaction = createAsyncThunk('reactions/change', (id:EmojiId) => api.fetchReactionschange(id));
+export const deleteInterview = createAsyncThunk('interview/delete', (id: InterviewId) => api.fetchDeleteInterview(id));
 
 
 const InterviewPageSlice = createSlice({
@@ -50,6 +51,9 @@ const InterviewPageSlice = createSlice({
       })
       .addCase(addInterviewcomm.fulfilled, (state, action) => {        
         state.comments.push(action.payload);
+      })
+      .addCase(deleteInterview.fulfilled, (state, action) => {
+        state.interviews = state.interviews.filter((interview) => interview.id !== action.payload.id);
       })
       .addCase(updInterview.fulfilled, (state, action) => {
 

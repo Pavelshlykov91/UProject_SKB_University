@@ -7,6 +7,7 @@ import InterviewAddComm from './InterviewAddComm';
 import { loadInterview, loadInterviewcomm, loadReactions } from './reducer/InterviewPageSlice';
 import UpdateInterview from './UpdateInterview';
 import InterviewReactions from './InterviewReactions';
+import InterviewModalDelete from './InterviewModalDelete';
 
 export default function InterviewItem(): JSX.Element {
   const { interviewId } = useParams();
@@ -15,6 +16,10 @@ export default function InterviewItem(): JSX.Element {
   const interview = interviews.find((int) => interviewId && int.id === +interviewId);
   const dispatch = useAppDispatch();
   const [upd, setUpd] = useState(false);
+  const [del, setDel] = useState(false);
+  // const [selectedReactions, setSelectedReactions] = useState([]);
+
+  
   // const [reaction, setReaction] = useState('');
 
   useEffect(() => {
@@ -27,12 +32,9 @@ export default function InterviewItem(): JSX.Element {
 
   const reactions = useSelector((store: RootState) => store.interviews.reactions);
 
-  // const reaction1 = reactions.find((el)=> el.interview_id===interview?.id);
-  console.log(111122223333, reactions);
+  const reaction1 = reactions.find((el) => el.interview_id === interview?.id);
 
-  const onHandleChangeReaction = () => {
-    
-  };
+  const onHandleChangeReaction = () => {};
 
   const error = <h1>Такого интервью мы пока не придумали</h1>;
   const contentpage = (
@@ -45,18 +47,26 @@ export default function InterviewItem(): JSX.Element {
                 <img className="interview_img" src={interview?.url} />
               </div>
               <div className="current_reactions" onClick={() => onHandleChangeReaction()}>
-                {/* {curreact.Emoji.emoji}{curreact.count} */}
+                {reaction1 && (
+                  <div>
+                    {/* {reaction1.Emoji.emoji} */}
+                    {/* {reaction1.count} */}
+                  </div>
+                )}
               </div>
             </div>
             <div className="interview_item_card_headcontent">
-              {/* <div className='interview_item_card_head_container'> */}
-              <div className="interview_item_card_head">{interview?.title}</div>
-              {/* </div> */}
+              <div className="interview_item_card_head_container">
+                <div className="interview_item_card_head">{interview?.title}</div>
+              </div>
               <div className="interview_item_card_editcont">
                 {user && user.role === 'преподаватель' && (
                   <div>
                     <button className="interview_upd_bttn" onClick={() => setUpd((prev) => !prev)}>
                       Редактировать интервью
+                    </button>
+                    <button className="interview_delete_bttn" onClick={() => setDel(true)}>
+                      Удалить интервью
                     </button>
                   </div>
                 )}
@@ -71,7 +81,7 @@ export default function InterviewItem(): JSX.Element {
           <div className="interview_reactions_flag">
             <button className="int_reaction_fl">+</button>
             <div className="reactions_comp">
-              <InterviewReactions  />
+              <InterviewReactions />
             </div>
           </div>
           <div>
@@ -93,6 +103,7 @@ export default function InterviewItem(): JSX.Element {
           </ol>
         </div>
       </div>
+      {del && <InterviewModalDelete id={interview?.id} setDel={setDel} del={del} />}
     </div>
   );
   return <div>{!interview ? error : contentpage}</div>;

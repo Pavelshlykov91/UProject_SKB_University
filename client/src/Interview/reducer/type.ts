@@ -1,3 +1,4 @@
+import { Reaction } from '@charkour/react-reactions';
 import { User } from '../../features/auth/type';
 
 export type Interview = {
@@ -19,7 +20,7 @@ export type EmojiId = Emoji['id'];
 
 export type InterviewReaction = {
 id: number;
-Emoji: Emoji;
+Emoji: Reaction;
 count: number;
 interview_id: string | number;
 }

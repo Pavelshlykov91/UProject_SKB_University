@@ -54,9 +54,7 @@ export const fetchInterviewUpd = async (interview: Interview): Promise<Interview
 
 
 export const fetchReactions = async ():Promise<InterviewReaction[]> => {
-  console.log('kkkkk');
   const res = await (await fetch('/api/reactions')).json();
-  console.log(res, 909009099);
   
   return res
 }
@@ -73,5 +71,12 @@ export const fetchReactionschange = async (reaction: InterviewReaction): Promise
     body: JSON.stringify(reaction),
   });
 
+  return res.json();
+};
+
+export const fetchDeleteInterview = async (id: InterviewId): Promise<{ id: number }> => {
+  const res = await fetch(`/api/interviews/${id}`, {
+    method: 'DELETE',
+  });
   return res.json();
 };

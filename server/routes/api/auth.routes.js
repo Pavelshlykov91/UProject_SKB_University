@@ -59,6 +59,7 @@ router.post('/sign-in', async (req, res) => {
         const [result] = await User.update({
           firstName, lastName, surname, city, position, email
         }, {where : {id: idq}});
+        console.log(10010110, result);
         if(result > 0){
           const user = await User.findOne({
             where: {id: idq}
