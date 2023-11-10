@@ -2,9 +2,10 @@
   display: flex;
   align-items: start;
   min-width: 50vw;
+  margin: 8px;
 }
 .groups__container h2 {
-  font-size: 22px;
+  font-size: 18px;
   margin: 10px;
 }
 .groups-btn {
@@ -20,10 +21,10 @@
   margin: 0 5px 5px 5px;
 }
 .groups__container-items h2 {
-  font-size: 22px;
+  font-size: 18px;
 }
 .groups__container-items-text {
-  font-size: 18px;
+  font-size: 14px;
   margin: 5px 0px 5px 30px;
 }
 .groups__container-items-text-info {
@@ -31,6 +32,6 @@
 }
 .groups__container-items-btn {
   height: 30px;
-  width: 100px;
+  width: 120px;
   margin: 15px 10px 10px 10px;
 }

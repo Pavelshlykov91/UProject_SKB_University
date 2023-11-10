@@ -8,8 +8,8 @@ import authSlice from '../features/auth/authSlice';
 import StudentSlice from '../features/Administration/reducer/StudentSlice';
 import ExerciseSlice from '../features/Administration/reducer/ExerciseSlice';
 import GroupSlice from '../features/Administration/reducer/GroupSlice';
-import themeSlice from '../features/libraryPage/reducer/themeSlice'
-
+import themeSlice from '../features/libraryPage/reducer/themeSlice';
+import EventsSlice from '../features/LK/reducers/LKSlice';
 const store = configureStore({
   reducer: {
     interviews: InterviewPageSlice,
@@ -20,7 +20,8 @@ const store = configureStore({
     students: StudentSlice,
     exercises: ExerciseSlice,
     groups: GroupSlice,
-    themes:themeSlice,
+    themes: themeSlice,
+    events: EventsSlice
   },
 });
 

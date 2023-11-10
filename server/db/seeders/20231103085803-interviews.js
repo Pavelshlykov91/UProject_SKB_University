@@ -33,7 +33,7 @@ module.exports = {
       
       По выходным у меня основной отдых, за 16 лет работы в найме я очень привык к графику 5/2, поэтому до сих пор его придерживаюсь. По субботам работаю до обеда, после работы гуляю по Москве или идем с женой в театр/кино/ресторан.`,
       url:'https://img.freepik.com/free-photo/young-business-man-talking-on-phone-and-working-on-computer_1303-25412.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1699228800&semt=ais',
-      url_video:'video',
+      url_video: 'видео',
       createdAt: new Date(),
       updatedAt: new Date(),
      },

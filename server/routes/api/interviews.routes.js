@@ -63,6 +63,19 @@ router.put('/:interviewId', async (req, res) => {
     res.json(interview)
 }});
 
+router.delete('/:InterviewId', async (req, res) => {
+  try {
+    const { InterviewId } = req.params;
+    const result = await Interview.destroy({ where: { id: InterviewId } });
+    if (result > 0) {
+      res.json({ id: +InterviewId });
+      return;
+    }
+    res.json({ message: 'error' });
+  } catch ({ message }) {
+    res.json({ message });
+  }
+});
 
 
 

@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const router = require('express').Router();
 const {
   User,
   Exercise,
@@ -6,12 +6,14 @@ const {
   Group,
   Course,
   ExerciseMaterial,
-} = require("../../db/models");
+  Answer,
+  Mark,
+} = require('../../db/models');
 
-router.get("/students", async (req, res) => {
+router.get('/students', async (req, res) => {
   try {
     const users = await User.findAll({
-      where: { role: "студент" },
+      where: { role: 'студент' },
       include: [{ model: Course }],
     });
     res.json(users);
@@ -20,7 +22,7 @@ router.get("/students", async (req, res) => {
   }
 });
 
-router.get("/exercise", async (req, res) => {
+router.get('/exercise', async (req, res) => {
   try {
     const exercises = await Exercise.findAll({
       include: [
@@ -35,10 +37,17 @@ router.get("/exercise", async (req, res) => {
   }
 });
 
-router.get("/group", async (req, res) => {
+router.get('/group', async (req, res) => {
   try {
     const groups = await User_group.findAll({
-      include: [{ model: Group }, { model: Exercise }, { model: User }],
+      include: [
+        { model: Group },
+        {
+          model: Exercise,
+          include: [{ model: Answer, include: [{ model: Mark }] }],
+        },
+        { model: User },
+      ],
     });
     res.json(groups);
   } catch ({ message }) {
@@ -46,7 +55,7 @@ router.get("/group", async (req, res) => {
   }
 });
 
-router.get("/exercisematerial/:id", async (req, res) => {
+router.get('/exercisematerial/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const exercisematerials = await ExerciseMaterial.findAll({

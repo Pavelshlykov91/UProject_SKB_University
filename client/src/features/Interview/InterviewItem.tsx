@@ -9,9 +9,10 @@ import type { RootState} from '../../redux/store';
 import { useAppDispatch } from '../../redux/store';
 // import InterviewComm from './InterviewComm';
 import InterviewAddComm from './InterviewAddComm';
-import { loadInterview, loadInterviewcomm, loadReactions } from './reducer/InterviewPageSlice';
+import { loadInterview, loadInterviewcomm } from './reducer/InterviewPageSlice';
 import UpdateInterview from './UpdateInterview';
 import InterviewReactions from './InterviewReactions';
+import InterviewModalDelete from './InterviewModalDelete';
 
 export default function InterviewItem(): JSX.Element {
   const { interviewId } = useParams();
@@ -20,18 +21,25 @@ export default function InterviewItem(): JSX.Element {
   const interview = interviews.find((int) => interviewId && int.id === +interviewId);
   const dispatch = useAppDispatch();
   const [upd, setUpd] = useState(false);
+  const [del, setDel] = useState(false);
+  // const [selectedReactions, setSelectedReactions] = useState([]);
+
+  
   // const [reaction, setReaction] = useState('');
 
   useEffect(() => {
     if (interviewId) {
-      dispatch(loadReactions());
+      // dispatch(loadReactions());
       dispatch(loadInterviewcomm(interview?.id));
       dispatch(loadInterview());
     }
   }, []);
 
-  // const reactions = useSelector((store: RootState) => store.interviews.reactions);
+  const reactions = useSelector((store: RootState) => store.interviews.reactions);
 
+  const reaction1 = reactions.find((el) => el.interview_id === interview?.id);
+
+  const onHandleChangeReaction = () => {};
   // const reaction1 = reactions.find((re) => re.interview_id === interviewId);
   // console.log(111122223333, reaction1);
 
@@ -49,19 +57,29 @@ export default function InterviewItem(): JSX.Element {
               <div className="interview_img_cont">
                 <img className="interview_img" src={interview?.url} />
               </div>
+              <div className="current_reactions" onClick={() => onHandleChangeReaction()}>
+                {reaction1 && (
+                  <div>
+                    {/* {reaction1.Emoji.emoji} */}
+                    {/* {reaction1.count} */}
+                  </div>
+                )}
               {/* <div className="current_reactions" onClick={() => onHandleChangeReaction('')}> */}
                 
               </div>
             </div>
             <div className="interview_item_card_headcontent">
-              {/* <div className='interview_item_card_head_container'> */}
-              <div className="interview_item_card_head">{interview?.title}</div>
-              {/* </div> */}
+              <div className="interview_item_card_head_container">
+                <div className="interview_item_card_head">{interview?.title}</div>
+              </div>
               <div className="interview_item_card_editcont">
                 {user && user.role === 'преподаватель' && (
                   <div>
                     <button className="interview_upd_bttn" onClick={() => setUpd((prev) => !prev)}>
                       Редактировать интервью
+                    </button>
+                    <button className="interview_delete_bttn" onClick={() => setDel(true)}>
+                      Удалить интервью
                     </button>
                   </div>
                 )}
@@ -98,6 +116,8 @@ export default function InterviewItem(): JSX.Element {
           </ol>
         </div>
       </div>
+      {del && <InterviewModalDelete id={interview?.id} setDel={setDel} del={del} />}
+    </div>
     // </div>
   );
   return <div>{!interview ? error : contentpage}</div>;

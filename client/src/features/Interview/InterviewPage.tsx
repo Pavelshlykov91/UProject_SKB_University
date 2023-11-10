@@ -12,11 +12,19 @@ import './styles/index.css';
 function InterviewPage() {
   const user = useSelector((store: RootState) => store.auth.user);
   const interviews = useSelector((store: RootState) => store.interviews.interviews);
-  
+
   return (
     <div className="interviewpage_container">
-      <div>
-        <img src="../../public/img/int.jpg" />
+      <div className="header-block-box">
+        <img src="../../../public/img/Безымянный.png" />
+        <p className="gallery-text">
+          <h2>Интервью</h2>
+          <p>
+            Радость общения - это позитивное чувство, котрое мы испытываем на работе, общаясь с
+            клиентами, партнерами и сослуживцами. Мы ведем открытый, искренний диалог, уважая мнение
+            и время коллег.
+          </p>
+        </p>
       </div>
       <p className="interviewpage_p">
         Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь
@@ -29,9 +37,9 @@ function InterviewPage() {
       <div className="interview-cards">
         {interviews.map((int) => (
           <div key={int.id} className="interview-card">
-            <Link className='interview_card_link' to={`/interviews/${int.id}`}>
-              <img className='interview_card_img'src={int.url} />
-              <h3 className='interview_card_head'>{int.title}</h3>
+            <Link className="interview_card_link" to={`/interviews/${int.id}`}>
+              <img className="interview_card_img" src={int.url} />
+              <h3 className="interview_card_head">{int.title}</h3>
             </Link>
           </div>
         ))}

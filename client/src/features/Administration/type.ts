@@ -30,8 +30,13 @@ export type Exercise = {
   file: string;
   User: User;
   Course: Course;
+  exerciseMaterial:ExerciseMaterial[],
+  deadline: string;
+  critery: string;
+  goals: string
+//   exerciseMaterial: any;
   ExerciseMaterials: ExerciseMaterial[];
-  //   exerciseMaterial: any;
+  Answer: Answer[];
 };
 export type ExerciseId = Exercise['id'];
 
@@ -55,3 +60,19 @@ export type Course = {
   name: string;
   content: string;
 };
+
+export type Answer = {
+  id: number;
+  user_id: number;
+  exercise_id: number;
+  answer: string;
+  file: string;
+  deprecation: boolean;
+  Mark: Mark[];
+}
+
+export type Mark = {
+  id: number;
+  answer_id: number;
+  mark: number;
+}

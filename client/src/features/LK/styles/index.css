@@ -1,0 +1,53 @@
+.LK_delete_event_modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  transition: 0.3s;
+  overflow-y: scroll;
+  z-index: 2;
+}
+
+.LK_delete_event_modal.active_delete {
+  display: flex;
+  pointer-events: all;
+}
+
+/* .LK_delete_event_modal_bttn {
+  position: absolute;
+  align-items: center;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(255, 0, 0, 0.4);
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  font-size: 12px;
+  color: rgb(247, 244, 244);
+  border: 1px solid rgba(231, 227, 227, 1);
+} */
+
+.LK_delete_event_modal_bttn {
+  
+}
+
+.LK_delete_event_modal_bttn:hover {
+  background-color: rgba(245, 6, 6, 0.6);
+}
+
+.LK_delete_event_modal_content {
+  display: none;
+}
+
+.LK_delete_event_modal_content.active {
+display: block;
+position: absolute;
+margin-top: -10%;
+color: white;
+}

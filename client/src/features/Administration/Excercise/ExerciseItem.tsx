@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable import/order */
@@ -7,6 +8,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useEffect } from 'react';
 import type { Exercise } from '../type';
+
 import { useAppDispatch } from '../../../redux/store';
 import './exercise.css';
 import { loadExercisesMaterials } from '../reducer/ExerciseSlice';
@@ -33,27 +35,21 @@ function ExerciseItem({ exercise }: { exercise: Exercise }): JSX.Element {
           <div className="exercise_name">{exercise.title}</div>
           <div className="exercise_arrow">
             {arrowdirection === false && (
-              <img
-                className="img_arrow"
-                onClick={arrowChange}
-                src="../../../../public/img/arrow-down.png"
-                alt="arrow_down"
-              />
+              <button className="groups-btn" onClick={arrowChange}>
+                &#11167;
+              </button>
             )}
             {arrowdirection === true && (
-              <img
-                className="img_arrow"
-                onClick={arrowChange}
-                src="../../../../public/img/arrow-up.png"
-                alt="arrow_down"
-              />
+              <button className="groups-btn" onClick={arrowChange}>
+              &#11165;
+            </button>
             )}
           </div>
         </div>
         {arrowdirection === true && (
           <div className="exercise_input_material" key={exercise.id}>
             {/* {execisematerials.map((exmat)=> <ExerciseMaterialItem exmat={exmat} key={exmat.id}/>)} */}
-            {exercise.ExerciseMaterials.map((exmat) => (
+            {exercise.exerciseMaterial.map((exmat) => (
               <ExerciseMaterialItem exmat={exmat} key={exmat.id} />
             ))}
             {/* <a href="/library/:materialId">Описание задания</a>

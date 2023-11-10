@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import type { Interview, InterviewComment, InterviewId, InterviewReactions } from './type';
+import type { Interview, InterviewComment, InterviewId } from './type';
 
 export const fetchInterviews = async (): Promise<Interview[]> => {
   const res = await (await fetch('/api/interviews')).json();
@@ -57,10 +57,30 @@ export const fetchInterviewUpd = async (interview: Interview): Promise<Interview
 };
 
 
-export const fetchReactions = async ():Promise<InterviewReactions[]> => {
-  console.log('kkkkk');
-  const res = await (await fetch('/api/reactions')).json();
+// export const fetchReactions = async ():Promise<InterviewReaction[]> => {
+//   const res = await (await fetch('/api/reactions')).json();
+  
+//   return res
+// }
 
-  return res.json()
-}
 
+
+// export const fetchReactionschange = async (reaction: InterviewReaction): Promise<InterviewReaction
+// > => {
+//   const res = await fetch(`/api/reactions/${reaction.id}`, {
+//     method: 'PUT',
+//     headers: {
+//       'Content-type': 'application/json',
+//     },
+//     body: JSON.stringify(reaction),
+//   });
+
+//   return res.json();
+// };
+
+export const fetchDeleteInterview = async (id: InterviewId): Promise<{ id: number }> => {
+  const res = await fetch(`/api/interviews/${id}`, {
+    method: 'DELETE',
+  });
+  return res.json();
+};
