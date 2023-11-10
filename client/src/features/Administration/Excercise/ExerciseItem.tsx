@@ -23,12 +23,10 @@ function ExerciseItem({ exercise }: { exercise: Exercise }): JSX.Element {
   const arrowChange = () => {
     const value = !arrowdirection;
     setArrowdirection(value);
-    console.log(arrowdirection);
   };
   useEffect(() => {
     dispatch(loadExercisesMaterials(exercise.id));
   }, []);
-  console.log(exercise);
 
   return (
     <div className="main_exerciseitem">

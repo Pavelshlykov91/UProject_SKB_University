@@ -2,7 +2,6 @@ const router = require('express').Router();
 const {Emoji, InterviewEmoji} = require('../../db/models')
 
 router.get('/', async (req, res) => {
-  console.log('0000000000');
   const reactions = await InterviewEmoji.findAll({ include: { model: Emoji } });
   res.json(reactions);
 });

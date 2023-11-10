@@ -58,7 +58,36 @@ module.exports = {
                   exercise_id:2,
                   createdAt: new Date(),
                   updatedAt: new Date(),
-                  }], {});
+                  },
+                  {
+                    user_id:11,
+                    group_id:5,
+                    exercise_id:2,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                    }
+                    ,
+                    {
+                      user_id:12,
+                      group_id:5,
+                      exercise_id:2,
+                      createdAt: new Date(),
+                      updatedAt: new Date(),
+                      },
+                      {
+                        user_id:13,
+                        group_id:5,
+                        exercise_id:2,
+                        createdAt: new Date(),
+                        updatedAt: new Date(),
+                        },
+                        {
+                          user_id:14,
+                          group_id:5,
+                          exercise_id:2,
+                          createdAt: new Date(),
+                          updatedAt: new Date(),
+                          }], {});
   },
 
   async down (queryInterface, Sequelize) {

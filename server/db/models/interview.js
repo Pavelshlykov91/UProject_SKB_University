@@ -29,8 +29,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT
     },
     url_video: {
-      type: DataTypes.TEXT,
-    },
+      type: DataTypes.TEXT
+    }
   }, {
     sequelize,
     modelName: 'Interview',
