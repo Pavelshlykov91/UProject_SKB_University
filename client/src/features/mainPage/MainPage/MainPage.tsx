@@ -9,7 +9,7 @@ import MPGallery from './MPGallery'
 export default function MainPage() {
   return (
     <div>
-      <div>
+      <div className='header-block-box'>
         <img className='mainpage_banner' src='./../../../../public/img//kkkk.jpg'/> 
       </div>
       <div className='mainpage_desc'>

@@ -10,6 +10,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../../redux/store';
+import { Link } from 'react-router-dom';
 
 export default function MPInterviewItem() {
   const preints = useSelector((store: RootState) => store.interviews.interviews);
@@ -45,11 +46,13 @@ export default function MPInterviewItem() {
             <div >
               <img className='mp_interview_it_img' src={int.url} />
             </div>
-            <div className='mp_interview_it_header'>{int.title}</div>
+            <Link to={`/interviews/${int.id}`}> <div className='mp_interview_it_header'>{int.title}</div></Link>
           </div>
           </div>
         ))}
-        <div>Перейти к Интервью</div>
+        <div>
+          <Link to={'/interviews'}>Перейти к Интервью</Link>
+          </div>
       </Slider>
       </div>
       <br />
