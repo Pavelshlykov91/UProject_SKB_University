@@ -122,6 +122,43 @@
   align-items: center;
   justify-content: center;
 }
+
+
+.MP_notif_event_header {
+  color: #313c8d;
+  font-family: Nunito Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.MP_notif_event_conttainer {
+margin-left: 11%;
+}
+
+.MP_notif_event_item {
+  margin-top: 1%;
+  color: #313C8D;
+  display: block;
+  /* margin-bottom: 2%; */
+  /* margin-right: 1%; */
+font-family: Nunito Sans;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.MP_notifka {
+  margin-top: 3%;
+  margin-bottom: 2%;
+  margin-left: 1%;
+}
+
+.mp__notif__cont {
+  margin-bottom: 3%;
+
 .mainpage_banner {
   margin: 0 auto;
 }
@@ -134,4 +171,5 @@
 }
 .mainpage_desc p {
   color: #313c8d;
+
 }

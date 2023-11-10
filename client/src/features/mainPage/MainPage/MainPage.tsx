@@ -9,8 +9,10 @@ import MPGallery from './MPGallery';
 export default function MainPage() {
   return (
     <div>
+
       <div className="header-block-box testo">
         <img className="mainpage_banner" src="./../../../../public/img//kkkk.jpg" />
+
       </div>
       <div className="mainpage_desc">
         <p>

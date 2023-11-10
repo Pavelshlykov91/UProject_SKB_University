@@ -17,14 +17,15 @@ export default function LK():JSX.Element {
     setEvents(true);
   }
 
+  // const
 
   
   return (
-    <div>
-      <div>Личный кабинет</div>
+    <div className='LK_main_container'>
+      <div className='LK_main_lkhead'>Личный кабинет</div>
       <div className="LK_headers">
-        <div onClick={onHandleNavigationMain}>Личная информация</div>
-        <div onClick={onHandleNavigationEvents}>Мероприятия</div>
+        <div className='LK_switch' onClick={onHandleNavigationMain}>Личная информация</div>
+        <div className='LK_switch' onClick={onHandleNavigationEvents}>Мероприятия</div>
       </div>
       {main && <LKmain />}
       {events && <LKevents/>}
