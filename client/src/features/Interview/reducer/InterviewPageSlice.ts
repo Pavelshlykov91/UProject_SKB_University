@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable no-return-assign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { Interview, InterviewComment, InterviewId, InterviewState } from './type';
