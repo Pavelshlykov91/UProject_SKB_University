@@ -7,7 +7,7 @@ const ForumItem = ({ forum }: { forum: Forum }): JSX.Element => {
   return (
     <div>
       <Link to={`/forum/${forum.id}`}>
-        <div className="library-item">
+        <div className="forum-item">
           <div className="forum-item-content">
             <div className="forum-item-text">
               <h3>{forum.title}</h3>

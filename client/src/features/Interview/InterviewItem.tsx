@@ -1,3 +1,4 @@
+
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
@@ -50,7 +51,7 @@ export default function InterviewItem(): JSX.Element {
   // const onHandleChangeReaction = (x: string) => {
   //   setReaction(x);
   // };
-
+// проверка
   const error = <h1>Такого интервью мы пока не придумали</h1>;
   const contentpage = (
     <div className="interview_item_container">
